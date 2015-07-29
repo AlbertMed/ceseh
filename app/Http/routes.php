@@ -13,6 +13,8 @@
 
 Route::get('/', 'WelcomeController@index');
 
+Route::get('/cotizacion', 'cotizaController@index');
+
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
