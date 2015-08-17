@@ -2,7 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Bwords\Main as Sap;
 use Illuminate\Http\Request;
 
 class cotizaController extends Controller {
@@ -14,22 +14,31 @@ class cotizaController extends Controller {
 	 */
 	public function index()
 	{
-/*
-    producto ->  numero, precio cantidad
-*/    
-    /* 
-        $wsdl = env('WSDL');
-		$client = new \nusoap_client($wsdl, true);
-		$idLogin = $client->call('Login');
-		$ID = $idLogin['LoginResult']."";
-    */		
+        
+	}
+
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
+		 /*
+          Descripcion: necesita obtener de la variable session
+          - CardCode de Usuario
+          - Email
+          - Items que seleccionó
+         */    
+       
     // El id debe ser el primer elemento del array		
 	$productos = [
-    ['producto' => ['id' => 'aaa', 'cantidad' => '10']],
-    ['producto' => ['id' => 'bbb', 'cantidad' => '100']]
+    ['producto' => ['id' => '150-105', 'cantidad' => '3']],
+    ['producto' => ['id' => '112178', 'cantidad' => '5']]
     ];
-    // agregando otro producto 
-    $productos[] = ['producto' => ['id' => 'ccc', 'cantidad' => '99']];		
+    $Cardcode = "L00144";
+    // agregando otro producto *******************************************************
+    //$productos[] = ['producto' => ['id' => 'ccc', 'cantidad' => '99']];		
 	
 	// Hacer xml	
     $xml = new \SimpleXMLElement('<root/>');
@@ -46,23 +55,13 @@ class cotizaController extends Controller {
     $stringXML = $xml->asXML();
     //echo $stringXML;			
     // Hacer la cotizacion
-	$stringTest = $client->call('getCotizacion',array('SID' => $ID, 'Items' => $stringXML));
-        
-	print_r ($stringTest);
+    $ID = Sap::getId();
+    $email = "luis@gmail.com";
+    $stringTest = Sap::getClientSoap()->call('getCotizacion',array('CardCode' => $Cardcode, 'SID' => $ID, 'Items' => $stringXML, 'email' => $email));
+    
+    echo "resultado: ".$stringTest['getCotizacionResult'];        
+	//print_r ($stringTest);
 	
-    echo('<br><pre>');
-    print_r($productos);
-    echo('</pre>');		
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
 	}
 
 	/**

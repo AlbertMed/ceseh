@@ -13,7 +13,7 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('/cotizacion', 'cotizaController@index');
+Route::get('/cotizacion', 'cotizaController@create');
 
 Route::get('home', 'HomeController@index');
 
