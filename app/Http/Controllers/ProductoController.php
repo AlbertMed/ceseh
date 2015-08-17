@@ -21,7 +21,7 @@ class ProductoController extends Controller
         $categoria = DB::table('producto')->distinct()->select('SubMarca')->get();
 
 
-        return view('home')->with('categorias',$categoria);
+        return view('inicio')->with('categorias',$categoria);
     }
 
      /**

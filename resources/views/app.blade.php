@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Laravel</title>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>CESEHSA | @yield('titulo')</title>
 
-	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-
+    {!! Html::style('css/estilos.css') !!}
+ {{--    {!! Html::style('bower_components/bootstrap/dist/css/bootstrap.min.css') !!}
+    {!! Html::style('bower_components/bootstrap-material-design/dist/css/material.min.css') !!}
+    {!! Html::style('bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css') !!}
+    {!! Html::style('bower_components/bootstrap-material-design/dist/css/ripples.min.css') !!} --}}
+    {!! Html::style('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css') !!} 
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
@@ -19,44 +25,67 @@
 	<![endif]-->
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle Navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Laravel</a>
-			</div>
 
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">Home</a></li>
-				</ul>
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="{!! url('/auth/login') !!}">Iniciar Sesión</a></li>
+  <li><a href="{!! url('/auth/register') !!}">Registrate</a></li>
+</ul>
+<ul id="dropdown2" class="dropdown-content">
+  <li><a class="waves-effect waves-light " href="{!! url('/auth/logout') !!}">Cerrar Sesión</a></li>
+</ul>
 
-				<ul class="nav navbar-nav navbar-right">
-					@if (Auth::guest())
-						<li><a href="{{ url('/auth/login') }}">Login</a></li>
-						<li><a href="{{ url('/auth/register') }}">Register</a></li>
-					@else
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
-							</ul>
-						</li>
-					@endif
-				</ul>
-			</div>
-		</div>
-	</nav>
+<nav>
+  <div class="nav-wrapper">
+    <a href="{!! url('/') !!}" class="brand-logo"><i class="material-icons right">business</i> &nbsp; Cesehsa</a>
+    <ul class="right hide-on-med-and-down">
 
+      
+
+      <!-- Dropdown Trigger -->
+        <li>
+        	<a href="#"><i class="material-icons left">contact_phone</i>Contact Us</a>
+        </li>
+        @if (Auth::guest()) 
+		        <li>
+		         <a class="dropdown-button" href="#" data-activates="dropdown1"> <i class="material-icons left">person_pin</i>Invitado<i class="material-icons right">arrow_drop_down</i>
+		         </a>
+		       </li>	
+		@else
+		        <li>
+		        	<a href="{!! url('home/datos/info/'.csrf_token().'/='.Auth::user()->email) !!}"><i class="material-icons left">contacts</i>Mis datos</a>
+		        </li>
+		        <li>
+		        	<a href="{!! url('productos/carrito/items/'.csrf_token().'/='.Auth::user()->email) !!}"><i class="material-icons left">shopping_basket</i>My Car</a>
+		        </li>
+				<li>
+                 <a class="dropdown-button" href="#" data-activates="dropdown2"> <i class="material-icons left">person_pin</i>{{ Auth::user()->nombre }} <i class="material-icons right">arrow_drop_down</i>
+                 </a>
+               </li>
+		@endif
+    </ul>
+  </div>
+</nav>
 	@yield('content')
 
-	<!-- Scripts -->
+	<!-- Scripts
+	{!! Html::script('bower_components/jquery/dist/jquery.min.js') !!}
+	{!! Html::script('bower_components/bootstrap/dist/js/bootstrap.min.js') !!}
+    {!! Html::script('bower_components/bootstrap-material-design/dist/js/ripples.min.js') !!}
+	{!! Html::script('bower_components/bootstrap-material-design/dist/js/material.min.js') !!}
+	-->
+	<!-- Compiled and minified JavaScript -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+     {!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js') !!}
+
+     	
+	<script>
+      
+     $(document).on('ready', function(){
+    $(".dropdown-button").dropdown();
+     });
+	</script>
+	
+
 </body>
 </html>

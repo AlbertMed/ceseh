@@ -31,9 +31,14 @@
                 	    </div>
 
 	                @endforeach	   
-	                                	 
+
+                	  
+
+
+
                 	</div> <!-- fin row-->
                 </div> <!-- fin panel-body -->
+
 			</div>
 		</div>
 	</div>
