@@ -81,9 +81,10 @@ class CarritoController extends Controller
                ];
 
                Session::put('productosCarrito', $productosCarrito);
+                 return back()->with('numberItems', count($productosCarrito));
             }
 
-            return back()->withInput();
+            return back();
             
         }
     }
