@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -56,7 +57,7 @@
 		        	<a href="{!! url('home/datos/info/'.csrf_token().'/='.Auth::user()->email) !!}"><i class="material-icons left">contacts</i>Mis datos</a>
 		        </li>
 		        <li>
-		        	<a href="{!! url('productos/carrito/items/'.csrf_token().'/='.Auth::user()->email) !!}"><i class="large material-icons left">shopping_cart</i>My Car</a>
+		        	<a href="{!! url('productos/carrito/items/'.csrf_token().'/='.Auth::user()->email) !!}"><i class="large material-icons left">shopping_cart</i>My Car<span class="new badge">{{Session::get('numberItems')}}</span></a>
 		        </li>
 				<li>
                  <a class="dropdown-button" href="#" data-activates="dropdown2"> <i class="material-icons left">person_pin</i>{{ Auth::user()->nombre }} <i class="material-icons right">arrow_drop_down</i>
