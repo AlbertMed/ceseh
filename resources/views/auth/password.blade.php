@@ -1,9 +1,9 @@
 @extends('app')
 
 @section('content')
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col s6">
 			<div class="panel panel-default">
 				<div class="panel-heading">Reset Password</div>
 				<div class="panel-body">
@@ -15,7 +15,7 @@
 
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
+							<strong>¡Lo sentimos!</strong> Hay problemas con la información ingresada.<br><br>
 							<ul>
 								@foreach ($errors->all() as $error)
 									<li>{{ $error }}</li>
@@ -27,20 +27,18 @@
 					<form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+						<div class="row">
+							<div class="input-field col s6">
+								<input id="email" type="email" class="validate" name="email" value="{{ old('email') }}">
+							    <label for="email" data-error="wrong" data-success="right">E-Mail Address</label>
 							</div>
 						</div>
 
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">
-									Send Password Reset Link
-								</button>
-							</div>
-						</div>
+						 <button class="btn waves-effect waves-light" type="submit" name="action">Enviar a mi email
+						    <i class="material-icons">send</i>
+						  </button>
+
+						
 					</form>
 				</div>
 			</div>

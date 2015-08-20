@@ -1,7 +1,8 @@
 <?php namespace App\Http\Controllers;
-
+use Session;
+use App\Articulos;
+use DB;
 class HomeController extends Controller {
-
 	/*
 	|--------------------------------------------------------------------------
 	| Home Controller
@@ -12,7 +13,6 @@ class HomeController extends Controller {
 	| controller as you wish. It is just here to get your app started!
 	|
 	*/
-
 	/**
 	 * Create a new controller instance.
 	 *
@@ -20,17 +20,27 @@ class HomeController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth');
+		//$this->middleware('guest');
 	}
+
+     public function getS(){
+     	 return DB::table('producto')->distinct()->select('SubMarca')->get();
+     }
+
 
 	/**
 	 * Show the application dashboard to the user.
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		return view('home');
+	public function index(){
+           
+         $categoria = DB::table('producto')->distinct()->select('SubMarca')->get();
+
+
+		return view('home')->with('categorias',$categoria);
 	}
 
+
 }
+	

@@ -22,6 +22,12 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+Route::get('session',function(){
+	$productosCarrito = Session::get('productosCarrito'); 
+    echo '<pre>';
+	print_r($productosCarrito);
+	echo '</pre>';
+});
 
 Route::get('productos/carrito/items/{token}/={usuario}','CarritoController@items');
 
@@ -31,6 +37,6 @@ Route::get('productos/{categoria}', 'ProductoController@listarProductos');
 
 Route::get('carrito', 'CarritoController@index');
 
-Route::get('addItemCarrito/{code}/{token}', 'CarritoController@store');
+Route::post('add/{itemCode}', 'CarritoController@add');
 
 Route::get('deleteItem/{user}/{id}/{token}','CarritoController@delete');

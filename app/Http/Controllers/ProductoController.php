@@ -46,7 +46,7 @@ class ProductoController extends Controller
         $idLogin = $client->call('Login');
         $ID = $idLogin['LoginResult']."";
         /*
-          funcion para sacar el detalle de un producto 
+         funcion para sacar el detalle de un producto 
          */
         $ItemList = $client->call('GetDetalle',array('SID' => $ID , 'producto' => $valor));
         $productos = (string)$ItemList['GetDetalleResult'];

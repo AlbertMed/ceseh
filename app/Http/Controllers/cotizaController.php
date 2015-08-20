@@ -30,16 +30,18 @@ class cotizaController extends Controller {
           - Email
           - Items que seleccionó
          */    
-       
+               
     // El id debe ser el primer elemento del array		
-	$productos = [
-    ['producto' => ['id' => '150-105', 'cantidad' => '3']],
-    ['producto' => ['id' => '112178', 'cantidad' => '5']]
-    ];
-    $Cardcode = "L00144";
+	//$productos = [
+   // ['producto' => ['id' => '150-105', 'cantidad' => '3']],
+   // ['producto' => ['id' => '112178', 'cantidad' => '5']]
+   // ];
+    Session::get('productosCarrito');
+    $Cardcode = Auth::user()->sapResultado;
+    echo $Cardcode;
     // agregando otro producto *******************************************************
     //$productos[] = ['producto' => ['id' => 'ccc', 'cantidad' => '99']];		
-	
+    	
 	// Hacer xml	
     $xml = new \SimpleXMLElement('<root/>');
     // Leer datos del array e introducirlos al documento xml
