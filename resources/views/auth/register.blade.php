@@ -26,7 +26,7 @@
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <div class="row">
 							<div class="input-field col s6">
-							   <input id="name" type="text" class="validate" name="nombre" value="{{ old('name') }}">
+							   <input id="name" type="text" class="validate" name="name" value="{{ old('name') }}">
 							   <label for="name">Nombre</label>
 							</div>
                        </div>

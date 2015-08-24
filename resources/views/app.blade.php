@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"  ng-app="appLaravel"  ng-controller="carController">
 <head>
 	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -33,7 +33,7 @@
   <li><a href="{!! url('/auth/register') !!}">Registrate</a></li>
 </ul>
 <ul id="dropdown2" class="dropdown-content">
-  <li><a class="waves-effect waves-light " href="{!! url('/auth/logout') !!}">Cerrar Sesión</a></li>
+  <li><a ng-click="logout()" class="waves-effect waves-light " href="{!! url('/auth/logout') !!}">Cerrar Sesión</a></li>
 </ul>
 
 <nav>
@@ -45,7 +45,7 @@
 
       <!-- Dropdown Trigger -->
         <li>
-        	<a href="#"><i class="material-icons left">contact_phone</i>Contact Us</a>
+        	<a href="#"><i class="material-icons left">contact_phone</i>Contáctanos</a>
         </li>
         @if (Auth::guest()) 
 		        <li>
@@ -57,8 +57,16 @@
 		        	<a href="{!! url('home/datos/info/'.csrf_token().'/='.Auth::user()->email) !!}"><i class="material-icons left">contacts</i>Mis datos</a>
 		        </li>
 		        <li>
-		        	<a href="{!! url('productos/carrito/items/'.csrf_token().'/='.Auth::user()->email) !!}"><i class="large material-icons left">shopping_cart</i>My Car<span class="new badge">{{Session::get('numberItems')}}</span></a>
+		        	<a class="badge" href="{!! url('productos/carrito/items/'.csrf_token().'/='.Auth::user()->email) !!}">
+
+		        	
+		        	<% carr %> Producto(s)
+
+		        	<i class="large material-icons left ">shopping_cart</i>
+		        	</a>
+		        	
 		        </li>
+		        
 				<li>
                  <a class="dropdown-button" href="#" data-activates="dropdown2"> <i class="material-icons left">person_pin</i>{{ Auth::user()->nombre }} <i class="material-icons right">arrow_drop_down</i>
                  </a>
@@ -79,12 +87,37 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
      {!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js') !!}
 
-     	
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
 	<script>
       
      $(document).on('ready', function(){
     $(".dropdown-button").dropdown();
      });
+
+     var sampleApp = angular.module('appLaravel',[], function($interpolateProvider) {
+        $interpolateProvider.startSymbol('<%');
+        $interpolateProvider.endSymbol('%>');
+    });
+
+     function carController($scope) {
+    
+   
+   $scope.carr = localStorage.getItem('c');
+    $scope.add = function() {
+
+    	if( ! isNaN(Number($scope.newitem)) && (Number($scope.newitem) != null )) {
+         $scope.carr = Number (localStorage.getItem('c')) + Number($scope.newitem);		
+		 localStorage.setItem('c',$scope.carr);
+}
+       
+       
+    }
+
+    $scope.logout = function(){
+    	localStorage.removeItem('c');    	
+    }
+}
+
 	</script>
 	
 @yield('scripts')
