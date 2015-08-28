@@ -56,12 +56,12 @@
 		                            {!! Form::open(array("url" => "/add/".$itemCode))!!}
 		                            
 		                            <div class="input-field col s3">
-                                    {!!Form::input('number','number',1, ['max' => $stock, 'min' => '1', 'ng-model' => 'newitem', 'value' => 1, 'required']) !!}
+                                    {!!Form::input('number','number','1', ['max' => $stock, 'min' => '1']) !!}
                                      <label>Cantidad:</label>
                                     </div>                                    
 		                            <br>
 
-								   <button ng-click="add()" class="btn waves-effect waves-light" type="submit" name="action">Agregar
+								   <button class="btn waves-effect waves-light" type="submit" name="action">Agregar
                                    <i class="material-icons right">send</i>
                                    </button>									 			
 								    

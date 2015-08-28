@@ -9,6 +9,10 @@ use App\Http\Controllers\Controller;
 use App\Articulos;
 use DB;
 
+use Bwords\Main as Sap;
+use Auth;
+use Session;
+
 class ProductoController extends Controller
 {
     /**
@@ -41,12 +45,23 @@ class ProductoController extends Controller
      * @return product
      */ 
     public function datos($categoria,$valor){
-        $wsdl = "http://187.188.85.203:8036/Sample.asmx?WSDL";
-        $client = new \nusoap_client($wsdl, true);
-        $idLogin = $client->call('Login');
-        $ID = $idLogin['LoginResult']."";
+        
+        $ID = null;
+        $client = null;
+        if (!Auth::guest()){ 
+           $ID = Sap::getId();             
+           $client = Sap::getClientSoap();
+        }else{
+           $ID = Session::get('UserId');
+           $client = Session::get('Client');
+        }
+        
+        $CurrencyRate = $client->call('getCurrencyRate',array('tipo' => 'USD','SID' => $ID));
+        $currency = $CurrencyRate['getCurrencyRateResult'];                
         /*
          funcion para sacar el detalle de un producto 
+         Session::put('UserId', Sap::getId());
+            Session::put('Client',
          */
         $ItemList = $client->call('GetDetalle',array('SID' => $ID , 'producto' => $valor));
         $productos = (string)$ItemList['GetDetalleResult'];
@@ -63,7 +78,7 @@ class ProductoController extends Controller
         }else{
             $number = (float)$BOM->BO->Items_Prices->row[1]->Price; 
             $number = number_format($number,4,'.','');  
-            $numero = ($number)*16.269951;    
+            $numero = ($number)*$currency;    
             $numero = number_format($numero,4,'.','');  
             $precio = $numero; 
         }  

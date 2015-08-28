@@ -5,7 +5,7 @@ class Main {
 	
 
 	static function getClientSoap(){
-        $wsdl = env('WSDL');
+        $wsdl = "http://187.188.85.203:8036/Sample.asmx?WSDL";
 		$client = new \nusoap_client($wsdl, true);
 		return $client;
 	}

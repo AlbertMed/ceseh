@@ -47,11 +47,10 @@ class Registrar implements RegistrarContract {
         $ID = $idLogin['LoginResult'];
         $numsima = $client->call('getfinalLead',array('id' => $ID));
         $result1 = $numsima['getfinalLeadResult'];
-        $numLead = $client->call('SumLead',array('Lead'=>$result1));
-        $result2 = $numLead['SumLeadResult'];
+       
 		
 		$resultAddBP = $client->call('AddLead',array('id' => $ID,
-		                                      'cardCode'  => $result2,			                                 
+		                                      'cardCode'  => $result1,			                                 
 			                                  'name'      => $name, 			                                
 			                                  'tel'       => $telefono,
 			                                  'email'     => $email));

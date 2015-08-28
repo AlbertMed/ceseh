@@ -7,6 +7,7 @@
 	<div class="row">
 		<div class="col s12 m4 l2">-</div>
 	    <div class="col s12 m4 l8">
+	   
 	    	<table class="hoverable striped">
 			        <thead>
 			          <tr>
@@ -35,9 +36,16 @@
 			    </table>
 			    <div class="col s6">
 					<br><br>
-				    <p><a href="{!! url('addItemCarrito/'.Auth::user()->email.'/'.csrf_token()) !!}" class="btn btn-block btn-primary btn-xs glyphicon glyphicon-shopping-cart col s4" role="button"><i class="material-icons left">assignment</i>Cotizar</a></p>
+				    <p><a onclick="Materialize.toast('Estamos Ahora haciendo su Cotización', 4000, 'rounded')" href="{!! url('/cotizacion') !!}" class="btn btn-primary btn-large glyphicon glyphicon-shopping-cart col s8" role="button"><i class="material-icons left">assignment</i>Enviarme Cotización</a></p>
 			    </div>
 	    </div>
 	    <div class="col s12 m4 l2">-</div>
     </div>
+@endsection
+
+@section('scripts')
+  @if (Session::has('mensaje'))
+            <script>Materialize.toast("<?php echo Session::get('mensaje')?>", 4000, 'rounded')</script>
+         @endif
+
 @endsection

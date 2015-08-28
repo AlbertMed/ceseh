@@ -2,6 +2,8 @@
 use Session;
 use App\Articulos;
 use DB;
+use Auth;
+use Bwords\Main as Sap;
 class HomeController extends Controller {
 	/*
 	|--------------------------------------------------------------------------
@@ -20,7 +22,23 @@ class HomeController extends Controller {
 	 */
 	public function __construct()
 	{
-		//$this->middleware('guest');
+		 if (!Auth::guest()){ 
+			if (!Session::has('UserId')) {			
+			Session::put('UserId', Sap::getId());
+			Session::put('Client', Sap::getClientSoap());
+		
+		    $usuario = Auth::user()->email;
+            $articulos = DB::table('carrito')->where('cliente', '=', $usuario)->get();
+            
+            $cant = 0;
+            foreach ($articulos as $art) {
+           	$cant += $art->cantidad;
+            }
+            Session::put('cant',$cant);
+
+          }
+		}else{}
+		
 	}
 
      public function getS(){
@@ -34,11 +52,13 @@ class HomeController extends Controller {
 	 * @return Response
 	 */
 	public function index(){
-           
+         
+         //revisar cantidad de productos que se compraran
+		 //primero debemos recorrer la tabla carrito
+		//
+		 //return var_dump(Session::get('cant'));
          $categoria = DB::table('producto')->distinct()->select('SubMarca')->get();
-
-
-		return view('home')->with('categorias',$categoria);
+		 return view('home')->with('categorias',$categoria);
 	}
 
 

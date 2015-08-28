@@ -8,6 +8,7 @@ use DB;
 use Auth;
 use App\Http\Controllers\Controller;
 use App\Carrito;
+use Bwords\Main as Sap;
 
 class CarritoController extends Controller
 {
@@ -26,10 +27,11 @@ class CarritoController extends Controller
          if (Auth::guest()){ //no autenticado           
            return redirect('auth/login');
         }else{
-             $wsdl = "http://187.188.85.203:8036/Sample.asmx?WSDL";
-        $client = new \nusoap_client($wsdl, true);
-        $idLogin = $client->call('Login');
-        $ID = $idLogin['LoginResult']."";
+              $ID = Session::get('UserId');
+              $client = Session::get('Client');
+
+        $CurrencyRate = $client->call('getCurrencyRate',array('tipo' => 'USD','SID' => $ID));
+        $currency = $CurrencyRate['getCurrencyRateResult'];
         /*
           funcion para sacar el detalle de un producto 
          */
@@ -48,7 +50,7 @@ class CarritoController extends Controller
         }else{
             $number = (float)$BOM->BO->Items_Prices->row[1]->Price; 
             $number = number_format($number,4,'.','');  
-            $numero = ($number)*16.269951;    
+            $numero = ($number)*$currency;    
             $numero = number_format($numero,4,'.','');  
             $precio = $numero; 
         }  
@@ -59,33 +61,24 @@ class CarritoController extends Controller
         $articulos =array(
                 'ItemCode'=>$itemCode,
                 'ItemName'=>$itemName,
-                'cantidad'=>1,
+                'cantidad'=>(int)Request::get('number'),
                 'precio'  =>$precio,
                 'cliente' =>(string)Auth::user()->email,
                 'status'  =>1
             );
-         Carrito::create($articulos);
 
-          if (Session::has('productosCarrito'))
-            {
-               $productosCarrito = Session::get('productosCarrito'); 
-               $arrayCodes = array_pluck($productosCarrito, 'id');
-                         
-                    $productosCarrito[] = ['producto' => ['id' => $itemCode, 'cantidad' => Request::get('number')]];
-                    Session::put('productosCarrito',$productosCarrito);                                                            
-            }else{
-
-               $productosCarrito = [
-                             ['producto' => ['id' => $itemCode, 
-                                             'cantidad' => Request::get('number')]]   
-               ];
-
-               Session::put('productosCarrito', $productosCarrito);
-               $numbers = Session::get('numberItems') + Request::get('number');
-               Session::push('numberItems', $numbers);
-                // return back()->with('numberItems', count($productosCarrito));
-            }
-
+        $carr = DB::table('carrito')->where('itemCode', $itemCode)->where('cliente', Auth::user()->email)->first();
+        
+        if ($carr) {            
+            $cant = $carr->cantidad;            
+            DB::table('carrito')
+            ->where('itemCode', $itemCode)->where('cliente', Auth::user()->email)->update(['cantidad' => ((int)$cant + (int)Request::get('number'))]);
+        }else{
+            Carrito::create($articulos);
+        }            
+        
+          $value = (int)session('cant') + (int)Request::get('number');
+          session(['cant' => $value]);
             return back();
             
         }

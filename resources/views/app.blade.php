@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="es"  ng-app="appLaravel"  ng-controller="carController">
+<html lang="es">
 <head>
 	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -8,10 +8,6 @@
 	<title>CESEHSA | @yield('titulo')</title>
 
     {!! Html::style('css/estilos.css') !!}
- {{--    {!! Html::style('bower_components/bootstrap/dist/css/bootstrap.min.css') !!}
-    {!! Html::style('bower_components/bootstrap-material-design/dist/css/material.min.css') !!}
-    {!! Html::style('bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css') !!}
-    {!! Html::style('bower_components/bootstrap-material-design/dist/css/ripples.min.css') !!} --}}
     {!! Html::style('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css') !!} 
     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -33,15 +29,13 @@
   <li><a href="{!! url('/auth/register') !!}">Registrate</a></li>
 </ul>
 <ul id="dropdown2" class="dropdown-content">
-  <li><a ng-click="logout()" class="waves-effect waves-light " href="{!! url('/auth/logout') !!}">Cerrar Sesión</a></li>
+  <li><a class="waves-effect waves-light " href="{!! url('/auth/logout') !!}">Cerrar Sesión</a></li>
 </ul>
 
 <nav>
   <div class="nav-wrapper">
     <a href="{!! url('/') !!}" class="brand-logo"><i class="material-icons right">business</i> &nbsp; Cesehsa</a>
-    <ul class="right hide-on-med-and-down">
-
-      
+    <ul class="right hide-on-med-and-down">     
 
       <!-- Dropdown Trigger -->
         <li>
@@ -60,7 +54,7 @@
 		        	<a class="badge" href="{!! url('productos/carrito/items/'.csrf_token().'/='.Auth::user()->email) !!}">
 
 		        	
-		        	<% carr %> Producto(s)
+		        	{{Session::get('cant')}} Producto(s)
 
 		        	<i class="large material-icons left ">shopping_cart</i>
 		        	</a>
@@ -78,45 +72,15 @@
 	@yield('content')
 
 	<!-- Scripts
-	{!! Html::script('bower_components/jquery/dist/jquery.min.js') !!}
-	{!! Html::script('bower_components/bootstrap/dist/js/bootstrap.min.js') !!}
-    {!! Html::script('bower_components/bootstrap-material-design/dist/js/ripples.min.js') !!}
-	{!! Html::script('bower_components/bootstrap-material-design/dist/js/material.min.js') !!}
-	-->
 	<!-- Compiled and minified JavaScript -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
      {!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js') !!}
-
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+     
 	<script>
       
      $(document).on('ready', function(){
     $(".dropdown-button").dropdown();
-     });
-
-     var sampleApp = angular.module('appLaravel',[], function($interpolateProvider) {
-        $interpolateProvider.startSymbol('<%');
-        $interpolateProvider.endSymbol('%>');
-    });
-
-     function carController($scope) {
-    
-   
-   $scope.carr = localStorage.getItem('c');
-    $scope.add = function() {
-
-    	if( ! isNaN(Number($scope.newitem)) && (Number($scope.newitem) != null )) {
-         $scope.carr = Number (localStorage.getItem('c')) + Number($scope.newitem);		
-		 localStorage.setItem('c',$scope.carr);
-}
-       
-       
-    }
-
-    $scope.logout = function(){
-    	localStorage.removeItem('c');    	
-    }
-}
+     });}
 
 	</script>
 	
