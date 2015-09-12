@@ -58,7 +58,7 @@ class HomeController extends Controller {
 		//
 		 //return var_dump(Session::get('cant'));
          $categoria = DB::table('producto')->distinct()->select('SubMarca')->get();
-		 return view('home')->with('categorias',$categoria);
+		 return view('inicio')->with('categorias',$categoria);
 	}
 
 

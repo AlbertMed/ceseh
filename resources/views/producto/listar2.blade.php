@@ -37,7 +37,7 @@
 						       	         	         
 						       	         	        <div class="card-action">
 											            <a href="{!! url('productos/'.$dato->SubMarca.'/datos/'.$code) !!}" >Ver Detalles</a>
-											            <a href="{!! url('addItemCarrito/'.$dato->ItemCode) !!}">Agregar</a>
+											           
 											        </div>
 					       	         	      </div>
 					       	         	    </div>

@@ -79,8 +79,7 @@ class CarritoController extends Controller
         
           $value = (int)session('cant') + (int)Request::get('number');
           session(['cant' => $value]);
-            return back();
-            
+            return back();        
         }
     }
     /**
@@ -123,9 +122,22 @@ class CarritoController extends Controller
      * @return new view
      */ 
     public function delete($user,$id,$token){
+         
+
+         $productoEliminar = DB::table('carrito')->where('cliente', '=', $user)
+                             ->where('ItemCode', '=', $id)->first();
+
+
+         $value = (int)session('cant') - ($productoEliminar->cantidad);
+
+         session(['cant' => $value]);
 
          DB::table('carrito')->where('cliente', '=', $user)
                              ->where('ItemCode', '=', $id)->delete();
+         
+         $value = (int)session('cant') + (int)Request::get('number');
+          session(['cant' => $value]);
+                   
 
         $articulos = DB::table('carrito')->where('cliente', '=', $user)->get();
         //return $articulos;

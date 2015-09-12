@@ -27,7 +27,7 @@
 			            <td>{{$dato->precio}}</td>
 			            <td> 
 			                <div class="col s12">
-				               <p><a href="{!! url('deleteItem/'.Auth::user()->email.'/'.$dato->ItemCode.'/'.csrf_token()) !!}" class="btn btn-block btn-primary btn-xs glyphicon glyphicon-shopping-cart col s4" role="button"><i class="material-icons left">not_interested</i></a></p>
+				               <p><a href="{!! url('deleteItem/'.Auth::user()->email.'/'.$dato->ItemCode.'/'.csrf_token()) !!}" class=" red darken-3 btn btn-block btn-primary btn-xs glyphicon col s3" role="button"><i class="material-icons">delete</i></a></p>
 			                </div>
 			            </td>
 			          </tr>
