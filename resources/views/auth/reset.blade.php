@@ -3,12 +3,14 @@
   Reset
 @endsection
 @section('content')
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Reset Password</div>
-				<div class="panel-body">
+
+        <div class="col m10 offset-m1 s12">
+
+            <h2 class="center-align">Registro</h2>
+
+				
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
 							<strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -54,7 +56,7 @@
 						</div>
 					</form>
 				</div>
-			</div>
+			
 		</div>
 	</div>
 </div>

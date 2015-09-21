@@ -17,10 +17,11 @@ class CarritoController extends Controller
      *
      * @return Response
      */
+
     public function index()
     {
         
-        return view('carrito.home');
+       // return view('carrito.home');
     }
 
     public function add($itemCode){
@@ -97,12 +98,12 @@ class CarritoController extends Controller
      * 
      * @return list of items
      */ 
-    public function items($token,$usuario){
+    public function itemsCarrito($usuario){
 
         $articulos = DB::table('carrito')->where('cliente', '=', $usuario)->get();
         
          //return $articulos;
-        return view('carrito/carrito_items')->with('datos',$articulos);
+        return view('carrito.carrito_items')->with('datos',$articulos);
 
     }
 

@@ -2,12 +2,13 @@
  @section('titulo')
 		  Carrito
 	@endsection
+	
 	@section('content')
 	<br><br>
 	<div class="row">
 		<div class="col s12 m4 l2">-</div>
 	    <div class="col s12 m4 l8">
-	   
+	   @if(count($datos) > 0)
 	    	<table class="hoverable striped">
 			        <thead>
 			          <tr>
@@ -19,7 +20,8 @@
 			        </thead>
 
 			        <tbody>
-			        @foreach($datos as $dato)
+			        
+                        @foreach($datos as $dato)
 			          <tr>
 			            <td>{{$dato->ItemName}}</td>
 			            <td>{{$dato->ItemCode}}</td>
@@ -32,14 +34,25 @@
 			            </td>
 			          </tr>
 			        @endforeach  
+			       
+			       
 			        </tbody>
 			    </table>
 			    <div class="col s6">
 					<br><br>
 				    <p><a onclick="Materialize.toast('Estamos Ahora haciendo su Cotización', 4000, 'rounded')" href="{!! url('/cotizacion') !!}" class="btn btn-primary btn-large glyphicon glyphicon-shopping-cart col s8" role="button"><i class="material-icons left">assignment</i>Enviarme Cotización</a></p>
 			    </div>
+			     @else
+			     <div class="card-panel green lighten-3">
+			     <h4>Tu Carrito esta Vacío</h4>
+			     </div>
+                      <div class="right-align">
+                      	
+                       <a class="waves-effect waves-light btn"  href="{!! url('/') !!}"><i class="material-icons left">shopping_cart</i>Seguir Comprando</a><br><br><br>
+                      </div> 
+			        @endif
 	    </div>
-	    <div class="col s12 m4 l2">-</div>
+	    
     </div>
 @endsection
 
