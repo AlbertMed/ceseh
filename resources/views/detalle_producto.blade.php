@@ -39,11 +39,14 @@
 							      
 		                            <br>
 		                            {{$itemName}}
-								    <br><br>$&nbsp;
-								        
-									<span class="teal-text text-lighten-2">
-									{{$precio}}&nbsp;MXP</p></span>
-									   
+								    
+								       <br><br> 
+									<span>Precio</span><br>
+									@if(Auth::check())
+									<span class="teal-text text-lighten-2"><p>$ {{$precio}}&nbsp;MXP</p></span>
+									@else
+                                     <span class="teal-text text-lighten-2"><p>Solo Usuarios Registrados</p></span>
+									@endif
 								        
 								    <br>
 								    <span>Código</span><br>
@@ -60,10 +63,12 @@
                                      <label>Cantidad:</label>
                                     </div>                                    
 		                            <br>
-
-								   <button class="btn waves-effect waves-light" type="submit" name="action">Agregar
+                                   
+                                   	 <button class="btn waves-effect waves-light" type="submit" name="action">Agregar
                                    <i class="material-icons right">send</i>
-                                   </button>									 			
+                                   </button>
+
+								  									 			
 								    
 								    {!! Form::close() !!}
 								</div>    

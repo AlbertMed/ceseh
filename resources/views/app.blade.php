@@ -7,9 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>CESEHSA | @yield('titulo')</title>
    
-      
+     
     {!! Html::style('css/plugin-min.css')!!}  
     {!! Html::style('css/custom-min.css')!!} 
+
 	<!-- Fonts -->	
 	{!! Html::style('https://fonts.googleapis.com/icon?family=Material+Icons')!!}   
 	{!! Html::style('//fonts.googleapis.com/css?family=Roboto:400,300')!!}
@@ -20,46 +21,66 @@
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
+  <style type="text/css">
+    body {
+    background-image: url("../img/logo/superCesehsa.jpg");
+   }
+   </style>
 </head>
 
-<body id="top" class="scrollspy">
+<body id="top" class="scrollspy" >
 
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="{!! url('/auth/login') !!}">Iniciar Sesión</a></li>
-  <li><a href="{!! url('/auth/register') !!}">Registrate</a></li>
   <li>
-   <a class= "text_b" href="{!! url('home/datos/info/'.Auth::user()->email) !!}"><i class="material-icons left white-text">contacts</i>Mis datos</a>
+  <a href="{!! url('/auth/login') !!}">
+  <i class="material-icons left white-text">perm_identity</i>Iniciar Sesión</a>
   </li>
+
+  <li>
+  <a href="{!! url('/auth/register') !!}">
+  <i class="material-icons left white-text">description</i>Registrate</a>
+  </li>
+    
 </ul>
-<ul id="dropdown2" class="dropdown-content">
-<li class="divider"></li>
-  <li><a class="waves-effect waves-light " href="{!! url('/auth/logout') !!}">Cerrar Sesión</a></li>
-</ul>
+
 
 <!--Navigation-->
  <div class="navbar-fixed">
 
-    <nav id="nav_f" class="default_color" role="navigation">    		         
+    <nav id="nav_f" class="lime lighten-5" role="navigation" >                 
         <div class="container">
             <div class="nav-wrapper">
            <a href="/" class="text_b">
              <div id="mifondo">
-            <img  style="width:55%; max-height:55%" src="/img/logo/logocesehsa.png" alt="">           	
+            <img  style="width:55%; max-height:55%" src="/img/logo/logocesehsa.png" alt="">             
             </div> 
            </a>                   
           
             <ul id="nav-mobile" class="right side-nav">
                 <li>
-        	<a href="#contact" class="text_b"><i class="material-icons left white-text">contact_phone</i>Contáctanos</a>
+          <a href="#contact" class="text_b"><i class="material-icons left white-text">contact_phone</i>Contáctanos</a>
         </li>
         @if (Auth::guest()) 
-		        <li>
-		         <a class="dropdown-button text_b" href="#" data-activates="dropdown1"> <i class="material-icons left white-text">person_pin</i>Invitado<i class="material-icons right">arrow_drop_down</i>
-		         </a>
-		       </li>	
-		@else		       
-		        <li>
+            <li>
+             <a class="dropdown-button text_b" href="#" data-activates="dropdown1"> <i class="material-icons left white-text">person_pin</i>Invitado<i class="material-icons right">arrow_drop_down</i>
+             </a>
+           </li>  
+    @else          
+<ul id="dropdown2" class="dropdown-content">
+  <li>
+   <a href="{!! url('home/datos/info/'.csrf_token().'/='.Auth::user()->email) !!}">
+   <i class="material-icons left white-text">contacts</i>Mi Perfil</a>
+  </li> 
+
+  <li class="divider"></li>
+
+  <li>
+   <a href="{!! url('/auth/logout') !!}">
+   <i class="material-icons left white-text">lock_outline</i>Cerrar Sesión</a>
+  </li>
+</ul>
+            <li>
 		        	<a class="text_b" href="{!! url('productos/carrito/items/'.Auth::user()->email) !!}"><i class="material-icons left white-text">shopping_cart</i>
 		        	
 		        	{{Session::get('cant')}} Producto(s)
@@ -84,11 +105,12 @@
 
 </div>
 <div >
-	<nav class="teal lighten-2 flat hide-on-med-and-down">
+	<nav class="light-green darken-3 flat hide-on-med-and-down">
      <div class="nav-wrapper container">
-        <form>
+        <form method="GET" action="{!! url('busqueda/datos') !!}">
             <div class="input-field">
-                <input id="search" type="search" required="">
+            <meta content="{!! url('busqueda/datos?search={search}') !!}" itemprop="terget"/>
+                <input id="search" name="search" type="search" required="" placeholder="Buscar...">
                 <label for="search"><i class="mdi-action-search"></i></label>
                 
             </div>
@@ -149,9 +171,12 @@
 <script>
       
      $(document).on('ready', function(){
-    $(".dropdown-button").dropdown();
-     $('.slider').slider();
-     });
+       $(".dropdown-button").dropdown();
+       $('.slider').slider();             
+       $('.modal-trigger').leanModal();
+ 
+
+     });  
 
 	</script>
 	

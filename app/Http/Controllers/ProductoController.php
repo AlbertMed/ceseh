@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use Request;
+
 use App\Http\Controllers\Controller;
 use App\Articulos;
 use DB;
@@ -22,10 +22,13 @@ class ProductoController extends Controller
      */
     public function index(){
 
-        $categoria = DB::table('producto')->distinct()->select('SubMarca')->get();
+       $categoria = DB::table('producto')->distinct()->select('Marca')->where("ItemName","<>","''")->where('Marca','!=','NULL')->get();
+        $vistos = DB::select('select * from producto order by visto desc limit 10');
+        $vendidos = DB::select('select *from producto order by comprado desc limit 8');
+      
+        return view('inicio')->with(compact('vistos','vendidos','categoria'));
 
 
-        return view('inicio')->with('categorias',$categoria);
     }
 
      /**
@@ -34,9 +37,10 @@ class ProductoController extends Controller
       * @return products
       */
      public function listarProductos($categoria){
-        $articulos = Articulos::where('SubMarca', '=',$categoria)->paginate(12);
+        $articulos = Articulos::where('Marca', 'like','%'.$categoria.'%')->paginate(12);
+        $categoria = DB::table('producto')->distinct()->select('Marca')->where("ItemName","<>","''")->where('Marca','!=','NULL')->get();
 
-        return view('producto.listar2')->with('datos',$articulos);
+        return view('producto.listar2')->with(compact('articulos','categoria'));
     }
 
     /**
@@ -48,12 +52,14 @@ class ProductoController extends Controller
         
         $ID = null;
         $client = null;
-        if (!Auth::guest()){ 
+        if (Auth::check()){ 
+          // $ID = Session::get('UserId'); Corregir para que estos datos se agregen cuando inicia sesion como cuando se registra
+          // $client = Session::get('Client');
            $ID = Sap::getId();             
            $client = Sap::getClientSoap();
         }else{
-           $ID = Session::get('UserId');
-           $client = Session::get('Client');
+           $ID = Sap::getId();             
+           $client = Sap::getClientSoap();
         }
         
         $CurrencyRate = $client->call('getCurrencyRate',array('tipo' => 'USD','SID' => $ID));
@@ -71,7 +77,7 @@ class ProductoController extends Controller
         $itemName = $BOM->BO->Items->row->ItemName;
         $itemCode = $BOM->BO->Items->row->ItemCode;
 
-        if ($BOM->BO->Items_Prices->row[0]->Currency=="MXP"){
+        if ($BOM->BO->Items_Prices->row[1]->Currency=="MXP"){
             $numero = ($BOM->BO->Items_Prices->row[1]->Price); 
             $numero = number_format($numero,4,'.',''); 
             $precio = $numero; 
@@ -99,6 +105,14 @@ class ProductoController extends Controller
     {
         //
     }
+
+     public function busquedaProductos(){
+        $categoria = DB::table('producto')->distinct()->select('Marca')->where("ItemName","!=","''")->get();
+        $dato = Request::get('search');
+        $data= Articulos::where('ItemName', 'like', '%'.$dato.'%')->orWhere('Marca','like','%'.$dato.'%')->orWhere('ItemCode','like','%'.$dato.'%')->Paginate(12);
+        return view('producto.busqueda')->with(compact('data','dato','categoria'));
+    }
+
 
     /**
      * Store a newly created resource in storage.

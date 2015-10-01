@@ -10,16 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('login', function(){
-	return view('auth.login');
-});
-Route::get('register', function(){
-	return view('auth.register');
-});
 
-Route::get('password', function(){
-    return view('auth.password');
-});
 
 Route::get('/', 'ProductoController@index');
 
@@ -49,4 +40,13 @@ Route::get('carrito', 'CarritoController@index');
 
 Route::post('add/{itemCode}', 'CarritoController@add');
 
+Route::get('home/datos/info/{token}/={email}','UserController@getData');
+
 Route::get('deleteItem/{user}/{id}/{token}','CarritoController@delete');
+
+Route::get('updatecantidad/{id}/{val}','CarritoController@updatecantidad');
+
+Route::get('busqueda/datos','ProductoController@busquedaProductos');
+
+Route::post('datos/ver','UserController@store');
+
