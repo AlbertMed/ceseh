@@ -4,11 +4,12 @@
 @endsection
 @section('content')
 <div class="container">
+	<div class="card-panel">
 	<div class="row">
 
-        <div class="col m10 offset-m1 s12">
+        <div class="col m8 offset-m2 s12">
 
-            <h2 class="center-align">Registro</h2>
+            <h2 class="center-align">Establecer Nueva Password</h2>
 
 				
 					@if (count($errors) > 0)
@@ -26,37 +27,31 @@
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<input type="hidden" name="token" value="{{ $token }}">
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
+						<div class="input-field form-group col-md-6">
 								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
+								<label class="col-md-4 control-label">E-Mail *</label>
+						</div>
+
+						<div class="input-field form-group col-md-6">
+							<input type="password" class="form-control" name="password">
+							<label class="col-md-4 control-label">Nueva Password *</label>
+						</div>
+
+						<div class="input-field form-group col-md-6">
+							<input type="password" class="form-control" name="password_confirmation">
+							<label class="col-md-4 control-label">Confirma Nueva Password *</label>
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">Confirm Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password_confirmation">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
+							<div class="right-align col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">
-									Reset Password
+									Guardar
 								</button>
 							</div>
 						</div>
 					</form>
 				</div>
-			
+		</div>
 		</div>
 	</div>
 </div>

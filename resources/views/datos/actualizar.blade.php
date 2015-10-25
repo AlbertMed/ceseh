@@ -49,7 +49,7 @@
    <br><br>
     @foreach ($datos as $dato) 
 		<div class="container">
-		    <div class="row">
+		    <p class="row">
 			   <form method="post" action="{!! url('datos/ver') !!}" role="form" class="col s12">
 			    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 		            <div class="row">
@@ -207,12 +207,13 @@
 					        <label class="active" for="en_numero">Numero</label>
 					    </div>
 			       </div>
-  
 
-			       <div class="row prefix">
-						<button class="btn waves-effect waves-light" type="submit" name="action">Actualizar</button>
-					    <i class="mdi-content-send right"></i>
-			        </div>
+
+				   <p class="right-align">
+
+						<button class="btn waves-effect waves-light" type="submit" name="action"><i class="mdi-content-send right"></i>Actualizar</button>
+
+			        </p>
 			   </form>
 		   </div>
 	   </div>

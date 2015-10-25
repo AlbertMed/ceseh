@@ -21,6 +21,8 @@ class UpdateUser extends Migration {
             $table->string('municipio');
             $table->string('estado');
             $table->string('numero');
+            $table->string('RFC');
+            $table->string('Apellido');
 			});
 	}
 
@@ -40,6 +42,8 @@ class UpdateUser extends Migration {
             $table->dropColumn('municipio');
             $table->dropColumn('estado');
             $table->dropColumn('numero');
+            $table->dropColumn('RFC');
+            $table->dropColumn('Apellido');
         });
 	}
 

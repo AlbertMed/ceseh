@@ -1,0 +1,624 @@
+﻿0.950.00955	Transmision engranaje ES-1034 Eje X	Fibro	Troquel	Fibro
+0815092	Transmision Alpha SPG-140-MF2 Eje A	Fibro	Troquel	Fibro
+111164	O ring 3X1	Fibro	Troquel	Fibro
+112525	Pressure spring	Fibro	Troquel	Fibro
+125,00 X 2,50	O-Ring 0757922	Yuken	Hidráulica	NULL
+150T-75-F-RL-40	Bomba de Paletas	Yuken	Hidráulica	NULL
+15560	O'Ring 72X2	Igus	Yukme	Fibro
+1619717	Transmision engranaje ES-1025 Eje X	Fibro	Troquel	Fibro
+16406	75X95X10 Junta	Fibro	Troquel	Fibro
+202.19.008.160	Ball Bearing Cage	Fibro	Yukme	Fibro
+2021.46.020	Demountabe Pillars	Fibro	Troquel	Fibro
+2022.19.040.280	Columnas de Guia	Fibro	Troquel	Fibro
+2052.70.040.040.050	Oilless Guide bushes Bronze	Fibro	Troquel	Fibro
+2052.7040	Buje	Fibro	Troquel	Fibro
+206.51.004.020	Bujes	Fibro	Yukme	Fibro
+206.54.004.020	Buje mini	Fibro	Troquel	Fibro
+206.71.030.080	Buje	Fibro	Troquel	Fibro
+206.71030.105	jaula de bolas	Fibro	Troquel	Fibro
+206.71040.095	Jaula de bolas	Fibro	Troquel	Fibro
+206.71040.120	Jaula de bolas	Fibro	Troquel	Fibro
+206.71042.120	Jaulas de bolas	Fibro	Troquel	Fibro
+206.71063.160	Jaula de bolas	Fibro	Troquel	Fibro
+206.75.025.056	Jaula de bolas	Fibro	Troquel	Fibro
+206.75.025.056.031	Jaula de bolas	Fibro	Troquel	Fibro
+2072.47	Clamp P/Buje	Fibro	Troquel	Fibro
+2081.31.063.20	Bushing Guide	Fibro	Troquel	Fibro
+2081.35020	Buje	Fibro	Troquel	Fibro
+2081.49025	Guia de casquillo para rodamiento de bolas	Fibro	Troquel	Fibro
+2082.70063	Buje	Fibro	Troquel	Fibro
+2082.70125	Buje	Fibro	Troquel	Fibro
+2082.71.040	Buje	Fibro	Troquel	Fibro
+2082.71.C40	Buje	Fibro	Troquel	Fibro
+225.461.9	Resorte 80 X 100  (S5180100).	IPG	Troquel	Cesehsa
+235.1.0800.070	Dowel Pin	Fibro	Yukme	Fibro
+24.80.0032.11	fillinadapter GEW. G1/8	Fibro	Troquel	Fibro
+241.02.21.040	Round Wire Compression springs	Fibro	Troquel	Fibro
+241.17.16.064	Resorte	Fibro	Troquel	Fibro
+242.01.400.143.150	Muelle de disco	Fibro	Troquel	Fibro
+242.01.400.204.225	Muelle de disco	Fibro	Troquel	Fibro
+2461.4.025.025	Spring Fibro Elast	Fibro	Troquel	Fibro
+247.010.016.060.1	Federeinheit	Fibro	Troquel	Fibro
+247.020.080.1	Spring Plugers	Fibro	Troquel	Fibro
+247.025.100.1	Spring Pluger	Fibro	Troquel	Fibro
+2470.010.015.060.1	cilindro botador	Fibro	Troquel	Fibro
+2470.010.016.060.1	cilindro botador	Fibro	Troquel	Fibro
+2470.10.020.016.0801	Stift 39D549/27 M16X80	Fibro	Troquel	Fibro
+2470.10.020.080.1	cilindro botador	Fibro	Troquel	Fibro
+2470.10.11(SW9)	LLave de Tubo	Fibro	Troquel	Fibro
+2472.01.010	Spring plungers	Fibro	Troquel	Fibro
+2480.00.10.21	Conexion Manguera  (pte. con 30 pzas)	Fibro	Troquel	Fibro
+2480.00.23.01.3000	Conexion de mangueras	Fibro	Troquel	Fibro
+2480.00.24.11	Multiple Adapter	Fibro	Troquel	Fibro
+2480.00.24.12	Multiple Adapter	Fibro	Troquel	Fibro
+2480.00.32.07.01	Pressure Relief for Bottle	Fibro	Yukme	Fibro
+2480.00.32.10	filling  hose	Fibro	Troquel	Fibro
+2480.00.50.11	Tool kir	Fibro	Troquel	Fibro
+2480.0039.04.00.01	Adapter	Fibro	Troquel	Fibro
+2480.12.00250.050	Gras spring	Fibro	Troquel	Fibro
+2480.21.00050.038	Gas spring	Fibro	Troquel	Fibro
+2482.74.00070.038	Gas spring	Fibro	Troquel	Fibro
+2485.71.00250.080	Gasspring	Fibro	Troquel	Fibro
+2487.12.04.200.050	Gasspring	Fibro	Troquel	Fibro
+2487.12.04200	kit de reparación	Fibro	Troquel	Fibro
+2487.12.04200.019	Gas Spring	Fibro	Yukme	Fibro
+2960.72.038.75	sliding pads	Fibro	Troquel	Fibro
+2960.79.50.100	Sliding Pads Bronze	Fibro	Troquel	Fibro
+2960.80.50.100	Sliding pads	Fibro	Troquel	Fibro
+2961.75.028.075	Guide Plate	Fibro	Troquel	Fibro
+2961.75.038.075	Flat guide bars	Fibro	Troquel	Fibro
+3130VK418962-7	Knob for valve mod MSW-3-X-40	Yuken	Hidráulica	NULL
+374ABV50BL 123	Filter Hydraulic Element	Yuken	Hidráulica	NULL
+4018807-1400	Micro manguera	Fibro	Troquel	Fibro
+50150CT761LERL4090	Bomba De Pistones	Yuken	Hidráulica	NULL
+50150CT775LFRL4090	Bomba De Pistones	Yuken	Hidráulica	NULL
+50-NB-G-115	NULL	Fibro	Troquel	Fibro
+614-M	Hand Clamp	IPG	Troquel	Cesehsa
+9.25X1.68 Kantseal90	Kantseal  9.25 X1.68	Fibro	Troquel	Fibro
+90.601.945	NULL	Fibro	Troquel	Fibro
+A10FR01H	Cuerpo de bomba sin cartucho	Yuken	Hidráulica	NULL
+A145-LR-01HS-60	Bomba de pistones	Yuken	Hidráulica	NULL
+A16-FR-01-C-K-32	Bomba De Pistones	Yuken	Hidráulica	NULL
+A16-F-R-01-H-K-32	Bomba de pistones	Yuken	Hidráulica	NULL
+A16-F-R-01-H-K-3290	Bomba de pistones	Yuken	Hidráulica	NULL
+A16-F-R-01-H-S-K-32	Bomba de pistones	Yuken	Hidráulica	NULL
+A22-F-R-01-C-K-3290	Bomba De Pistones	Yuken	Hidráulica	NULL
+A22-F-R-01-C-S-K3290	Bomba de pistones	Yuken	Hidráulica	NULL
+A37-F-R-00-H-K-32500	Bomba de pistones	Yuken	Hidráulica	NULL
+A-37-F-R-01-B-K-32	Bomba de pistones	Yuken	Hidráulica	NULL
+A37-F-R-01-H-S-K3290	Bomba de pistones	Yuken	Hidráulica	NULL
+A37-L-R-01-B-K-3290	Bomba De Pistones	Yuken	Hidráulica	NULL
+A37-L-R-01-C-K-3290	Bomba De Pistones	Yuken	Hidráulica	NULL
+A37-L-R-07-S-K-32	Bomba de pistones	Yuken	Hidráulica	NULL
+A3H100-FR01KK-10954	Bomba de pistones	Yuken	Hidráulica	NULL
+A45-F-R-04-H-K-10393	NULL	Yuken	Hidráulica	NULL
+A56-F-R-01	Cuerpo de bomba A56-F-R-01-H-K-32	Yuken	Hidráulica	NULL
+A56-F-R-01-C-SK32950	Bomba de Pistones	Yuken	Hidráulica	NULL
+A56-F-R-01-H-K-32	Bomba de Pintones	Yuken	Hidráulica	NULL
+A56FR04EH160-02-142	Bomba de pistones	Yuken	Hidráulica	NULL
+A70-FR01KS-60	Bomba de pistones	Yuken	Hidráulica	NULL
+A90-FR01KS-6090	Bomba de Pistones	Yuken	Hidráulica	NULL
+A-BSG-03-2B3BD244890	Valvula	Yuken	Hidráulica	NULL
+ABSG062B3AA10048	Válvula De Alivio	Yuken	Hidráulica	NULL
+ABSG062B3BA10048	Válvula De Alivio	Yuken	Hidráulica	NULL
+AE15-231-15MPA	Manómetro (Nks)	Yuken	Hidráulica	NULL
+AG-03S	Gage cock	Yuken	Hidráulica	NULL
+AMN-W-10	Slope Controller	Yuken	Hidráulica	NULL
+AR16-FR01C-22	Bomba de pistones	Yuken	Hidráulica	NULL
+AR22-FR01B-22	Bomba	Yuken	Hidráulica	NULL
+AR22-FR01C-22	Bomba de pistones	Yuken	Hidráulica	NULL
+BG-03-32	Valvula de alivio	Yuken	Hidráulica	NULL
+BG-06-32-EX	Valvula de alivio	Yuken	Hidráulica	NULL
+BG-06-V-32-EX	Válvula de alivio	Yuken	Hidráulica	NULL
+BG-10-32	Placa para valvula de alivio	Yuken	Hidráulica	NULL
+BGM-06-X-2090	Placa para valvula de alivio	Yuken	Hidráulica	NULL
+BSG-03-2B3BD24N14890	Valvula	Yuken	Hidráulica	NULL
+BSG-06-2B3B-A1004890	Valvula de alivio	Yuken	Hidráulica	NULL
+BSG-06-2B3B-A100-48L	Valvula de alivio	Yuken	Hidráulica	NULL
+BSG-10-3C60-A120-48	Valvula de alivio	Yuken	Hidráulica	NULL
+BT-06-V-3290	Valvula de alivio	Yuken	Hidráulica	NULL
+BUCG-06-CV-3029	Valvula	Yuken	Hidráulica	NULL
+C90X25	Cilindro de Nitrogeno	IPG	Troquel	Fibro
+CA37-L-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CA37-R-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CE-25-SA1	Switch De Presión	Yuken	Hidráulica	NULL
+CE40KY	Switch de presion	Yuken	Hidráulica	NULL
+CE-40S	Switch De Presión	Yuken	Hidráulica	NULL
+CE-60TY	Switch De Presión	Yuken	Hidráulica	NULL
+CF-B-080-H-T6	Cople Centaflex	Yuken	Hidráulica	NULL
+CGFA-125B-140B-150	Cilindro	Yuken	Hidráulica	NULL
+CIT-03-04-50	Check En Línea	Yuken	Hidráulica	NULL
+CIT-03-50-50	Valve	Yuken	Hidráulica	NULL
+CIT-06-50-5090	Válvula check	Yuken	Hidráulica	NULL
+CIT-10-50-5090	Valve	Yuken	Hidráulica	NULL
+CJT70FA50C160BABDEK2	Cilindro	Yuken	Hidráulica	NULL
+CPDG-10-E-20-50	Check Piloteada	Yuken	Hidráulica	NULL
+CPDG-10-E-50-50	Valve	Yuken	Hidráulica	NULL
+CPT-03-04-5090	Check Piloteada	Yuken	Hidráulica	NULL
+CPT-03-20-50	Check Piloteada	Yuken	Hidráulica	NULL
+CPT-06-50-5090	Valve	Yuken	Hidráulica	NULL
+CPV11R10-10-R-20	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV11R10-12-R-20	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV11R10-2-R-20	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV11R10-5-R-20	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R1-10-R-43	Cartridge	Yuken	Hidráulica	NULL
+CPV2R1-12-R-43	Cartridge	Yuken	Hidráulica	NULL
+CPV2R1-14-R-43	Cartridge	Yuken	Hidráulica	NULL
+CPV2R1-17-R-43	Cartridge	Yuken	Hidráulica	NULL
+CPV2R1-19-R-43	Cartucho para bomba	Yuken	Hidráulica	NULL
+CPV2R1-23-R-43	Cartucho	Yuken	Hidráulica	NULL
+CPV2R1-25-R-43	Cartucho para bomba	Yuken	Hidráulica	NULL
+CPV2R13-10-L-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R13-10-L-41	Cartucho para bomba	Yuken	Hidráulica	NULL
+CPV2R13-14-L-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R13-14-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R13-17-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R13-19-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2-R1-31-L-42	Cartucho para bomba	Yuken	Hidráulica	NULL
+CPV2R1-31-R-42	Cartucho para bomba	Yuken	Hidráulica	NULL
+CPV2R13-23-L-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R13-25-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R13-31-R-43	Cartucho	Yuken	Hidráulica	NULL
+CPV2R13-33-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R13-41-L-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R13-47-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R13-8-L-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R13-8-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R1-6-L-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R1-8-R-43	Cartridge	Yuken	Hidráulica	NULL
+CPV2R2-26-L-41	Cartucho	Yuken	Hidráulica	NULL
+CPV2R2-26-R-41	Cartucho	Yuken	Hidráulica	NULL
+CPV2R23-26-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R23-33-L-41	Cartucho para Bomba	Yuken	Hidráulica	NULL
+CPV2R23-33-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R2-33-R-41	Cartucho para Bomba	Yuken	Hidráulica	NULL
+CPV2R23-41-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R23-53-L-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R23-53-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R23-59-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R23-65-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R2-41-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R2-47-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R2-53-L-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R2-53-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R2-59-R-41	Cartucho	Yuken	Hidráulica	NULL
+CPV2R2-65-R-41	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R3-116-L-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R33-116-L-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R33-116-R-30	Cartucho para bomba	Yuken	Hidráulica	NULL
+CPV2R33-52-L-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R33-60-L-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R33-60-R-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R33-66-L-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R33-66-R-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R33-76-L-31	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R33-94-R-31	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R34-136-R-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R34-184-R-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R34-200-R-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R34-237-R-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R3-52-R-30	Cartucho para bomba	Yuken	Hidráulica	NULL
+CPV2R3-76-R-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R4-136-R-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R4-184-R-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R4-200-R-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CPV2R4-237-R-30	Cartucho P/Bomba	Yuken	Hidráulica	NULL
+CRF-16-04-50	Valvula Check	Yuken	Hidráulica	NULL
+CRF-16-35-50	Válvula Check	Yuken	Hidráulica	NULL
+CRG-06-04-50	Valvula	Yuken	Hidráulica	NULL
+CRG-06-04-T-50	Valve	Yuken	Hidráulica	NULL
+CRG-06-50-50	Válvula	Yuken	Hidráulica	NULL
+CRG-06-5-T-3023	Válvula De Alivio	Yuken	Hidráulica	NULL
+CRG-10-04-50	Check Angulo	Yuken	Hidráulica	NULL
+CRG-10-50-5090	Check Valve	Yuken	Hidráulica	NULL
+CRGM-10-5090	Check Angulo	Yuken	Hidráulica	NULL
+CRT-06-50-50	Valve	Yuken	Hidráulica	NULL
+CRT-10-04-5090	Flujo Check En Línea	Yuken	Hidráulica	NULL
+C-SA1-100-70	Bobina	Yuken	Hidráulica	NULL
+C-SA1-100-N-70	Bobina	Yuken	Hidráulica	NULL
+C-SA1-120-60	Bobina	Yuken	Hidráulica	NULL
+C-SA1-120-70	Bobina	Yuken	Hidráulica	NULL
+C-SA1-120-N-70	Bobina	Yuken	Hidráulica	NULL
+C-SA1-200-70	Bobina	Yuken	Hidráulica	NULL
+C-SA1-200-N-70	Solenoide	Yuken	Hidráulica	NULL
+C-SA1-240-70	Bobina	Yuken	Hidráulica	NULL
+C-SA3-100-51	Bobina	Yuken	Hidráulica	NULL
+C-SA3-100-60	Coil	Yuken	Hidráulica	NULL
+C-SA3-120-N-51	Bobina	Yuken	Hidráulica	NULL
+C-SA3-200-60	Bobina	Yuken	Hidráulica	NULL
+C-SA3-200-N-51	Solenoide	Yuken	Hidráulica	NULL
+C-SA3-240-51	Bobina	Yuken	Hidráulica	NULL
+C-SA3-A100-51	Bobina	Yuken	Hidráulica	NULL
+C-SA3-A120-51	Bobina	Yuken	Hidráulica	NULL
+C-SA3-A240-51	Bobina	Yuken	Hidráulica	NULL
+C-SD1-12-60	Bobina	Yuken	Hidráulica	NULL
+C-SD1-12-N-70	Bobina	Yuken	Hidráulica	NULL
+C-SD1-24-60	Bobina	Yuken	Hidráulica	NULL
+C-SD1-24-N-60	Bobina	Yuken	Hidráulica	NULL
+C-SD1-24-N-70	Bobina	Yuken	Hidráulica	NULL
+C-SD1-D12-N-60	Bobina	Yuken	Hidráulica	NULL
+C-SD1-D24-N-60	Bobina	Yuken	Hidráulica	NULL
+C-SD3-12-N-51	Bobina	Yuken	Hidráulica	NULL
+C-SD3-24-51	bobina	Yuken	Hidráulica	NULL
+C-SD3-24-60	Bobina	Yuken	Hidráulica	NULL
+C-SD3-24-N-51	Bobina	Yuken	NULL	NULL
+C-SR3-100	Bobina rectificada R100	Yuken	Hidráulica	NULL
+C-SR3-110-51	Bobina Rectificada	Yuken	Hidráulica	NULL
+DCT-01-2B2-4090	Válvula Manual	Yuken	Hidráulica	NULL
+DCT-03-2B2-R-5090	Válvula Manual	Yuken	Hidráulica	NULL
+DG-01-22	Relief Valve	Yuken	Hidráulica	NULL
+DG-01-2290	Valvula de Alivio	Yuken	Hidráulica	NULL
+DG-02-C-22	Relief valve	Yuken	Hidráulica	NULL
+DG-02-H-22	Relief Valve	Yuken	Hidráulica	NULL
+DHGM-04-X-20	Placa de montaje	Yuken	Hidráulica	NULL
+DHGM-06X-5090	Subplate	Yuken	Hidráulica	NULL
+DMG-01-2B2-1090	Válvula Manual	Yuken	Hidráulica	NULL
+DMG-03-3C4-5090	Válvula Manual	Yuken	Hidráulica	NULL
+DSG-005-2B2-D24N4090	Micro Valvulas	Yuken	Hidráulica	NULL
+DSG-005-3C2-D24N4090	Electrovalvula	Yuken	Hidráulica	NULL
+DSG-005-3C3-D24N4090	Válvula	Yuken	Hidráulica	NULL
+DSG-005-3C40D24N4090	Valve	Yuken	Hidráulica	NULL
+DSG-01-2B2-A10070225	Valvula	Yuken	Hidráulica	NULL
+DSG-01-2B2-A100-7090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-2B2-A120-7090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-2B2-A120N7090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-2B2A-A1007090	Valvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-2B2A-A100-N60	Valvula	Yuken	Hidráulica	NULL
+DSG-01-2B2A-A1207090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-2B2AA1207090L	Valvula	Yuken	Hidráulica	NULL
+DSG-01-2B2A-D24N7090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-2B2A-R110-70	Valvula	Yuken	Hidráulica	NULL
+DSG012B2BA1207090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-2B2B-D24-N-70	Valve	Yuken	Hidráulica	NULL
+DSG012B2D24N7090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-2B2-R110-7090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-2B3-A100-7090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-2B3-A120-7090	Valvula direccional	Yuken	Hidráulica	NULL
+DSG-01-2B3A-A1007090	Valvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-2B3B-A1007090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-2B3B-D24-7090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-2B3-D24-N6090	Válvula	Yuken	Hidráulica	NULL
+DSG012B3D24N7090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-2B4B-A1007090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-2B4B-R110-70	Valvula	Yuken	Hidráulica	NULL
+DSG-01-2D2-A100-7090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-2D2-A100-N170	Válvula	Yuken	Hidráulica	NULL
+DSG-01-2D2-A120-6090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-2D2-A120-7090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-2D2-A200-7090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-2D2-D24-7090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG012D2D24N7090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG013C10A1006090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-3C10A10070225	Valvula	Yuken	Hidráulica	NULL
+DSG-01-3C10A120N7090	Valve	Yuken	Hidráulica	NULL
+DSG-01-3C12-A1007090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-3C12-A1206090	Válvula  Direccional	Yuken	Hidráulica	NULL
+DSG013C12A1207090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-3C12-D12-7090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-3C12-D24-7090	Válvula	Yuken	Hidráulica	NULL
+DSG013C2A100N170	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-3C2-A120-7090	Valvula	Yuken	Hidráulica	NULL
+DSG013C2D24N7090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-3C3-A100-70	Válvula	Yuken	Hidráulica	NULL
+DSG-01-3C3-A120-6090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-3C3-A200-7090	Valvula	Yuken	Hidráulica	NULL
+DSG013C3D24N7090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-3C40-A100N170	Válvula	Yuken	Hidráulica	NULL
+DSG-01-3C40-R110-70	Valvula	Yuken	Hidráulica	NULL
+DSG-01-3C4-A100-7090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-3C4-A100-N170	Válvula	Yuken	Hidráulica	NULL
+DSG-01-3C4-A100N6090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-3C4-A120-7090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-3C4-A120N7090	Valvula	Yuken	NULL	NULL
+DSG-01-3C4A240N17090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-3C4-D12-7090	valvula	Yuken	Hidráulica	NULL
+DSG-01-3C4-D24-7090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-3C4-D24N17090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-3C4-D24-N7090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-3C4-R110-70	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-3C5-A120-6090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-01-3C60-A1007090	Valve	Yuken	Hidráulica	NULL
+DSG-01-3C60-A1206090	Valvula	Yuken	Hidráulica	NULL
+DSG-01-3C9-A100-7090	Valvula	Yuken	Hidráulica	NULL
+DSG-03-2B2-A100-5090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-03-2B2-A100N5090	Valve	Yuken	Hidráulica	NULL
+DSG-03-2B2-A120-5090	Valvula	Yuken	Hidráulica	NULL
+DSG032B2AA1205090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-03-2B2B-A1005090	Valvula	Yuken	Hidráulica	NULL
+DSG-03-2B2B-D24-5090	Valvula	Yuken	Hidráulica	NULL
+DSG-03-2B2-D24-5090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-03-2B3-A120-5090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-03-2B3B-A200-N50	Valvula	Yuken	Hidráulica	NULL
+DSG032B3BD12N5090	Electrovalvula	Yuken	Hidráulica	NULL
+DSG-03-2B3B-D24-50	Valve	Yuken	Hidráulica	NULL
+DSG-03-2B3-D24-5090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-03-2D2-A100-5090	Solenoid valve	Yuken	Hidráulica	NULL
+DSG-03-2D2-A120-5090	Valvula	Yuken	Hidráulica	NULL
+DSG-03-2D2-D24-5090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-03-3C10-D24-5090	Valvula	Yuken	Hidráulica	NULL
+DSG-03-3C10-R1005090	Valvula	Yuken	Hidráulica	NULL
+DSG033C11A120N50	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-03-3C12-A1205090	Valvula direccional	Yuken	Hidráulica	NULL
+DSG-03-3C12-D24-5090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-03-3C2-A100-5090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-03-3C2A240N15090	Valvula	Yuken	Hidráulica	NULL
+DSG-03-3C2-D24-5090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-03-3C2-D24-N5090	Valvula	Yuken	Hidráulica	NULL
+DSG-03-3C2-R100-50	Valvula direccional	Yuken	Hidráulica	NULL
+DSG-03-3C3-A100-5090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-03-3C3-A120-50	Valvula	Yuken	Hidráulica	NULL
+DSG-03-3C40-A120-50	Valve	Yuken	Hidráulica	NULL
+DSG033C40A1205090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-03-3C40-D24-5090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-03-3C40-R100-50	Valve	Yuken	Hidráulica	NULL
+DSG-03-3C4-A100-5090	Válvula Direccional	Yuken	Hidráulica	NULL
+DSG-03-3C4A120N15090	Valvula	Yuken	Hidráulica	NULL
+DSG-03-3C4-A240-50	Valve	Yuken	Hidráulica	NULL
+DSG-03-3C60-A1005090	Solenoid Valve	Yuken	Hidráulica	NULL
+DSG-03-3C60-R1105090	Valvula	Yuken	Hidráulica	NULL
+DSG-03-3C9-A100-50	Valve	Yuken	Hidráulica	NULL
+DSHG-03-2B2-T-A10014	Valvula	Yuken	Hidráulica	NULL
+DSHG033C2C1C2R2D2414	Piloteada Valv	Yuken	Hidráulica	NULL
+DSHG-04-2B2-A1005290	valvula	Yuken	Hidráulica	NULL
+DSHG-04-3C2-A1005290	Valvula	Yuken	Hidráulica	NULL
+DSHG-04-3C2-R2A10052	Valvula	Yuken	Hidráulica	NULL
+DSHG043C40C1C2TR2A10	Válvula Direccional	Yuken	Hidráulica	NULL
+DSHG-043C4R2A1005290	Valvula	Yuken	Hidráulica	NULL
+DSHG-043C4R2A1205290	Valvula	Yuken	Hidráulica	NULL
+DSHG-06 ESPECIAL	Valvula	Yuken	Hidráulica	NULL
+DSHG-06-2B2-A1205390	Válvula	Yuken	Hidráulica	NULL
+DSHG062B2BC1C2ETR2A1	Valvula DSHG-06-2B2B-C1C2-E-T-R2-A100-5390	Yuken	Hidráulica	NULL
+DSHG062B2BC1C2TA1005	Valvula	Yuken	Hidráulica	NULL
+DSHG062B2BC1C2TRBA10	Valvula	Yuken	Hidráulica	NULL
+DSHG062B2C1C2EA12053	Valvula	Yuken	Hidráulica	NULL
+DSHG-06-2N2-A1205390	Valve	Yuken	Hidráulica	NULL
+DSHG062N2EA1205390	Valvula piloteada	Yuken	Hidráulica	NULL
+DSHG063C2C1C2ER2A100	Valvula  DSHG-06-3C2-C1C2-E-R2-A100-5390	Yuken	Hidráulica	NULL
+DSHG063C40C1C2TA1005	Valvula DSHG-06-3C40-C1C2-T-A100-53	Yuken	Hidráulica	NULL
+DSHG-06-3C4-A1005390	Valvula Direccional	Yuken	Hidráulica	NULL
+DSHG-06-3C4-A1205390	Valvula	Yuken	NULL	NULL
+DSHG063C4C1C2A100539	Valvula	Yuken	Hidráulica	NULL
+DSHG063C4C1C2A120539	Valvula	Yuken	Hidráulica	NULL
+DSHG-06-3C6-E-A10053	Válvula	Yuken	Hidráulica	NULL
+DSHG-063H40D24N15390	Valvula	Yuken	Hidráulica	NULL
+DSHG103C10C1C2TR2A10	Valvula DSHG-10-3C10-C1C2-T-R2-A100-4390	Yuken	Hidráulica	NULL
+DSHG103C2C1C2TR2A100	Valvula	Yuken	Hidráulica	NULL
+DSHG-10-3C60A1004390	Valvula con Piloto Direccional	Yuken	Hidráulica	NULL
+DT-01-2290	Valve	Yuken	Hidráulica	NULL
+DT-02-B-2290	Válvula de Alivio	Yuken	Hidráulica	NULL
+DT-02-H-2290	Direct Relief	Yuken	Hidráulica	NULL
+EBG-06-H-51	Valvula	Vescor	Hidráulica	NULL
+EDFHG041403C40XYE31S	Valvula	Yuken	Hidráulica	NULL
+EDG-01V-H-1-PNT11-51	Valvula Proporcional	Yuken	Hidráulica	NULL
+EDG-01V-H-1-PNT1151R	Valvula	Yuken	Hidráulica	NULL
+EDG01VHPNT1351105R	Valve	Yuken	Hidráulica	NULL
+EFBG-03-125-C-1720	Valvula proporcional	Yuken	Hidráulica	NULL
+F5-06-A-1090	Brida	Yuken	Hidráulica	NULL
+F5-10-A-1090	Brida	Yuken	Hidráulica	NULL
+F5-24-A-1090	Pipe glange kits	Yuken	Hidráulica	NULL
+FCG-02-30-3090	Valvula	Yuken	Hidráulica	NULL
+FCG-02-30-N-30	Flujo Check Mod	Yuken	Hidráulica	NULL
+FCG-03-125-N-30	Flujo Y Check Mod	Yuken	Hidráulica	NULL
+FCG-06-250-30	Flujo check modular	Yuken	Hidráulica	NULL
+FG-01-8-N-11	Válvula de Flujo Modular	Yuken	Hidráulica	NULL
+FG-02-30-N-30	Flujo Modular	Yuken	Hidráulica	NULL
+FG-03-125-30	Valve	Yuken	Hidráulica	NULL
+FG-06-250-30	Valve	Yuken	Hidráulica	NULL
+GCTR-02-32	Gauge adapter	Yuken	Hidráulica	NULL
+G-DSG-01-3C40-R25090	Valvula	Yuken	Hidráulica	NULL
+G-DSG-03-3C2-50	Valvula	Yuken	Hidráulica	NULL
+HCG-03-B3-22	Control De Presión	Yuken	Hidráulica	NULL
+HCT-06-B1-2290	Control de Presion	Yuken	Hidráulica	NULL
+HCT-06-C1-2290	Control De Presión	Yuken	Hidráulica	NULL
+HG-03-C2-22	Valve	Yuken	Hidráulica	NULL
+HG-06-B3-2290	Control De Presión	Yuken	Hidráulica	NULL
+HG-06-C2-22	Control De Presión	Yuken	Hidráulica	NULL
+HG-10-A2-22	Sequence Valve	Yuken	Hidráulica	NULL
+HG-10-B2-22	Valve	Yuken	Hidráulica	NULL
+HG-10-C2-22	Valvula	Yuken	Hidráulica	NULL
+HG-10-C4-22	Valve	Yuken	Hidráulica	NULL
+HT-06-A4-2290	Control De Presión	Yuken	Hidráulica	NULL
+HT-06-B2-2290	Control De Presión	Yuken	Hidráulica	NULL
+HT06-C2-2290	Pressure control valve	Yuken	Hidráulica	NULL
+J077-121	Servo Válvulas	Yuken	Hidráulica	NULL
+JT-02-100-11	Switch	Yuken	Hidráulica	NULL
+JT-02-200-11	Switch de presión	Yuken	Hidráulica	NULL
+JT-02-350-11	Switch De Presión	Yuken	Hidráulica	NULL
+JT-02-35-11	Switch De Presión	Yuken	Hidráulica	NULL
+KR1-A-60	Circuito	Yuken	Hidráulica	NULL
+KR1-C-60	Circuito	Yuken	Hidráulica	NULL
+KR3-A-60	Circuito	Yuken	Hidráulica	NULL
+KR3-C-60	Circuito	Yuken	Hidráulica	NULL
+KS-50T	Kit De Sellos  para 50T-26-L-RL-30	Yuken	Hidráulica	NULL
+KS-A10-01-12	Seal  Kit	Yuken	Hidráulica	NULL
+KS-A145-01-60	kit de sellos para A145	Yuken	Hidráulica	NULL
+KS-A16-01-32	Sellos	Yuken	Hidráulica	NULL
+KS-A22-01-32	Juego de empaques	Yuken	Hidráulica	NULL
+KS-A37-01-32	Sellos	Yuken	Hidráulica	NULL
+KS-A37-02-32	Sellos	Yuken	Hidráulica	NULL
+KS-A37-02-3218	Sellos	Yuken	Hidráulica	NULL
+KS-A37-05-32	Juego de sellos	Yuken	Hidráulica	NULL
+KS-A56-01-32	Sellos	Yuken	Hidráulica	NULL
+KS-A56-04EH-42	Sellos	Yuken	Hidráulica	NULL
+KS-A90-01-60	Sellos	Yuken	Hidráulica	NULL
+KS-AR16-01-20	Sellos	Yuken	Hidráulica	NULL
+KS-AR22-01-20	Sellos	Yuken	Hidráulica	NULL
+KS-CE-100B	Packing kit	Yuken	Hidráulica	NULL
+KS-CE125B-31	Packing kit	Yuken	Hidráulica	NULL
+KS-CE26211	Sellos	Yuken	Hidráulica	NULL
+KS-CE-26212	Sellos	Yuken	Hidráulica	NULL
+KS-CE40B-31	Sellos	Yuken	Hidráulica	NULL
+KS-CE80B-31	Packing kit	Yuken	Hidráulica	NULL
+KS-CE-CE50B	Sellos	Yuken	Hidráulica	NULL
+KS-CJTL125C-20	Sellos	Yuken	Hidráulica	NULL
+KS-DSG-01-7090	Seal Kit	Yuken	Hidráulica	NULL
+KS-PM16-01-30	Kit de sellos	Yuken	Hidráulica	NULL
+KS-PV11R10-20	Sellos	Yuken	Hidráulica	NULL
+KS-PV2R12-30	Reparación de bomba	Yuken	Hidráulica	NULL
+KS-PV2R13-40	Kit de empaques	Yuken	Hidráulica	NULL
+KS-PV2R1-41	Sellos	Yuken	Hidráulica	NULL
+KS-PV2R23-40	Sellos	Yuken	Hidráulica	NULL
+KS-PV2R2-40	Sellos	Yuken	Hidráulica	NULL
+KS-PV2R24-30	Sellos	Yuken	Hidráulica	NULL
+KS-PV2R3-31	Sellos	Yuken	Hidráulica	NULL
+KS-PV2R33-30	Sellos	Yuken	Hidráulica	NULL
+KS-PV2R34-30	Sellos	Yuken	Hidráulica	NULL
+KS-PV2R4-30	Sellos	Yuken	Hidráulica	NULL
+LDS-50-60-1-0P321308	Valvula	Yuken	NULL	NULL
+L-DSG-01-2B2A1007090	Válvula	Yuken	Hidráulica	NULL
+L-DSG-01-2B2-D127090	Valvula	Yuken	Hidráulica	NULL
+LDSG012B2D12N7090	Válvula Direccional	Yuken	Hidráulica	NULL
+L-DSG-01-2B2D12N7090	Valvula	Yuken	Hidráulica	NULL
+LDSG012B2D247090	Válvula	Yuken	Hidráulica	NULL
+L-DSG-01-3C4D12N7090	Valvula	Yuken	Hidráulica	NULL
+MBA-01-C-30	Relief Valve	Yuken	Hidráulica	NULL
+MBB-01-C-30	Valvula	Yuken	Hidráulica	NULL
+MBK-01-03-30	Bolt kit	Yuken	Hidráulica	NULL
+MBK-01-04-30	Bolt kit	Yuken	Hidráulica	NULL
+MBP-005-C-20	Micro Válvulas	Yuken	Hidráulica	NULL
+MBP-005-H-20	Micro Válvulas	Yuken	Hidráulica	NULL
+MBP-01-H-30	Alivio Modular	Yuken	Hidráulica	NULL
+MCP-01-0-30	Check Modular	Yuken	Hidráulica	NULL
+MCPT-03-P0-T0-10	Check Modular	Yuken	Hidráulica	NULL
+MDC-01-A-30	Placa de montaje	Yuken	Hidráulica	NULL
+MFW-01-X-10	Flujo Check Mod	Yuken	Hidráulica	NULL
+MFW-01-Y-1090	Flujo Check Mod	Yuken	Hidráulica	NULL
+MHA-01-C-30	Counterbalance	Yuken	Hidráulica	NULL
+MHA-03-A-20	Contrabalance Mod	Yuken	Hidráulica	NULL
+MHB-01-B-3018	Contrabalance Mod	Yuken	Hidráulica	NULL
+MHB-03-C-20	Valvula	Yuken	Hidráulica	NULL
+MHP-01-C-30	Secuencia	Yuken	Hidráulica	NULL
+MJB-01-M-B-N-10	Flujo Modular	Yuken	Hidráulica	NULL
+MMC-01-4-40	Placas De Montaje	Yuken	Hidráulica	NULL
+MMC-03-T-1-21-90	Placas De Montaje	Yuken	Hidráulica	NULL
+MPA-01-2-40	Valvula	Yuken	Hidráulica	NULL
+MPB-01-2-40	Pilot Operated Chech Valve	Yuken	Hidráulica	NULL
+MPB-03-2-2001	Valvula	Yuken	Hidráulica	NULL
+MPB-06-2-30	Válvula Check Piloteada	Yuken	Hidráulica	NULL
+MPW-005-2-20	Micro Válvulas	Yuken	Hidráulica	NULL
+MPW-01-2-40	Check Modular	Yuken	Hidráulica	NULL
+MPW-01-4-40	Valve	Yuken	Hidráulica	NULL
+MPW-03-2-20	Check Modular	Yuken	Hidráulica	NULL
+MPW-06-2-30	Chek Piloteada	Yuken	Hidráulica	NULL
+MPW-06-4-30	Valvula Check	Yuken	Hidráulica	NULL
+MRA-01-C-3090	Reductora	Yuken	Hidráulica	NULL
+MRA-03-H-30	Valvula Reductora	Yuken	NULL	NULL
+MRA-06-B-3090	Reductora	Yuken	Hidráulica	NULL
+MRB-01-C-30	Reductora	Yuken	Hidráulica	NULL
+MRP-005-B-2090	Micro Válvulas	Yuken	Hidráulica	NULL
+MRP-01-B-3019	Valve	Yuken	Hidráulica	NULL
+MRP-01-B-3034	Valvula	Yuken	Hidráulica	NULL
+MRP-01-B-3090	Valvula de Reduccion Modular	Yuken	Hidráulica	NULL
+MRP-01-C-3090	Valvula de Recucción Modular	Yuken	Hidráulica	NULL
+MRP-03-B-3090	Valvula Reductora	Yuken	Hidráulica	NULL
+MRP-03-B-30950	Valvula reductora	Yuken	Hidráulica	NULL
+MSA-01-X-50	Valvula check modular	Yuken	Hidráulica	NULL
+MSA-01-Y-50	Valvula check	Yuken	Hidráulica	NULL
+MSA-03-X-40	Flujo Check Mod	Yuken	Hidráulica	NULL
+MSCP-01-30	Flujo Modular	Yuken	Hidráulica	NULL
+MSP-01-50	Valvula Modular	Yuken	Hidráulica	NULL
+MST-08	Masuda Suction Strainer	Yuken	Hidráulica	NULL
+MSW-005-X-20	Micro Válvulas	Yuken	Hidráulica	NULL
+MSW-005-Y-20	Micro Válvulas	Yuken	Hidráulica	NULL
+MSW-01-X-50	Check Modular	Yuken	Hidráulica	NULL
+MSW-01-XY-50	Check Modular	Yuken	Hidráulica	NULL
+MSW-01-Y-50	Valvula	Yuken	Hidráulica	NULL
+MSW-01-YX-50	Check Modular	Yuken	Hidráulica	NULL
+MSW-03-X-40	Valvulas de Control de Flujo	Yuken	Hidráulica	NULL
+MSW-03-Y-40	Throttle & check Modular Valve	Yuken	Hidráulica	NULL
+MSW-06-X-30	Flujo y Check Mod.	Yuken	Hidráulica	NULL
+MSW-06-Y-30	Valvula	Yuken	Hidráulica	NULL
+NCA2600	Sistema de Carga	Hyson	Hidráulica	NULL
+P-G-STU-08B-150W	Element for filter	Yuken	Hidráulica	NULL
+P-G-STU-16B-150W	Element for filter	Yuken	Hidráulica	NULL
+PK-210652-4	Flechas	Yuken	Hidráulica	NULL
+PV2R1-10-F-RAA-4190	Bomba De Paletas	Yuken	Hidráulica	NULL
+PV2R1-14-F-RAA-4190	Bomba De Paletas	Yuken	Hidráulica	NULL
+PV2R1-17-F-RAA-4190	Bomba De Paletas	Yuken	Hidráulica	NULL
+PV2R121933LREAA4190	Bomba De Paletas	Yuken	Hidráulica	NULL
+PV2R12-23-26FREAA43	Bomba de Paletas	Yuken	Hidráulica	NULL
+PV2R12-25-33FREAA439	Bomba	Yuken	Hidráulica	NULL
+PV2R12-25-59-FREAR43	Bomba	Yuken	Hidráulica	NULL
+PV2R1-23-F-RAA-4390	Bomba de Paletas	Yuken	Hidráulica	NULL
+PV2R12-6-33-L-REAA	Bomba De Paletas	Yuken	Hidráulica	NULL
+PV2R131076LRAAA4390	Bomba de Paletas	Yuken	Hidráulica	NULL
+PV2R1-31-F-RAA-4190	Bomba De Paletas	Yuken	Hidráulica	NULL
+PV2R1423200LRAA3190	Bomba	Yuken	Hidráulica	NULL
+PV2R1423200LRAAA3190	Bomba De Paletas	Yuken	Hidráulica	NULL
+PV2R1-6-F-RAA-4190	Bomba de Paletas	Yuken	Hidráulica	NULL
+PV2R1-8-F-RAA-4190	Bomba De Paletas	Yuken	Hidráulica	NULL
+PV2R234166FREAA4190	Double Vane Pump	Yuken	Hidráulica	NULL
+PV2R23-47-66-FREAA41	Bomba de Paletas	Yuken	Hidráulica	NULL
+PV2R23-5352FREAA4190	Bomba de paletas	Yuken	Hidráulica	NULL
+PV2R2359116FREAA4190	Bomba de Paleta	Yuken	Hidráulica	NULL
+PV2R24-47-184FRAAA31	Vane Pump	Yuken	Hidráulica	NULL
+PV2R2-59-F-RAA-41	Bomba de Paletas	Yuken	Hidráulica	NULL
+PV2R3-116-L-RAA-3190	Bomba De Paletas	Yuken	Hidráulica	NULL
+PV2R33-76-94-FRAAA31	Bomba de Paletas	Yuken	Hidráulica	NULL
+PV2R33-7694FRAAA3190	Bomba de Paletas	Yuken	Hidráulica	NULL
+PV2R34116237FREAA319	Bomba De Paletas	Yuken	Hidráulica	NULL
+PV2R3460136LREAA3190	Bomba De Paletas	Yuken	Hidráulica	NULL
+PV2R3-76-L-RAA-3190	Bomba De Paletas	Yuken	Hidráulica	NULL
+PV2R3-94-F-RAA-3190	Bomba De Paletas	Yuken	Hidráulica	NULL
+PV2R3-94-L-RAA-3190	Bomba De Paletas	Yuken	Hidráulica	NULL
+PV2R4-136-F-RAA-3090	Vane Pump	Yuken	Hidráulica	NULL
+PV2R4-184-F-RAA-3090	Vane Pump	Yuken	Hidráulica	NULL
+PV2R4-237-F-RAA-30	Pump	Yuken	Hidráulica	NULL
+R1-70	Receptacle	Yuken	Hidráulica	NULL
+RCG-03-B-22	Pressure Reducing & Check Valve	Yuken	Hidráulica	NULL
+RCT-03-H-22	Reductora De Pres	Yuken	Hidráulica	NULL
+RG-03-B-22	Reductora De Pres	Yuken	Hidráulica	NULL
+RG-06-B-22	Press Reducing	Yuken	Hidráulica	NULL
+RG-10-H-22	Reductora	Yuken	Hidráulica	NULL
+RML-037-300	Resorte 3/8X 3/16 X 3 ZOLL	IPG	Troquel	Cesehsa
+RR3-60	Circuito Rectificado	Yuken	Hidráulica	NULL
+S518080	Resorte de neopreno 80X80 mod 225.461.8	IPG	Troquel	Cesehsa
+SB1099-06-1600245662	Pilot Valve	Yuken	Hidráulica	NULL
+S-BG-03V-L-40	Relief Valve	Yuken	Hidráulica	NULL
+S-BG-03-V-R-40	Realief Valve	Yuken	Hidráulica	NULL
+S-BG-06-L-4090	Relief Valve	Yuken	Hidráulica	NULL
+S-BSG-06-V3C3A100L53	Válvula	Yuken	Hidráulica	NULL
+S-BSG-06-V-3C3D24R53	Válvula	Yuken	Hidráulica	NULL
+SC144-11	Control De Flujo	Yuken	Hidráulica	NULL
+S-DSG-01-3C2R1107090	Válvula	Yuken	Hidráulica	NULL
+S-DSG-03-3C12D245090	Valvula	Yuken	Hidráulica	NULL
+S-DSG-03-3C4-D245040	Válvula	Yuken	Hidráulica	NULL
+SF250 3A F25	Filtro (Mp Filtri)	Yuken	Hidráulica	NULL
+SF503250	Elemento filtrante	Yuken	Hidráulica	NULL
+SFT-08-100W	Filter	Yuken	Hidráulica	NULL
+SG-02-C-2090	Switch De Presión	Yuken	Hidráulica	NULL
+SK1091-D24-10	Amplificador	Yuken	Hidráulica	NULL
+SO-NB-P-100	O-ring	Yuken	Hidráulica	NULL
+SRCG-03-50	Valvula	Yuken	Hidráulica	NULL
+SRCG-06-50	Valve	Yuken	Hidráulica	NULL
+SRCG-10-50	Valvula	Yuken	Hidráulica	NULL
+SRCG-10-5090	Valve	Yuken	Hidráulica	NULL
+SRCT-03-50	Restrictora	Yuken	Hidráulica	NULL
+ST-02-C-2090	Switch	Yuken	Hidráulica	NULL
+ST-797-4090	Valve Restrictor	Yuken	Hidráulica	NULL
+TB1-60	Caja De Conexiones	Yuken	Hidráulica	NULL
+TB1-70	Terminal box assembly	Yuken	Hidráulica	NULL
+TB3-60	Caja De Conexiones	Yuken	Hidráulica	NULL
+TC1G-01-40	Valvula	Yuken	Hidráulica	NULL
+TC1G-03-40	Flujo Check Mod	Yuken	Hidráulica	NULL
+TC2G-01-40	Valvula modular	Yuken	Hidráulica	NULL
+TC2G-03-40	Flujo Check Mod	Yuken	Hidráulica	NULL
+T-DSG-01-2B3B-D24-70	Válvula	Yuken	Hidráulica	NULL
+T-DSG-01-3C4-D247090	Valvula	Yuken	Hidráulica	NULL
+T-DSG-033C23D2450253	Valvula	Yuken	Hidráulica	NULL
+T-S-DSG-03-2B2-D2450	Valvula	Yuken	Hidráulica	NULL
+TW-KR1-A-70	Receptacle	Yuken	Hidráulica	NULL
+TW-KR1-A-7090	Terminal Assembly	Yuken	Hidráulica	NULL
+TW-KR1-C-70	Receptable	Yuken	Hidráulica	NULL
+TW-Q1-C-60	Circuito	Yuken	Hidráulica	NULL
+TW-RR3-50	Caja de coneciones circuitos R110	Yuken	Hidráulica	NULL
+UCF2G-03-4-E-10	Alivio Modular	Yuken	Hidráulica	NULL
+V-403803-0	spring	Yuken	Hidráulica	NULL
+VA-200-TC	Valvula de paso   1/2	Yuken	Hidráulica	NULL
+VK210629-2	Carrete para Valvula DHG-10-3C60	Yuken	Hidráulica	NULL
+VK311547-4	flecha para  DSHG-06-3C6	Yuken	Hidráulica	NULL
+VK312336-1	Carrete  para DSHG-10-3C2	Yuken	Hidráulica	NULL
+VK312338-7	Spoll para DSHG-10-3C4	Yuken	Hidráulica	NULL
+VK313179-4	Spool 3C2	Yuken	Hidráulica	NULL
+VK313181-0	Spool 3C4	Yuken	Hidráulica	NULL
+VR350A	Filtro (Ldi Industries)	Yuken	Hidráulica	NULL

@@ -48,7 +48,7 @@ public function __construct()
           $itemCode = (string)$BOM->BO->Items->row->ItemCode;
 
           if ($BOM->BO->Items_Prices->row[0]->Currency=="MXP"){
-            $numero = ($BOM->BO->Items_Prices->row[1]->Price); 
+            $numero = (float)($BOM->BO->Items_Prices->row[1]->Price);
             $numero = number_format($numero,4,'.',''); 
             $precio = $numero; 
         }else{
@@ -68,7 +68,8 @@ public function __construct()
             'cantidad'=>(int)Request::get('number'),
             'precio'  =>$precio,
             'cliente' =>(string)Auth::user()->email,
-            'status'  =>1
+            'status' =>1,
+            'stock' => $stock
             );
 
         $carr = DB::table('carrito')->where('itemCode', $itemCode)->where('cliente', Auth::user()->email)->first();
@@ -76,13 +77,18 @@ public function __construct()
         if ($carr) {            
             $cant = $carr->cantidad;            
             DB::table('carrito')
-            ->where('itemCode', $itemCode)->where('cliente', Auth::user()->email)->update(['cantidad' => ((int)$cant + (int)Request::get('number'))]);
+            ->where('itemCode', $itemCode)->where('cliente', Auth::user()->email)->update(['cantidad' => ((int)$cant + (int)Request::get('number')), 'stock' => $stock]);
         }else{
             Carrito::create($articulos);
-        }            
-        
-        $value = (int)session('cant') + (int)Request::get('number');
-        session(['cant' => $value]);
+        }
+
+             $articulos = DB::table('carrito')->where('cliente', '=', Auth::user()->email)->get();
+
+             $value = count($articulos);
+
+             session(['cant' => $value]);
+
+
         return back();        
     }
 }
@@ -104,13 +110,13 @@ public function __construct()
     public function itemsCarrito($usuario){
         $ID = null;
         $client = null;
-        if (!Auth::guest()){ 
-         $ID = Sap::getId();             
-         $client = Sap::getClientSoap();
-     }else{
-         $ID = Session::get('UserId');
-         $client = Session::get('Client');
-     }
+        if (!Auth::check()){
+            $ID = Session::get('UserId');
+            $client = Session::get('Client');
+        }else{
+            $ID = Sap::getId();
+            $client = Sap::getClientSoap();
+        }
 
      $CurrencyRate = $client->call('getCurrencyRate',array('tipo' => 'USD','SID' => $ID));
      $currency = $CurrencyRate['getCurrencyRateResult'];  
@@ -120,10 +126,11 @@ public function __construct()
         $ItemList = $client->call('GetDetalle',array('SID' => $ID , 'producto' => $pro->ItemCode));
         $productos = (string)$ItemList['GetDetalleResult'];
         $dat = utf8_encode($productos);
+
         $BOM = new \SimpleXMLElement($dat);
         //datos a mostrar en la interfaz
-        $itemName = $BOM->BO->Items->row->ItemName;
-        $itemCode = $BOM->BO->Items->row->ItemCode;
+        //$itemName = $BOM->BO->Items->row->ItemName;
+        //$itemCode = $BOM->BO->Items->row->ItemCode;
 
         if ($BOM->BO->Items_Prices->row[1]->Currency=="MXP"){
             $numero = ($BOM->BO->Items_Prices->row[1]->Price); 
@@ -140,12 +147,16 @@ public function __construct()
         $stock = $BOM->BO->Items->row->QuantityOnStock*1;
         DB::table('carrito')->where('cliente', '=', $usuario)
         ->where('ItemCode', '=', $pro->ItemCode)
-        ->update(['precio' => $precio]);
+        ->update(['precio' => $precio, 'stock' => $stock]);
     }
-    
-               $datos = DB::table('carrito')->where('cliente', '=', $usuario)->get();
-         
-               return view('carrito.carrito_items')->with('datos', $datos);
+
+        $articulos = DB::table('carrito')->where('cliente', '=', $usuario)->get();
+
+        $value = count($articulos);
+
+        session(['cant' => $value]);
+
+        return view('carrito/carrito_items')->with('datos',$articulos);
 
            }
 
@@ -165,27 +176,16 @@ public function __construct()
      * @return new view
      */ 
     public function delete($user,$id,$token){
+        DB::table('carrito')->where('cliente', '=', $user)
+            ->where('ItemCode', '=', $id)->delete();
 
+        $articulos = DB::table('carrito')->where('cliente', '=', $user)->get();
 
-       $productoEliminar = DB::table('carrito')->where('cliente', '=', $user)
-       ->where('ItemCode', '=', $id)->first();
+        $value = count($articulos);
 
-
-       $value = (int)session('cant') - ($productoEliminar->cantidad);
-
-       session(['cant' => $value]);
-
-       DB::table('carrito')->where('cliente', '=', $user)
-       ->where('ItemCode', '=', $id)->delete();
-
-       $value = (int)session('cant') + (int)Request::get('number');
-       session(['cant' => $value]);
-
-
-       $articulos = DB::table('carrito')->where('cliente', '=', $user)->get();
-        //return $articulos;
-       return view('carrito/carrito_items')->with('datos',$articulos);
-        //return back()->withInput();
+        //session(['cant' => $value]);
+        Session::put('cant', $value);
+        return view('carrito/carrito_items')->with('datos',$articulos);
    }
 
     /**
@@ -196,32 +196,37 @@ public function __construct()
      */
     public function updatecantidad($id, $val)
     {
-      $user = Auth::user()->email;
+        $user = Auth::user()->email;
 
-      $producto = DB::table('carrito')->where('cliente', '=', $user)
-      ->where('ItemCode', '=', $id)->first();
+        $producto = DB::table('carrito')->where('cliente', '=', $user)
+            ->where('ItemCode', '=', $id)->first();
 
-        //variable de la session
-      $value = (int)session('cant') + $val;
-      session(['cant' => $value]);
-         /////////fin de 
-      $newCant = ($producto->cantidad) + $val;
+        $newCant = ($producto->cantidad) + $val;
 
-      if ($newCant == 0) {
-        DB::table('carrito')->where('cliente', '=', $user)
-       ->where('ItemCode', '=', $id)->delete();
-      }else{
-        DB::table('carrito')->where('cliente', '=', $user)
-      ->where('ItemCode', '=', $id)
-      ->update(['cantidad' => $newCant]);
-      }
-      
+        if($newCant <= ($producto->stock)) {
 
-      $value = (int)session('cant') + (int)Request::get('number');
-      session(['cant' => $value]);
+            if ($newCant == 0) {
+                DB::table('carrito')->where('cliente', '=', $user)
+                    ->where('ItemCode', '=', $id)->delete();
+            } else {
+                DB::table('carrito')->where('cliente', '=', $user)
+                    ->where('ItemCode', '=', $id)
+                    ->update(['cantidad' => $newCant]);
+            }
 
-      $articulos = DB::table('carrito')->where('cliente', '=', $user)->get();
-        //return $articulos;
-      return view('carrito/carrito_items')->with('datos',$articulos);
+            $datos = DB::table('carrito')->where('cliente', '=', $user)->get();
+
+            return view('carrito/carrito_items')->with('datos',$datos);
+
+        }else{
+            $datos = DB::table('carrito')->where('cliente', '=', $user)->get();
+
+            return view('carrito/carrito_items')->with('datos',$datos)->withErrors(array('msg' => 'No hay otro en Stock'));
+        }
+
+
+
+
+
   }
 }

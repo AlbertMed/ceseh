@@ -8,6 +8,14 @@
     <div class="row">
       <div class="col m10 offset-m1">
        <h3 class="center-align">Carrito de Compra - Lista de Productos</h3>
+          @if (count($errors) > 0)
+              <div class="alert alert-danger text-center">
+                  @foreach($errors->getMessages() as $this_error)
+                      <strong>¡Lo sentimos!  &nbsp; {{$this_error[0]}}</strong><br>
+                  @endforeach
+
+              </div>
+          @endif
         @if(count($datos) > 0)
         <table class="responsive-table bordered hoverable highlight centered">
             <thead>
@@ -16,6 +24,7 @@
                     <th data-field="nombre">Nombre</th>
                     <th data-field="codigo">Código</th>                    
                     <th>Opciones</th>
+                    <th data-field = "stock">Stock</th>
                     <th data-field="cantidad">Cantidad</th>
                     <th data-field="price">Precio/Unidad</th>
                     <th data-field="subtotal">Subtotal</th>
@@ -51,7 +60,8 @@
                             <i class="material-icons">add</i>
                             </a>                  
                     </td>
-                    <td> {{$dato->cantidad}}</td>                     
+                    <td> {{$dato->stock}}</td>
+                    <td> {{$dato->cantidad}}</td>
                     <td> {{$dato->precio}}</td>
                     <td> {{$dato->cantidad * $dato->precio}}</td>
                    

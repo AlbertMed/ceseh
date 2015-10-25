@@ -49,6 +49,12 @@ class HomeController extends Controller {
         return view('inicio')->with(compact('vistos','vendidos','categoria'));
 	}
 
+	public function contacto(){
+		$mensaje=null;
+		$color="white";
+		return view('datos.contacto')->with(compact('mensaje','color'));
+	}
+
 
 }
 	

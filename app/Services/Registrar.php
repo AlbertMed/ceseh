@@ -17,6 +17,11 @@ class Registrar implements RegistrarContract {
 	public function validator(array $data)
 	{
 		return Validator::make($data, [
+			'condiciones' => 'required',
+			'apellido' => 'required',
+			'telefono' => 'required',
+			'cp' => 'required',
+			'direccion' => 'required',
 			'name' => 'required|max:255',
 			'email' => 'required|email|max:255|unique:users',
 			'password' => 'required|confirmed|min:6',
@@ -31,11 +36,13 @@ class Registrar implements RegistrarContract {
 	 */
 	public function create(array $data)
 	{
-
+        //$condiciones = $data::has('condiciones');
+		//dd($condiciones);
         $wsdl = "http://187.188.85.203:8036/Sample.asmx?WSDL";
         $client = new \nusoap_client($wsdl, true);
         
         $name     = $data['name'];        
+        $apellido = $data['apellido'];
 		$telefono = $data['telefono'];
 		$email    = $data['email'];
 		$direccion= $data['direccion'];
@@ -51,7 +58,7 @@ class Registrar implements RegistrarContract {
 		
 		$resultAddBP = $client->call('AddLead',array('id' => $ID,
 		                                      'cardCode'  => $result1,			                                 
-			                                  'name'      => $name, 			                                
+			                                  'name'      => $name." ".$apellido,
 			                                  'tel'       => $telefono,
 			                                  'email'     => $email));
 		
@@ -60,6 +67,7 @@ class Registrar implements RegistrarContract {
       Session::put('numberItems', 0);
      $user = User::create([
 			'nombre'       => $name,
+			'Apellido'       => $apellido,
 			'email'        => $email,
 			'telefono'     => $telefono,
 			'direccion'    => $direccion,

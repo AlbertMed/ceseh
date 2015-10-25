@@ -90,12 +90,5 @@
 			</div>
 		</div><!-- no tocar este div -->
 	</div>
-
-
-
-
-
-
-
-
 @endsection
+

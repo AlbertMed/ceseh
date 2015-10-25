@@ -4,8 +4,8 @@ Login
 @endsection
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="">
+    <div class="card-panel">
+        <div class="row">
             <h2 class="center-align">Inicio de Sesión</h2>
 
             @if (count($errors) > 0)
@@ -17,7 +17,7 @@ Login
             {!! Form::open(['url'=>'auth/login', 'role'=>'form', 'class'=>'col s12']) !!} 
 
             
-                <div class="input-field col m8 offset-m2 s12">  
+                <div class="input-field col m8 offset-m2 s12">
 
                     
                         <i class="mdi-communication-email prefix"></i>

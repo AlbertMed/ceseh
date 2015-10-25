@@ -16,6 +16,7 @@ class UpdateProducto extends Migration {
             $table->string('visto');
             $table->string('cotizado');
             $table->string('comprado');
+            $table->string('image_url');
 			});
 	}
 
@@ -30,6 +31,7 @@ class UpdateProducto extends Migration {
             $table->dropColumn('visto');
             $table->dropColumn('cotizado');
             $table->dropColumn('comprado');
+            $table->dropColumn('image_url');
         });
 	}
 

@@ -36,7 +36,7 @@
                 
                 <div class="row col m6 s12 offset-m2">
                 <p class="right-align">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Enviar a mi email
+                <button class="btn waves-effect waves-light" type="submit" name="action">Enviarme un email
                     <i class="material-icons right">send</i>
                 </button>                    
                 </p>

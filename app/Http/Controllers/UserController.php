@@ -24,6 +24,7 @@ class UserController extends Controller {
     public function store(CreateUserRequest $request){
     	//datos de usuario
     	$nombre      = $request->get('nombre');
+    	$apellido     = $request->get('apellido');
     	$telefono    = $request->get('telefono');
     	$email_cli   = $request->get('email_cli');
     	$nombreRazon = $request->get('nombreRazon');

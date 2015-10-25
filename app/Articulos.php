@@ -5,5 +5,5 @@ class Articulos extends Model{
 
     protected $table = 'producto';
 
-	protected $fillable = ['ItemCode','ItemName','SubMarca','Division','Marca','visto','cotizado','comprado'];
+	protected $fillable = ['ItemCode','ItemName','SubMarca','Division','Marca','visto','cotizado','comprado','image_url'];
 }

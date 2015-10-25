@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateProducto extends Migration {
+class UpdateCarrito extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,9 @@ class UpdateProducto extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('producto', function(Blueprint $table){
-            $table->string('image_url');
-			});
+		Schema::table('carrito', function(Blueprint $table){
+			$table->integer('stock');
+		});
 	}
 
 	/**
@@ -24,9 +24,9 @@ class UpdateProducto extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('producto', function(Blueprint $table){
-            $table->dropColumn('image_url');
-        });
+		Schema::table('carrito', function(Blueprint $table){
+			$table->dropColumn('stock');
+		});
 	}
 
 }
