@@ -18,6 +18,10 @@ class CreateProducto extends Migration{
             $table->string('SubMarca');
             $table->string('Division');
             $table->string('Marca');
+            $table->string('visto');
+            $table->string('cotizado');
+            $table->string('comprado');
+            $table->string('image_url');
             $table->timestamps();
         });
     }

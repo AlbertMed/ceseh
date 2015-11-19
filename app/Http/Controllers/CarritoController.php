@@ -6,38 +6,29 @@ use Request;
 use Session;
 use DB;
 use Auth;
+use Input;
 use App\Http\Controllers\Controller;
 use App\Carrito;
 use Bwords\Main as Sap;
 
 class CarritoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
+
 public function __construct()
   {
     $this->middleware('auth');
   }
-    public function index()
-    {
+    public function add(){
+        $micantidad = Input::get('micantidad');
+        $itemCode = Input::get('itemCode');
 
-       // return view('carrito.home');
-    }
-
-    public function add($itemCode){
-         if (Auth::guest()){ //no autenticado           
-             return redirect('auth/login');
-         }else{
           $ID = Session::get('UserId');
           $client = Session::get('Client');
 
           $CurrencyRate = $client->call('getCurrencyRate',array('tipo' => 'USD','SID' => $ID));
           $currency = $CurrencyRate['getCurrencyRateResult'];
          /*
-           funcion para sacar el detalle de un producto 
+           funcion para sacar el detalle de un producto
          */
           $ItemList = $client->call('GetDetalle',array('SID' => $ID , 'producto' => $itemCode));
           $productos = (string)$ItemList['GetDetalleResult'];
@@ -49,15 +40,15 @@ public function __construct()
 
           if ($BOM->BO->Items_Prices->row[0]->Currency=="MXP"){
             $numero = (float)($BOM->BO->Items_Prices->row[1]->Price);
-            $numero = number_format($numero,4,'.',''); 
-            $precio = $numero; 
+            $numero = number_format($numero,2,'.',',');
+            $precio = $numero;
         }else{
-            $number = (float)$BOM->BO->Items_Prices->row[1]->Price; 
-            $number = number_format($number,4,'.','');  
-            $numero = ($number)*$currency;    
-            $numero = number_format($numero,4,'.','');  
-            $precio = $numero; 
-        }  
+            $number = (float)$BOM->BO->Items_Prices->row[1]->Price;
+            $number = number_format($number,2,'.',',');
+            $numero = ($number)*$currency;
+            $numero = number_format($numero,2,'.',',');
+            $precio = $numero;
+        }
 
         $stock = $BOM->BO->Items->row->QuantityOnStock*1;
 
@@ -65,17 +56,17 @@ public function __construct()
         $articulos =array(
             'ItemCode'=>$itemCode,
             'ItemName'=>$itemName,
-            'cantidad'=>(int)Request::get('number'),
+            'cantidad'=>$micantidad,
             'precio'  =>$precio,
+            'stock' => $stock,
             'cliente' =>(string)Auth::user()->email,
-            'status' =>1,
-            'stock' => $stock
+            'user_id' =>Auth::user()->id,
             );
 
         $carr = DB::table('carrito')->where('itemCode', $itemCode)->where('cliente', Auth::user()->email)->first();
-        
-        if ($carr) {            
-            $cant = $carr->cantidad;            
+
+        if ($carr) {
+            $cant = $carr->cantidad;
             DB::table('carrito')
             ->where('itemCode', $itemCode)->where('cliente', Auth::user()->email)->update(['cantidad' => ((int)$cant + (int)Request::get('number')), 'stock' => $stock]);
         }else{
@@ -83,14 +74,11 @@ public function __construct()
         }
 
              $articulos = DB::table('carrito')->where('cliente', '=', Auth::user()->email)->get();
-
              $value = count($articulos);
-
              session(['cant' => $value]);
 
-
-        return back();        
-    }
+        Session::put('add',"Tu Producto ha sido Agregado al Carrito");
+        return redirect()->back();
 }
     /**
      * Show the form for creating a new resource.
@@ -108,15 +96,9 @@ public function __construct()
      * @return list of items
      */ 
     public function itemsCarrito($usuario){
-        $ID = null;
-        $client = null;
-        if (!Auth::check()){
+
             $ID = Session::get('UserId');
             $client = Session::get('Client');
-        }else{
-            $ID = Sap::getId();
-            $client = Sap::getClientSoap();
-        }
 
      $CurrencyRate = $client->call('getCurrencyRate',array('tipo' => 'USD','SID' => $ID));
      $currency = $CurrencyRate['getCurrencyRateResult'];  

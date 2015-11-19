@@ -2,17 +2,16 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Bwords\Main as Sap;
 use Illuminate\Http\Request;
 use App\Carrito;
 use Auth;
 use Session;
 
 class cotizaController extends Controller {
-    public function __construct()
-  {
-    $this->middleware('auth');
-  }
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -20,7 +19,7 @@ class cotizaController extends Controller {
 	 */
 	public function index()
 	{
-        
+
 	}
 
 	/**
@@ -30,67 +29,75 @@ class cotizaController extends Controller {
 	 */
 	public function cotizador()
 	{
-		 /*
-          Descripcion: necesita obtener de la variable session
-          - CardCode de Usuario
-          - Email
-          - Items que seleccionó
-         */ 
-      $productos = [];
-      $prods = Carrito::where('cliente', '=', (Auth::user()->email))->get();
-    // El id debe ser el primer elemento del array	
-     $primer = true;	
-     foreach ($prods as $producto) {
-     	if ($primer == true) {
-     		$primer = false;
-     		$productos = [
-                           ['producto' => ['id' => $producto->ItemCode, 'cantidad' => $producto->cantidad]]
-                         ];
-     	}else{
-            $productos[] = ['producto' => ['id' => $producto->ItemCode, 'cantidad' => $producto->cantidad]];
-     	}
-     	
-     }
-	
-    //Session::get('productosCarrito');
-    $Cardcode = Auth::user()->sapResultado;
-     //return var_dump($Cardcode);
-    //return var_dump($productos);
-    	
-	// Hacer xml	
-	
-    $xml = new \SimpleXMLElement('<root/>');
-    // Leer datos del array e introducirlos al documento xml
-    array_walk_recursive($productos, function($value, $key)use($xml){          
-       if ($key == 'id') {
-       	 $Item = $xml->addChild('producto');
-       	 $Item->addChild($key, $value);
-       }else{
-       	 $xml->producto[count($xml)-1]->addChild($key, $value);         
-       }     
-    });
-    
-    $stringXML = $xml->asXML();
-    //return var_dump($stringXML);
-    //echo $stringXML;			
-    // Hacer la cotizacion
-    $ID = Sap::getId();
+		/** Primero:
+		 *   Obtenemos los productos del carrito y se arma un array con todos los items
+		**/
+		$productos = [];
+		$prods = Carrito::where('cliente', '=', (Auth::user()->email))->get();
 
-   
-    
-    $stringTest = Sap::getClientSoap()->call('getCotizacion',array('CardCode' => $Cardcode, 'SID' => $ID, 'Items' => $stringXML));
-   
-   $idReport = (string)$stringTest['getCotizacionResult'];  
- 
-   $email = Sap::getClientSoap()->call('getDocCotz',array('idReport' => $idReport, 'user_email' => Auth::user()->email));
-   //echo ($email);
+		// El id debe ser el primer elemento del array
+		$primer = true;
+		foreach ($prods as $producto) {
+			if ($primer == true) {
+				$primer = false;
+				$productos = [
+					['producto' => ['id' => $producto->ItemCode, 'cantidad' => $producto->cantidad]]
+				];
+			}else{
+				$productos[] = ['producto' => ['id' => $producto->ItemCode, 'cantidad' => $producto->cantidad]];
+			}
 
-	if ( strcmp(((string)$email['getDocCotzResult']) , "enviado") == 0) {
-			 	Session::flash('mensaje', 'Hemos enviado la cotización a tu email');
-			 }else{
-			 	Session::flash('mensaje', 'Algo ha salido mal...');
-			 }
-			 return back();		 
+		}
+		//return var_dump($productos);
+		/**
+		 *   Se arma un Xml con todos lo items por que los arrays entre C# y php son incompatibles
+		 */
+		$xml = new \SimpleXMLElement('<root/>');
+		// Leer datos del array e introducirlos al documento xml
+		array_walk_recursive($productos, function($value, $key)use($xml){
+			if ($key == 'id') {
+				$Item = $xml->addChild('producto');
+				$Item->addChild($key, $value);
+			}else{
+				$xml->producto[count($xml)-1]->addChild($key, $value);
+			}
+		});
+		$stringXML = $xml->asXML();
+		//return var_dump($stringXML);
+		/**
+		 *  Obtenemos el CardCode del usuario Lead y el ID de la session de SAP
+		 **/
+		$Cardcode = Auth::user()->sapResultado;
+
+		$ID = Session::get('UserId');
+		$client = Session::get('Client');
+		//$ID = Sap::getId();
+
+		/***  Hacer la cotizacion
+		 *  Ademas necesitamos un Client de SAP para enviar el mensaje y elaborar la cotizacion en SAP
+		 */
+		$stringTest = $client->call('getCotizacion',array('CardCode' => $Cardcode, 'SID' => $ID, 'Items' => $stringXML));
+
+		/**
+		 * Se obtiene la respuesta => codigo de la cotizacion
+		 */
+		$idReport = (string)$stringTest['getCotizacionResult'];
+
+		/**
+		 * Se puede obtener la cotizacion y enviarla por email
+		 */
+		$email = $client->call('getDocCotz',array('idReport' => $idReport, 'user_email' => Auth::user()->email));
+		//echo ($email);
+		/**
+		 * si la respuesta es igual a "enviado"  entonces el email ha sido enviado desde C#
+		 */
+		if ( strcmp(((string)$email['getDocCotzResult']) , "enviado") == 0) {
+			Session::flash('mensaje', 'Hemos enviado la cotización a tu email');
+		}else{
+			return back()->withErrors(array('msg' => 'Ha ocurrido un error al procesar su solicitud'));
+		}
+		return back();
+
 	}
 
 	/**

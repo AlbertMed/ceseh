@@ -56,33 +56,34 @@
                         <div class="input-field col m6 s12">
                             <i class ="material-icons prefix">email</i>
                             <input id="e-mail" type="email" class="validate" name="email" value="{{ old('email') }}">
-                            <label for="e-mail" data-error="wrong" data-success="right">Dirección E-Mail *</label>
+                            <label for="e-mail" data-error="wrong" data-success="right">E-Mail de Contacto *</label>
                         </div>
 
                         <div class="input-field col m6 s12">
                             <i class = "material-icons prefix">phone</i>
                             <input id="telefono" type="tel" class="validate" name="telefono" value="{{ old('telefono') }}">
-                            <label for="telefono">Telefono *</label>
+                            <label for="telefono">Telefono de Contacto*</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col m6 s12">
-                            <i class = "material-icons prefix">location_on</i>
-                            <input id="direccion" type="text" class="validate" name="direccion" value="{{ old('direccion') }}">
-                            <label for="direccion">Dirección *</label>
+                            <i class = "material-icons prefix">business</i>
+                            <input id="nombreEmpresa" type="text" class="validate" name="nombreEmpresa" value="{{ old('nombreEmpresa') }}">
+                            <label for="nombreEmpresa">Nombre de la Empresa *</label>
                         </div>
 
                         <div class="input-field col m6 s12">
-                            <input id="cp" type="text" class="validate" name="cp" value="{{ old('cp') }}">
-                            <label for="cp">CP *</label>
+
+
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col m6 s12">
                             <i class="mdi-communication-vpn-key prefix"></i>
-                            <input id="password" type="password" class="validate" name="password">
+
+                            <input class="tooltipped" data-position="buttom" data-delay="50" data-tooltip="6 caracteres mínimo" id="password" type="password" class="validate" name="password">
                             <label for="password">Password *</label>
                         </div>
 

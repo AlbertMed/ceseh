@@ -15,9 +15,8 @@ Route::get('/test', function(){
 });
 Route::get('/', 'ProductoController@index');
 
-Route::get('/cotizacion', 'cotizaController@cotizador');
 
-Route::get('home', 'HomeController@index');
+Route::get('home', 'ProductoController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -33,44 +32,61 @@ Route::get('session',function(){
 
 Route::get('home/contacto','HomeController@contacto');
 
-Route::get('productos/carrito/items/{usuario}','CarritoController@itemsCarrito');
-
 Route::get('productos/{categoria}/datos/{valor}','ProductoController@datos');
 
 Route::get('productos/{categoria}', 'ProductoController@listarProductos');
 
-Route::get('carrito', 'CarritoController@index');
-
-Route::post('add/{itemCode}', 'CarritoController@add');
-
-Route::get('home/datos/info/{token}/={email}','UserController@getData');
-
-Route::get('deleteItem/{user}/{id}/{token}','CarritoController@delete');
-
-Route::get('updatecantidad/{id}/{val}','CarritoController@updatecantidad');
-
 Route::get('busqueda/datos','ProductoController@busquedaProductos');
-
-Route::post('datos/ver','UserController@store');
 
 Route::post('home/info/enviar','ContactoController@create');
 
-Route::post('paymentCreditCard','ConektaController@payWithCreditCard');
-
-Route::post('paymentWithPaypal', array(
-	'as' => 'payments',
-	'uses' => 'PaypalController@postPayment',
-));
-
-// this is after make the payment, PayPal redirect back to your site
-Route::get('payment/status', array(
-	'as' => 'payment.status',
-	'uses' => 'PaypalController@getPaymentStatus',
-));
-
-Route::get('original/route/{dato}/{id}', array(
-	'as' => 'original.route',
-	'uses' => 'PaypalController@post_Payment',
-));
 
 Route::get('/registro','testController@registro');
+
+
+
+Route::group(['middleware' => 'auth'], function() {
+	Route::get('/cotizacion', 'cotizaController@cotizador');
+
+	Route::get('productos/carrito/items/{usuario}','CarritoController@itemsCarrito');
+
+	Route::get('carrito', 'CarritoController@index');
+
+	//Route::post('add/{itemCode}', 'CarritoController@add');
+
+	Route::get('add', ['as' => 'add', 'uses' =>'CarritoController@add']);
+
+	Route::get('home/perfil','UserController@getData');
+
+	Route::get('deleteItem/{user}/{id}/{token}','CarritoController@delete');
+
+	Route::get('updatecantidad/{id}/{val}','CarritoController@updatecantidad');
+
+	Route::post('perfil','UserController@store');
+
+	Route::post('perfil_compra','UserController@store_compra');
+
+	Route::post('paymentCreditCard','ConektaController@payWithCreditCard');
+
+	Route::post('Paypal', array(
+		'as' => 'payments',
+		'uses' => 'PaypalIController@postPayment',
+	));
+
+// this is after make the payment, PayPal redirect back to your site
+	Route::get('payment/status', array(
+		'as' => 'payment.status',
+		'uses' => 'PaypalController@getPaymentStatus',
+	));
+
+	Route::get('original/route/{dato}/{id}', array(
+		'as' => 'original.route',
+		'uses' => 'PaypalController@post_Payment',
+	));
+});
+Route::group(['middleware' => 'auth', 'prefix' => 'compra'], function()
+{
+	Route::get('check_info', 'CompraController@getPersonalInfo');
+	Route::get('direcciones_usuario', 'CompraController@direcciones');
+	Route::get('foma_de_Pago', 'CompraController@getFormasPago');
+});

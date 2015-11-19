@@ -14,7 +14,7 @@ Login
             </div>
             @endif
 
-            {!! Form::open(['url'=>'auth/login', 'role'=>'form', 'class'=>'col s12']) !!} 
+            {!! Form::open(['url'=>'auth/login', 'role'=>'form', 'class'=>'col s12']) !!}
 
             
                 <div class="input-field col m8 offset-m2 s12">
@@ -48,8 +48,8 @@ Login
                     </p>
                 </div>
 
-             
-        
+
+
 
         {!! Form::close() !!}
 

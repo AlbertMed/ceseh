@@ -23,26 +23,42 @@ class CreateUserRequest extends Request
      */
     public function rules()
     {
-        return [
-            'nombre'      =>'required',
-            'telefono'    =>'required',
-            'cp'          =>'required',
-            'RFC'         =>'required',
-            'nombreRazon' =>'required',
-            'email_cli'   =>'required|unique:users,email_cli',
-            'calle'       =>'required',
-            'colonia'     =>'required',
-            'ciudad'      =>'required',
-            'municipio'   =>'required',
-            'estado'      =>'required',
-            'numero'      =>'required',
-            'en_calle'       =>'required',
-            'en_colonia'     =>'required',
-            'en_ciudad'      =>'required',
-            'en_municipio'   =>'required',
-            'en_estado'      =>'required',
-            'en_cp'          =>'required',
-            'en_numero'      =>'required'
-        ];
+
+        if(Request::has('DentreI')){
+            return [
+                'nombre'      =>'required',
+                'telefono'    =>'required|integer',
+                'Fcalle'      => 'required',
+                'Fcolonia'    => 'required',
+                'grupoGiro'   => 'required',
+                'Fciudad'     => 'required',
+                'Fmunicipio'  => 'required',
+                'Festado'     => 'required',
+                'Fcp'         => 'required|size:5',
+                'Fnumero'     => 'required|integer',
+
+            ];
+        }else{
+            return [
+                'nombre'      =>'required',
+                'telefono'    =>'required|integer',
+                'Fcalle'      => 'required',
+                'Fcolonia'    => 'required',
+                'grupoGiro'   => 'required',
+                'Fciudad'     => 'required',
+                'Fmunicipio'  => 'required',
+                'Festado'     => 'required',
+                'Fcp'         => 'required|size:5',
+                'Fnumero'     => 'required|integer',
+                'en_calle'       =>'required',
+                'en_colonia'     =>'required',
+                'en_ciudad'      =>'required',
+                'en_municipio'   =>'required',
+                'en_estado'      =>'required',
+                'en_cp'          =>'required|size:5',
+                'en_numero'      =>'required|integer',
+            ];
+
+        }
     }
 }

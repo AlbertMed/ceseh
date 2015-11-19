@@ -22,8 +22,8 @@ class contactoRequest extends Request {
         return [
             'nombre_empresa'     =>'required',
             'nombre_solicitante' => 'required',
-            'email'              => 'required',
-            'telefono'           => 'required',
+            'email'              => 'required|email',
+            'telefono'           => 'require|integer',
             'asunto'             => 'required',
             'mensaje'            => 'required'
         ];

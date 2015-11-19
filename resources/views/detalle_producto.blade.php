@@ -1,95 +1,67 @@
 @extends('app')
 @section('titulo')
-  Producto
+	Producto
 @endsection
 
 @section('content')
-<div class="container">
-	<div class="row">
-		<div class="col s12">
-			<div class="panel panel-default">
-				<div class="panel-body">
 
-			       <div class="row">
-                      <br><br>
-				      <div class="col s12 m4 l3"> <!-- Note that "m4 l3" was added -->
-				        <!-- Grey navigation panel
-                        
-				              This content will be:
-				          3-columns-wide on large screens,
-				          4-columns-wide on medium screens,
-				          12-columns-wide on small screens  -->
-				          <div class="col s12">
-				               <img class="materialboxed col s12" width="200" src="http://www.ar.all.biz/img/ar/catalog/52062.jpeg">
-                          </div>
-				      </div>
-                 
-				      <div class="col s12 m8 l9"> 
-				      		<br><br>
-					        <div class="row">
-								<div class="col s12">
-								   <ul class="tabs">
-								      <li class="tab col s4"><a class="active" href="#test1">Producto</a></li>
-								      <li class="tab col s4"><a href="#test2">Especificaciones</a></li>
-								      <li class="tab col s4"><a href="#test3">Otras</a></li>
-								    </ul>
-							    </div>
-							    <div id="test1" class="col s12">
-                                     <br><br><br>
-							      
-		                            <br>
-		                            {{$itemName}}
-								    
-								       <br><br> 
-									<span>Precio</span><br>
-									@if(Auth::check())
-									<span class="teal-text text-lighten-2"><p>$ {{$precio}}&nbsp;MXP</p></span>
-									@else
-                                     <span class="teal-text text-lighten-2"><p>Solo Usuarios Registrados</p></span>
-									@endif
-								        
-								    <br>
-								    <span>Código</span><br>
-									<span><i class="material-icons left">label_outline</i>{{$itemCode}}</span>
-		                            <br><br>
-		                            <span>En Stock</span>
-		                            <br>
-		                            {{$stock}}
-		                            <br><br>                                    
-		                            {!! Form::open(array("url" => "/add/".$itemCode))!!}
-		                            
-		                            <div class="input-field col s3">
-                                    {!!Form::input('number','number','1', ['max' => $stock, 'min' => '1']) !!}
-                                     <label>Cantidad:</label>
-                                    </div>                                    
-		                            <br>
-                                   
-                                   	 <button class="btn waves-effect waves-light" type="submit" name="action">Agregar
-                                   <i class="material-icons right">send</i>
-                                   </button>
+	<div class="container">
+		@if(Session::has('add'))
+			<div class="card-panel teal lighten-2">
+				<p>{{Session::get('add')}}</p>
+			</div>
+			{{Session::forget('add')}}
+		@endif
+		<div class="card-panel margintop">
+			<div class="row valign-wrapper">
+				<div class="col m5 offset-m1">
+					<img class="avatar materialboxed hoverable" data-caption="Codigo: {{$itemCode}}"
+						 width="350" height="350" src="http://www.ar.all.biz/img/ar/catalog/52062.jpeg">
+				</div>
+				<div class="col m5 flow-text">
+					<p  class="center-align">
+					<h3>{{$itemCode}}</h3>
+					<h5>{{$itemName}}</h5>
+					</p>
+					<p>
+					<h5>Disponibles: {{$stock}} piezas</h5>
 
-								  									 			
-								    
-								    {!! Form::close() !!}
-								</div>    
-								<div id="test2" class="col s12">aquí van los detalles</div>
-								<div id="test3" class="col s12">aqui ira algo másk</div>
-						   </div>
-					  </div>
-                 </div><!--se termina row-->
-			 </div>
-		   </div>
-	   </div>
-   </div>
-</div>
+						<h4>Precio: ${{$precio}} MX</h4>
+
+
+
+					<div class="row">
+						{!! Form::open(['route' => 'add', 'method' => 'GET'])!!}
+						<input type="hidden" name="itemCode" value="{{ $itemCode }}">
+						<div class="col m3 input-field ">
+							<label>Cantidad:</label>
+							{!!Form::input('number','micantidad','1', ['max' => $stock, 'min' => '1']) !!}
+						</div>
+						<div class="col m8 input-field ">
+							<button type="submit"  class="waves-effect waves-light btn-large">
+								<i class="left mdi-action-add-shopping-cart"></i>Agregar</button>
+						</div>
+						{!! Form::close() !!}
+					</div>
+					<p>
+					<h5>Detalles</h5>
+					<h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloremque
+						expedita impedit in perferendis quia ratione rerum! Amet cupiditate deserunt
+						dolore enim fugit labore optio placeat quas, ratione vero voluptate.</h6>
+					</p>
+
+				</div>
+			</div>
+		</div>
+	</div>
 
 @endsection
 
 
 @section('scripts')
-<script>      
-     $(document).on('ready', function(){
-     $("select").material_select();
-     });
+	<script>
+		$(document).on('ready', function(){
+			$("select").material_select();
+		});
 	</script>
 @endsection

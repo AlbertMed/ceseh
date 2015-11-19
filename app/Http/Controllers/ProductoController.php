@@ -9,6 +9,9 @@ use App\Http\Controllers\Controller;
 use App\Articulos;
 use DB;
 
+
+use App\Busqueda;
+
 use Bwords\Main as Sap;
 use Auth;
 use Session;
@@ -71,7 +74,7 @@ class ProductoController extends Controller
          */
         $ItemList = $client->call('GetDetalle',array('SID' => $ID , 'producto' => $valor));
         $productos = (string)$ItemList['GetDetalleResult'];
-        $datos = utf8_encode($productos);
+        $datos = utf8_encode($productos);        
         $BOM = new \SimpleXMLElement($datos);
         //datos a mostrar en la interfaz
         $itemName = $BOM->BO->Items->row->ItemName;
@@ -79,13 +82,13 @@ class ProductoController extends Controller
 
         if ($BOM->BO->Items_Prices->row[1]->Currency=="MXP"){
             $numero = ($BOM->BO->Items_Prices->row[1]->Price); 
-            $numero = number_format($numero,4,'.',''); 
+            $numero = number_format($numero,2,'.',',');
             $precio = $numero; 
         }else{
             $number = (float)$BOM->BO->Items_Prices->row[1]->Price; 
-            $number = number_format($number,4,'.','');  
-            $numero = ($number)*$currency;    
-            $numero = number_format($numero,4,'.','');  
+            $number = number_format($number,2,'.',',');
+            $numero = ($number)*$currency;
+            $numero = number_format($numero,2,'.',',');
             $precio = $numero; 
         }  
 
@@ -107,66 +110,28 @@ class ProductoController extends Controller
     }
 
      public function busquedaProductos(){
-        $categoria = DB::table('producto')->distinct()->select('Marca')->where("ItemName","!=","''")->get();
-        $dato = Request::get('search');
-        $data= Articulos::where('ItemName', 'like', '%'.$dato.'%')->orWhere('Marca','like','%'.$dato.'%')->orWhere('ItemCode','like','%'.$dato.'%')->Paginate(12);
-        return view('producto.busqueda')->with(compact('data','dato','categoria'));
-    }
+         $categoria = DB::table('producto')->distinct()->select('Marca')->where("ItemName","!=","''")->get();
+         $dato = Request::get('search');
+         $data= Articulos::where('ItemName', 'like', '%'.$dato.'%')->orWhere('Marca','like','%'.$dato.'%')->orWhere('ItemCode','like','%'.$dato.'%')->orWhere('SubMarca','like','%'.$dato.'%')->Paginate(12);
+         if (Auth::guest()){
+             $busqueda=array(
+                 'busqueda'=> $dato,
+                 'nombre'  => 'null',
+                 'email'   => 'null'
+             );
+             Busqueda::create($busqueda);
+         }else{
+             $busqueda=array(
+                 'busqueda' =>$dato,
+                 'nombre'   => Auth::user()->nombre,
+                 'email'    => Auth::user()->email
+             );
+             Busqueda::create($busqueda);
+         }
+         return view('producto.busqueda')->with(compact('data','dato','categoria'));
+     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  Request  $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

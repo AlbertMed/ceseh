@@ -9,5 +9,5 @@ class Carrito extends Model{
     //
     protected $table = 'carrito';
 
-	protected $fillable = ['ItemCode','ItemName','cantidad','precio','cliente','status'];
+	protected $fillable = ['ItemCode','ItemName','cantidad','precio', 'stock', 'cliente', 'user_id'];
 }

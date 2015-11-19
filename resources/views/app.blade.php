@@ -9,7 +9,7 @@
 
 
     <!-- {!! Html::style('css/plugin-min.css')!!} -->
-    {!! Html::style('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css')!!}
+    {!! Html::style('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css')!!}
     {!!Html::style("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css")!!}
             <!-- {!! Html::style('css/custom-min.css')!!} -->
     {!! Html::style('css/ingenieria-ligera.css')!!}
@@ -23,7 +23,18 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <style>
+        .margintop {
+            margin-top: 2em;
+        }
+       .avatar {
+            /* los siguientes valores son independientes del tamaño del círculo */
+            background-repeat: no-repeat;
+            background-position: 50%;
+            border-radius: 5%;
+            background-size: 100% auto;
+        }
+    </style>
 </head>
 
 <body id="top" class="scrollspy" >
@@ -53,8 +64,9 @@
 </ul>
 <!--Navigation-->
 
-
-<nav id="nav_f" class="lime lighten-5" role="navigation" >
+<!-- Barra para escritorio-->
+<div class="navbar-fixed ">
+<nav id="nav_f" style="background-color: #e5e5e5" role="navigation" >
 
     <div class="nav-wrapper">
         <a href="/" class="black-text">
@@ -63,45 +75,48 @@
             </div>
         </a>
 
+       <div class="container">
 
-        <ul class="right hide-on-med-and-down">
-            <li>
-                <a href="{!! url('home/contacto') !!}" class="black-text"><i class="material-icons left black-text">contact_phone</i>Contáctanos</a>
-            </li>
-            @if (Auth::guest())
-                <li>
-                    <a class="dropdown-button black-text" href="#" data-activates="dropdown_desk"> <i class="material-icons left ">person_pin</i>Cuenta de Invitado
-                    </a>
-                </li>
-            @else
-                <ul id="dropdown_desk2" class="dropdown-content">
-                    <li>
-                        <a href="{!! url('home/datos/info/'.csrf_token().'/='.Auth::user()->email) !!}">
-                            <i class="material-icons left black-text">contacts</i>Mi Perfil</a>
-                    </li>
+           <ul class="right hide-on-med-and-down ">
+               <li>
+                   <a href="{!! url('home/contacto') !!}" class="black-text"><i class="material-icons left black-text">contact_phone</i>Contáctanos</a>
+               </li>
+               @if (Auth::guest())
+                   <li>
+                       <a class="dropdown-button black-text" href="#" data-activates="dropdown_desk"> <i class="material-icons left ">person_pin</i>
+                           Inicio de Sesión
+                       </a>
+                   </li>
+               @else
+                   <ul id="dropdown_desk2" class="dropdown-content">
+                       <li>
+                           <a href="{!! url('home/perfil') !!}">
+                               <i class="material-icons left black-text">contacts</i>Mi Perfil</a>
+                       </li>
 
-                    <li class="divider"></li>
+                       <li class="divider"></li>
 
-                    <li>
-                        <a href="{!! url('/auth/logout') !!}">
-                            <i class="material-icons left black-text">lock_outline</i>Salir</a>
-                    </li>
-                </ul>
-                <li>
-                    <a class="black-text" href="{!! url('productos/carrito/items/'.Auth::user()->email) !!}"><i class="material-icons left black-text">shopping_cart</i>
+                       <li>
+                           <a href="{!! url('/auth/logout') !!}">
+                               <i class="material-icons left black-text">lock_outline</i>Salir</a>
+                       </li>
+                   </ul>
+                   <li>
+                       <a class="black-text" href="{!! url('productos/carrito/items/'.Auth::user()->email) !!}"><i class="material-icons left black-text">shopping_cart</i>
 
-                        {{Session::get('cant')}} Producto(s)
+                           {{Session::get('cant')}} Producto(s)
 
-                    </a>
+                       </a>
 
-                </li>
+                   </li>
 
-                <li>
-                    <a class="dropdown-button black-text" href="#" data-activates="dropdown_desk2"> <i class="material-icons left black-text">person_pin</i>{{ Auth::user()->nombre }} <i class="material-icons right black-text">arrow_drop_down</i>
-                    </a>
-                </li>
-            @endif
-        </ul>
+                   <li>
+                       <a class="dropdown-button black-text" href="#" data-activates="dropdown_desk2"> <i class="material-icons left black-text">person_pin</i>{{ Auth::user()->nombre }} <i class="material-icons right black-text">arrow_drop_down</i>
+                       </a>
+                   </li>
+               @endif
+           </ul>
+       </div>
 
 
         <!-- barra para mobil-->
@@ -111,13 +126,14 @@
             </li>
             @if (Auth::guest())
                 <li>
-                    <a class="dropdown-button black-text" href="#" data-activates="dropdown_mobil">Cuenta de Invitado<i class="material-icons right">arrow_drop_down</i>
+                    <a class="dropdown-button black-text" href="#" data-activates="dropdown_mobil"><i class="material-icons right">arrow_drop_down</i>
+                        Inicio de Sesión
                     </a>
                 </li>
             @else
                 <ul id="dropdown_mobil2" class="dropdown-content">
                     <li>
-                        <a href="{!! url('home/datos/info/'.csrf_token().'/='.Auth::user()->email) !!}">
+                        <a href="{!! url('home/perfil') !!}">
                             <i class="material-icons left black-text">contacts</i>Mi Perfil</a>
                     </li>
 
@@ -147,24 +163,33 @@
     </div>
 
 </nav>
+</div>
 
+<div class="fixed">
+    <nav class=" " style="height: 44px; background-color: #EFEEEE">
+        <div class="nav-wrapper container valign-wrapper">
 
-<div >
-    <nav class="light-green darken-3 flat">
-        <div class="nav-wrapper container">
             <form method="GET" action="{!! url('busqueda/datos') !!}">
-                <div class="input-field">
+                <div class="input-field valign" >
                     <meta content="{!! url('busqueda/datos?search={search}') !!}" itemprop="terget"/>
-                    <input id="search" name="search" type="search" required="" placeholder="Buscar...">
-                    <label for="search"><i class="mdi-action-search"></i></label>
+                    <input style="height: 40px; margin-top: 14px; width: 480px; font-size: medium;" id="search" name="search" type="search" required="" placeholder="Encuentra lo que buscas">
+                    <label for="search" style="fill: black; margin-top: -11px;"><i class="mdi-action-search" style="fill: black"></i></label>
+
 
                 </div>
             </form>
+             <p style="margin-left:100px; color: black">LLAMA GRATIS AL 018002373472</p>
         </div>
     </nav>
 </div>
-@yield('content')
 
+@yield('content')
+<div class="vFlotante">
+    <hgroup style="display:inline-block;">
+        <h5 class="titulo">Social</h5>
+    </hgroup>
+    <p style="display:inline-block;">información</p>
+</div>
 
 <br>
 <div id="contact"></div>
@@ -209,10 +234,10 @@
 
             <ul class="black-text right">
                 <li>
-                    <img src="../payment/payment-amex.png" width="47" height="35">
-                    <img src="../payment/payment-master.png" width="47" height="35">
-                    <img src="../payment/payment-paypal.png" width="47" height="35">
-                    <img src="../payment/payment-visa.png" width="47" height="35">
+                    <img src="/payment/payment-amex.png" width="47" height="35">
+                    <img src="/payment/payment-master.png" width="47" height="35">
+                    <img src="/payment/payment-paypal.png" width="47" height="35">
+                    <img src="/payment/payment-visa.png" width="47" height="35">
                 </li>
 
             </ul>
@@ -222,7 +247,8 @@
 <!--  Scripts-->
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
+
 <!-- <script type="text/javascript" src="/js/plugin-min.js"></script>  -->
 <!-- <script src="js/custom-min.js"></script> -->
 
@@ -235,7 +261,8 @@
         $('.slider').slider();
         $('.modal-trigger').leanModal();
         $(".button-collapse").sideNav();
-
+        $('select').material_select();
+        $('.tooltipped').tooltip({delay: 50});
     });
 
 </script>
