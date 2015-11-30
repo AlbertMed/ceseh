@@ -24,10 +24,8 @@ Route::controllers([
 ]);
 
 Route::get('session',function(){
-	$productosCarrito = Session::get('productosCarrito');
-	echo '<pre>';
-	print_r($productosCarrito);
-	echo '</pre>';
+	$var = Session::get('UserId');
+	echo "".$var;	
 });
 
 Route::get('home/contacto','HomeController@contacto');

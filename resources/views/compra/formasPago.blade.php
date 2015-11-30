@@ -5,7 +5,6 @@
 @section('content')
         <div class="container">
                 <div class="row">
-
                         <div class="col s12 m6 l6">
                                 <h3>Formas de pago</h3>
                                 <ul class="collapsible popout" data-collapsible="accordion">
@@ -111,49 +110,49 @@
         </div>
 @endsection
 @section('scripts')
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript" src="https://conektaapi.s3.amazonaws.com/v0.3.2/js/conekta.js"></script>
-<script type="text/javascript">
-        // Conekta Public Key
-        Conekta.setPublishableKey('key_LwZyqNbCxvgSSqWydHQCHrA');
-        // ...
-        jQuery(function($) {
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://conektaapi.s3.amazonaws.com/v0.3.2/js/conekta.js"></script>
+        <script type="text/javascript">
+                // Conekta Public Key
+                Conekta.setPublishableKey('key_LwZyqNbCxvgSSqWydHQCHrA');
+                // ...
+                jQuery(function($) {
 
-                var conektaSuccessResponseHandler;
-                conektaSuccessResponseHandler = function(token) {
-                        var $form;
-                        $form = $("#card-form");
+                        var conektaSuccessResponseHandler;
+                        conektaSuccessResponseHandler = function(token) {
+                                var $form;
+                                $form = $("#card-form");
 
-                        /* Inserta el token_id en la forma para que se envíe al servidor */
-                        $form.append($("<input type=\"hidden\" name=\"conektaTokenId\" />").val(token.id));
+                                /* Inserta el token_id en la forma para que se envíe al servidor */
+                                $form.append($("<input type=\"hidden\" name=\"conektaTokenId\" />").val(token.id));
 
-                        /* and submit */
-                        $form.get(0).submit();
-                };
+                                /* and submit */
+                                $form.get(0).submit();
+                        };
 
-                var conektaErrorResponseHandler;
-                conektaErrorResponseHandler = function(response) {
-                        var $form;
-                        $form = $("#card-form");
+                        var conektaErrorResponseHandler;
+                        conektaErrorResponseHandler = function(response) {
+                                var $form;
+                                $form = $("#card-form");
 
-                        /* Muestra los errores en la forma */
-                        $form.find(".card-errors").text(response.message);
-                        $form.find("button").prop("disabled", false);
-                };
+                                /* Muestra los errores en la forma */
+                                $form.find(".card-errors").text(response.message);
+                                $form.find("button").prop("disabled", false);
+                        };
 
-                $("#card-form").submit(function(event) {
-                        var $form;
-                        $form = $(this);
+                        $("#card-form").submit(function(event) {
+                                var $form;
+                                $form = $(this);
 
-                        /* Previene hacer submit más de una vez */
-                        $form.find("button").prop("disabled", true);
-                        Conekta.token.create($form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
+                                /* Previene hacer submit más de una vez */
+                                $form.find("button").prop("disabled", true);
+                                Conekta.token.create($form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
 
-                        /* Previene que la información de la forma sea enviada al servidor */
-                        return false;
+                                /* Previene que la información de la forma sea enviada al servidor */
+                                return false;
+                        });
                 });
-        });
 
-</script>
+        </script>
 
 @endsection

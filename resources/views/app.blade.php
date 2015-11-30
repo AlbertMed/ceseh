@@ -24,6 +24,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
+        .hr {border: 0; height: 2px; text-align: center; background-color: #EFEEEE;}
         .margintop {
             margin-top: 2em;
         }
@@ -34,6 +35,28 @@
             border-radius: 5%;
             background-size: 100% auto;
         }
+        .search {
+  position: relative;
+  color: #aaa;
+  font-size: 16px;
+}
+
+.search input {
+  width: 250px;
+  height: 32px;
+
+  background: #fcfcfc;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+}
+
+.search input { text-indent: 32px;}
+.search .fa-search { 
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
     </style>
 </head>
 
@@ -52,15 +75,7 @@
     </li>
 </ul>
 <ul id="dropdown_desk" class="dropdown-content">
-    <li>
-        <a href="{!! url('/auth/login') !!}">
-            <i class="material-icons left black-text">perm_identity</i>Login</a>
-    </li>
-
-    <li>
-        <a href="{!! url('/auth/register') !!}">
-            <i class="material-icons left black-text">description</i>Registrate</a>
-    </li>
+    
 </ul>
 <!--Navigation-->
 
@@ -83,10 +98,11 @@
                </li>
                @if (Auth::guest())
                    <li>
-                       <a class="dropdown-button black-text" href="#" data-activates="dropdown_desk"> <i class="material-icons left ">person_pin</i>
-                           Inicio de Sesión
-                       </a>
-                   </li>
+        <a href="{!! url('/auth/login') !!}" class="black-text">
+            <i class="material-icons left black-text">perm_identity</i>Login</a>
+    </li>
+
+    
                @else
                    <ul id="dropdown_desk2" class="dropdown-content">
                        <li>
@@ -111,7 +127,7 @@
                    </li>
 
                    <li>
-                       <a class="dropdown-button black-text" href="#" data-activates="dropdown_desk2"> <i class="material-icons left black-text">person_pin</i>{{ Auth::user()->nombre }} <i class="material-icons right black-text">arrow_drop_down</i>
+                       <a class="dropdown-button black-text" href="#" data-activates="dropdown_desk2"> <i class="material-icons left black-text">person_pin</i>{{ Auth::user()->nombre }}
                        </a>
                    </li>
                @endif
@@ -166,19 +182,17 @@
 </div>
 
 <div class="fixed">
-    <nav class=" " style="height: 44px; background-color: #EFEEEE">
+    <nav class=" " style="height: 50px; background-color: #EFEEEE">
         <div class="nav-wrapper container valign-wrapper">
 
             <form method="GET" action="{!! url('busqueda/datos') !!}">
-                <div class="input-field valign" >
+                <div class="search" >
                     <meta content="{!! url('busqueda/datos?search={search}') !!}" itemprop="terget"/>
-                    <input style="height: 40px; margin-top: 14px; width: 480px; font-size: medium;" id="search" name="search" type="search" required="" placeholder="Encuentra lo que buscas">
-                    <label for="search" style="fill: black; margin-top: -11px;"><i class="mdi-action-search" style="fill: black"></i></label>
-
-
-                </div>
+                    <span style="margin-top: 14px;" class="fa fa-search"></span>
+                    <input style="height: 40px;  width: 400px; font-size: medium;" id="search" name="search" type="" required="" placeholder="Encuentra lo que buscas"> 
+                    </div>
             </form>
-             <p style="margin-left:100px; color: black">LLAMA GRATIS AL 018002373472</p>
+             <p style="margin-left:250px; color: black">LLAMA GRATIS AL 01-800-237-34-72</p>
         </div>
     </nav>
 </div>

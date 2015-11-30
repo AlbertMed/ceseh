@@ -109,7 +109,13 @@ public function __construct()
         $productos = (string)$ItemList['GetDetalleResult'];
         $dat = utf8_encode($productos);
 
+        // muestra que nos regresa sap 
+        // * si manda erroren credenciales: revisar que credenciales guardadas en la Session
+        //dd($dat); 
+        
         $BOM = new \SimpleXMLElement($dat);
+
+        
         //datos a mostrar en la interfaz
         //$itemName = $BOM->BO->Items->row->ItemName;
         //$itemCode = $BOM->BO->Items->row->ItemCode;
