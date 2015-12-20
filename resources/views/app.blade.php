@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>CESEHSA | @yield('titulo')</title>
 
-
-    <!-- {!! Html::style('css/plugin-min.css')!!} -->
+     {!! Html::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')!!}
     {!! Html::style('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css')!!}
     {!!Html::style("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css")!!}
             <!-- {!! Html::style('css/custom-min.css')!!} -->
@@ -28,7 +27,7 @@
         .margintop {
             margin-top: 2em;
         }
-       .avatar {
+        .avatar {
             /* los siguientes valores son independientes del tamaño del círculo */
             background-repeat: no-repeat;
             background-position: 50%;
@@ -36,27 +35,37 @@
             background-size: 100% auto;
         }
         .search {
-  position: relative;
-  color: #aaa;
-  font-size: 16px;
-}
+            position: relative;
+            color: #aaa;
+            font-size: 16px;
+        }
 
-.search input {
-  width: 250px;
-  height: 32px;
+        .search input {
+            width: 250px;
+            height: 32px;
 
-  background: #fcfcfc;
-  border: 1px solid #aaa;
-  border-radius: 5px;
-  box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
-}
+            background: #fcfcfc;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+        }
 
-.search input { text-indent: 32px;}
-.search .fa-search { 
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
+        .search input { text-indent: 32px;}
+        .search .fa-search {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .search .fa-user {
+            position: absolute;
+            top: 23px;
+            left: 10px;
+        }
+        .search .fa-lock {
+            position: absolute;
+            top: 23px;
+            left: 10px;
+        }
     </style>
 </head>
 
@@ -65,8 +74,7 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown_mobil" class="dropdown-content">
     <li>
-        <a href="{!! url('/auth/login') !!}">
-            Login</a>
+        <a href="{!! url('/auth/login') !!}">Login</a>
     </li>
 
     <li>
@@ -75,110 +83,134 @@
     </li>
 </ul>
 <ul id="dropdown_desk" class="dropdown-content">
-    
+
 </ul>
 <!--Navigation-->
 
 <!-- Barra para escritorio-->
 <div class="navbar-fixed ">
-<nav id="nav_f" style="background-color: #e5e5e5" role="navigation" >
+    <nav id="nav_f" style="background-color: #e5e5e5" role="navigation" >
 
-    <div class="nav-wrapper">
-        <a href="/" class="black-text">
-            <div class="logo">
-                <img  style="width:55%; max-height:55%" src="/img/logo/logocesehsa.png" alt="">
-            </div>
-        </a>
+        <div class="nav-wrapper">
+            <a href="/" class="black-text">
+                <div class="logo">
+                    <img  style="width:55%; max-height:55%; margin-top: -7%" src="/img/logo/logocesehsa.png" alt="">
+                </div>
+            </a>
 
-       <div class="container">
+            <div style="width: 90%">
 
-           <ul class="right hide-on-med-and-down ">
-               <li>
-                   <a href="{!! url('home/contacto') !!}" class="black-text"><i class="material-icons left black-text">contact_phone</i>Contáctanos</a>
-               </li>
-               @if (Auth::guest())
-                   <li>
-        <a href="{!! url('/auth/login') !!}" class="black-text">
-            <i class="material-icons left black-text">perm_identity</i>Login</a>
-    </li>
-
-    
-               @else
-                   <ul id="dropdown_desk2" class="dropdown-content">
-                       <li>
-                           <a href="{!! url('home/perfil') !!}">
-                               <i class="material-icons left black-text">contacts</i>Mi Perfil</a>
-                       </li>
-
-                       <li class="divider"></li>
-
-                       <li>
-                           <a href="{!! url('/auth/logout') !!}">
-                               <i class="material-icons left black-text">lock_outline</i>Salir</a>
-                       </li>
-                   </ul>
-                   <li>
-                       <a class="black-text" href="{!! url('productos/carrito/items/'.Auth::user()->email) !!}"><i class="material-icons left black-text">shopping_cart</i>
-
-                           {{Session::get('cant')}} Producto(s)
-
-                       </a>
-
-                   </li>
-
-                   <li>
-                       <a class="dropdown-button black-text" href="#" data-activates="dropdown_desk2"> <i class="material-icons left black-text">person_pin</i>{{ Auth::user()->nombre }}
-                       </a>
-                   </li>
-               @endif
-           </ul>
-       </div>
+                <ul class="right hide-on-med-and-down ">
+                    @if (Auth::guest())
 
 
-        <!-- barra para mobil-->
-        <ul id="nav-mobile" class="right side-nav">
-            <li>
-                <a href="{!! url('home/contacto') !!}" class="black-text">Contáctanos</a>
-            </li>
-            @if (Auth::guest())
-                <li>
-                    <a class="dropdown-button black-text" href="#" data-activates="dropdown_mobil"><i class="material-icons right">arrow_drop_down</i>
-                        Inicio de Sesión
-                    </a>
-                </li>
-            @else
-                <ul id="dropdown_mobil2" class="dropdown-content">
-                    <li>
-                        <a href="{!! url('home/perfil') !!}">
-                            <i class="material-icons left black-text">contacts</i>Mi Perfil</a>
-                    </li>
+                        {!! Form::open(['url'=>'auth/login', 'role'=>'form']) !!}
+                            <li style="background-color: transparent; ">
+                            <div class="search" >
+                                    <span  class="fa fa-user"></span>
+                                    <input style="height: 40px;  width: 250px; font-size: medium;" id="search" name="email"  type="email"  placeholder="Usuario">
 
-                    <li class="divider"></li>
+                                </div>
+                            </li>
 
-                    <li>
-                        <a href="{!! url('/auth/logout') !!}">
-                            <i class="material-icons left black-text">lock_outline</i>Salir</a>
-                    </li>
+                            <li style="background-color: transparent; margin-left: 10px">
+                            <div class="search" >
+                                <span  class="fa fa-lock"></span>
+                                <input style="height: 40px;  width: 150px; font-size: medium;" id="search" name="password" type="password"  placeholder="Contraseña">
+
+                            </div>
+                            </li>
+                            <li style="background-color: transparent; margin-left: 10px">
+                                <div class="" >
+                                    <button type="submit" class="btn grey darken-1">Entrar</button>
+
+                                </div>
+                            </li>
+                        {!! Form::close() !!}
+                        <li style="background-color: transparent; margin-left: 10px">
+                            <div class="" >
+                                <a href="{!! url('/auth/register') !!}" type="button" class="btn waves-light grey darken-1">Registro</a>
+
+                            </div>
+                        </li>
+
+
+
+                    @else
+                        <ul id="dropdown_desk2" class="dropdown-content">
+                            <li>
+                                <a href="{!! url('home/perfil') !!}">
+                                    <i class="material-icons left black-text">contacts</i>Mi Perfil</a>
+                            </li>
+
+                            <li class="divider"></li>
+
+                            <li>
+                                <a href="{!! url('/auth/logout') !!}">
+                                    <i class="material-icons left black-text">lock_outline</i>Salir</a>
+                            </li>
+                        </ul>
+                        <li>
+                            <a class="black-text" href="{!! url('productos/carrito/items/'.Auth::user()->email) !!}">
+                                <i class="material-icons left black-text">shopping_cart</i>
+
+                                {{Session::get('cant')}} Producto(s)
+
+                            </a>
+
+                        </li>
+
+                        <li>
+                            <a class="dropdown-button black-text" href="#" data-activates="dropdown_desk2">
+                                <i class="material-icons left black-text">person_pin</i>{{ Auth::user()->nombre }}
+                            </a>
+                        </li>
+                    @endif
                 </ul>
-                <li>
-                    <a class="black-text" href="{!! url('productos/carrito/items/'.Auth::user()->email) !!}"><i class="material-icons left black-text">shopping_cart</i>
+            </div>
 
-                        {{Session::get('cant')}} Producto(s)
+            <!-- barra para mobil-->
+            <ul id="nav-mobile" class="right side-nav">
 
-                    </a>
+                @if (Auth::guest())
+                    <li>
+                        <a class="dropdown-button black-text" href="#" data-activates="dropdown_mobil"><i class="material-icons right">arrow_drop_down</i>
+                            Inicio de Sesión
+                        </a>
+                    </li>
+                @else
+                    <ul id="dropdown_mobil2" class="dropdown-content">
+                        <li>
+                            <a href="{!! url('home/perfil') !!}">
+                                <i class="material-icons left black-text">contacts</i>Mi Perfil</a>
+                        </li>
 
-                </li>
+                        <li class="divider"></li>
 
-                <li>
-                    <a class="dropdown-button black-text" href="#" data-activates="dropdown_mobil2"> <i class="material-icons left black-text">person_pin</i>{{ Auth::user()->nombre }} <i class="material-icons right black-text">arrow_drop_down</i>
-                    </a>
-                </li>
-            @endif
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse black-text"><i class="material-icons ">view_headline</i></a>
-    </div>
+                        <li>
+                            <a href="{!! url('/auth/logout') !!}">
+                                <i class="material-icons left black-text">lock_outline</i>Salir</a>
+                        </li>
+                    </ul>
+                    <li>
+                        <a class="black-text" href="{!! url('productos/carrito/items/'.Auth::user()->email) !!}"><i class="material-icons left black-text">shopping_cart</i>
 
-</nav>
+                            {{Session::get('cant')}} Producto(s)
+
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <a class="dropdown-button black-text" href="#" data-activates="dropdown_mobil2"> <i class="material-icons left black-text">person_pin</i>{{ Auth::user()->nombre }} <i class="material-icons right black-text">arrow_drop_down</i>
+                        </a>
+                    </li>
+                @endif
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse black-text"><i class="material-icons ">view_headline</i></a>
+        </div>
+
+    </nav>
 </div>
 
 <div class="fixed">
@@ -190,13 +222,31 @@
                     <meta content="{!! url('busqueda/datos?search={search}') !!}" itemprop="terget"/>
                     <span style="margin-top: 14px;" class="fa fa-search"></span>
                     <input style="height: 40px;  width: 400px; font-size: medium;" id="search" name="search" type="" required="" placeholder="Encuentra lo que buscas"> 
-                    </div>
+                </div>
             </form>
-             <p style="margin-left:250px; color: black">LLAMA GRATIS AL 01-800-237-34-72</p>
+            <p style="margin-left:200px; color: black; margin-top: 2%"><strong>LLAMA GRATIS AL 01 800 - 2373472</strong></p>
         </div>
     </nav>
 </div>
+@if (count($errors) > 0)
+    <div class="">
+        <div class="container">
+        <div class="col-md-6 col-md-offset-5">
+            <div class="card grey lighten-5" style="z-index: 1; position: absolute;">
+                <div class="card-content red-text">
 
+                    <p>!Lo sentimos¡ El usuario o contraseña son incorrectos</p>
+                </div>
+                <div class="grey-text">
+                    <p>
+                    <a style="color: gray; margin-left: 10px" href="{!! url('/password/email') !!}">Recuperar contraseña</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+@endif
 @yield('content')
 <div class="vFlotante">
     <hgroup style="display:inline-block;">
@@ -208,55 +258,47 @@
 <br>
 <div id="contact"></div>
 <!--Footer-->
-<footer  class="page-footer scrollspy lime lighten-5">
-    <div class="container">
-        <div class="row">
+<footer  class="page-footer" style="background-color: transparent">
+    <div class="fixed">
+        <nav role="" style="background-color: #ececec" >
+            <div style="margin-left: 12%">
+<div class="row">
+    <ul class="">
 
-            <div class="col l3 s12">
-                <h5 class="black-text">Toluca</h5>
-                <ul>
-                    <li>BAHIA DE TODOS LOS SANTOS #166 SANTA
-                        ANA TLAPALTITLAN, TOLUCA EDO. DE MEXICO C.P. 50160</li>
-                    <li>TEL: (722) 211 5701</li>
-                    <li>e-mail: info@cesehsa.com.mx</li>
-                </ul>
+        <li>
+            <a href="{!! url('/') !!}" class="black-text">
+                HISTORIA</a>
+        </li>
+        <li>
+            <a href="{!! url('/') !!}" class="black-text">
+                MAYOREO</a>
+        </li>
+        <li>
+            <a href="{!! url('/') !!}" class="black-text">
+                POLÍTICAS</a>
+        </li>
+        <li>
+            <a href="{!! url('/') !!}" class="black-text">
+                FACTURAS</a>
+        </li>
+        <li>
+            <a href="{!! url('/') !!}" class="black-text">
+                ¿CÓMO COMPRAR?</a>
+        </li>
+        <li>
+            <a href="{!! url('/') !!}" class="black-text">
+                CONTÁCTANOS</a>
+        </li>
+        <li>
+            <a href="{!! url('/') !!}" class="black-text">
+                <i class=" medium material-icons left black-text">call</i> 01 800 - 2373472</a>
+        </li>
+    </ul>
+</div>
             </div>
-            <div class="col l3 s12">
-                <h5 class="black-text">Social</h5>
-                <ul>
-
-                    <li>
-                        <a class="black-text" href="https://www.facebook.com/">
-                            <i class="small fa fa-facebook-square black-text"></i> Facebook
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="black-text" href="https://www.linkedin.com/">
-                            <i class="small fa fa-linkedin-square black-text"></i> Linkedin
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        </nav>
     </div>
-    <div class="footer-copyright light-green darken-3">
-        <div class="container">
-         <span class="white-text">
-            2014  IngenieriaLigera
-            </span>
 
-            <ul class="black-text right">
-                <li>
-                    <img src="/payment/payment-amex.png" width="47" height="35">
-                    <img src="/payment/payment-master.png" width="47" height="35">
-                    <img src="/payment/payment-paypal.png" width="47" height="35">
-                    <img src="/payment/payment-visa.png" width="47" height="35">
-                </li>
-
-            </ul>
-        </div>
-    </div>
 </footer>
 <!--  Scripts-->
 

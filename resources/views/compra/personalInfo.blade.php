@@ -3,7 +3,7 @@
         Compra
 @endsection
 @section('formulario')
-        {!! Form::open(['url'=>'perfil_compra', 'role'=>'form', 'class'=>'col s12']) !!}
+        {!! Form::open(['url'=>'pago', 'role'=>'form', 'class'=>'col s12']) !!}
         @endsection
 @section('complemento')
 

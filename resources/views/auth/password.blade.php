@@ -30,7 +30,7 @@
                     <div class="input-field col m6 s12 offset-m2">
                         <i class ="material-icons prefix">email</i>
                         <input id="email" type="email" class="validate" name="email" value="{{ old('email') }}">
-                        <label for="email" data-error="wrong" data-success="right">E-Mail Address</label>
+                        <label for="email" data-error="wrong" >E-Mail Address</label>
                     </div>
                 </div>
                 

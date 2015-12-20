@@ -62,7 +62,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::post('perfil','UserController@store');
 
-	Route::post('perfil_compra','UserController@store_compra');
+	Route::post('pago','UserController@store_compra');
 
 	Route::post('paymentCreditCard','ConektaController@payWithCreditCard');
 
@@ -86,5 +86,4 @@ Route::group(['middleware' => 'auth', 'prefix' => 'compra'], function()
 {
 	Route::get('check_info', 'CompraController@getPersonalInfo');
 	Route::get('direcciones_usuario', 'CompraController@direcciones');
-	Route::get('foma_de_Pago', 'CompraController@getFormasPago');
 });

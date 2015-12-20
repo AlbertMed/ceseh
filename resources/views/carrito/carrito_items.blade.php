@@ -34,7 +34,7 @@
                         <th data-field = "stock" class="center-align">Disponibles</th>
                         <th data-field="cantidad" class="center-align">Cantidad</th>
                         <th class="center-align">Opciones</th>
-                        <th data-field="subtotal" class="center-align">Subtotal</th>
+                        <th data-field="subtotal" class="center-align">Sub Total</th>
 
                     </tr>
                     </thead>
@@ -118,11 +118,16 @@
                                         </div>
                                         <div class="col m6">
                                             <p>
+                                                <?php
+                                                    $envio = 100.0;
+                                                    $iva = 10.0;
+                                                    $total2 = $total+$envio+$iva;
+                                                ?>
                                                 $ {{number_format($total,2,'.',',')}} <br>
-                                                $ 0.00 <br>
-                                                $ 0.00
+                                                $ {{number_format($envio,2,'.',',')}} <br>
+                                                $ {{number_format($total2,2,'.',',')}}
                                             </p>
-                                            <p style="color: #43B02A; margin-top: 15px">$ 0.00</p>
+                                            <p style="color: #43B02A; margin-top: 15px">$ {{number_format($total2,2,'.',',')}}</p>
                                         </div>
                                     </div>
                                 </div>

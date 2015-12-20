@@ -38,7 +38,8 @@ Login
                     </p>
                     </div>
                    
-                    <p class="right-align"><button class="btn btn-large waves-effect waves-light" type="submit" name="action">Entrar</button></p>
+                    <p class="right-align">
+                        <button class="btn btn-large waves-effect waves-light" type="submit" name="action">Entrar</button></p>
 
                     <p class="right-align">
                         <a href="{!! url('/password/email') !!}">¿Olvidaste tu Password?</a>
