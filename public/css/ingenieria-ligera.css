@@ -23,13 +23,24 @@
 body{
     overflow-x: hidden;
 }
+
+.cContainer{
+    padding-right: 0;
+    padding-left: 50px;
+    width: 90%;
+}
+
+.fontS{
+    font-size: 12pt;
+}
+
 .vFlotante{
     position: fixed;
-    left:96%;
+    left:97%;
     top: 30%;
-    width: 300px;
-    height:400px;
-    z-index: 15;
+    width: 10px;
+    height:100px;
+    z-index: 65;
     transition: all .4s ease-in;
     -webkit-transition:all .4s ease-in;
     -moz-transition: all .4s ease-in;
@@ -37,13 +48,13 @@ body{
 
 }
 .vFlotante:hover{
-    left:85%;
+
 }
 .titulo{
-    transform: rotate(270deg);
-    -webkit-transform: rotate(270deg);
-    -moz-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
 }
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;

@@ -125,7 +125,7 @@
                                                 ?>
                                                 $ {{number_format($total,2,'.',',')}} <br>
                                                 $ {{number_format($envio,2,'.',',')}} <br>
-                                                $ {{number_format($total2,2,'.',',')}}
+                                                $ {{number_format($iva,2,'.',',')}}
                                             </p>
                                             <p style="color: #43B02A; margin-top: 15px">$ {{number_format($total2,2,'.',',')}}</p>
                                         </div>

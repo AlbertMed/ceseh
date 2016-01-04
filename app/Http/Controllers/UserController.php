@@ -4,6 +4,7 @@ use App\Http\Requests;
 use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\RegistroRequest;
 use Auth;
 use Session;
 use App\DirEntrega;
@@ -12,9 +13,18 @@ use App\User;
 use App\groupCodes;
 use App\estados;
 use redirect;
-
+use Mail;
+use Bwords\Main as Sap;
 class UserController extends Controller {
 
+	public function active($email){
+
+		$affectedRows = User::where('email', $email)->update(['active' => 'A']);
+
+		if($affectedRows){
+			return view('auth.activada');
+		}
+	}
 	public function getData(){
 		$dirEntrega = DirEntrega::firstOrNew(['user_id' => Auth::user()->id]);
 		$dirFactura = DirFactura::firstOrNew(['user_id' => Auth::user()->id]);
@@ -130,6 +140,8 @@ class UserController extends Controller {
 
 		$ID = Session::get('UserId');
 		$client = Session::get('Client');
+		//$ID = Sap::getId();
+		//$client = Sap::getClientSoap();
 		$carcode = Auth::user()->sapResultado;
 
 		$result = $client->call('updateLeadtoCustomer',

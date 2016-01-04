@@ -21,9 +21,10 @@ public function __construct()
     public function add(){
         $micantidad = Input::get('micantidad');
         $itemCode = Input::get('itemCode');
-
-          $ID = Session::get('UserId');
-          $client = Session::get('Client');
+         $ID = Session::get('UserId');
+         $client = Session::get('Client');
+        //$ID = Sap::getId();
+        //$client = Sap::getClientSoap();
 
           $CurrencyRate = $client->call('getCurrencyRate',array('tipo' => 'USD','SID' => $ID));
           $currency = $CurrencyRate['getCurrencyRateResult'];
@@ -96,10 +97,10 @@ public function __construct()
      * @return list of items
      */ 
     public function itemsCarrito($usuario){
-
-            $ID = Session::get('UserId');
-            $client = Session::get('Client');
-
+         $ID = Session::get('UserId');
+         $client = Session::get('Client');
+     //   $ID = Sap::getId();
+   //     $client = Sap::getClientSoap();
      $CurrencyRate = $client->call('getCurrencyRate',array('tipo' => 'USD','SID' => $ID));
      $currency = $CurrencyRate['getCurrencyRateResult'];  
      $datos = DB::table('carrito')->where('cliente', '=', $usuario)->get();

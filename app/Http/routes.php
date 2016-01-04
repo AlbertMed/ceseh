@@ -32,7 +32,11 @@ Route::get('home/contacto','HomeController@contacto');
 
 Route::get('productos/{categoria}/datos/{valor}','ProductoController@datos');
 
-Route::get('productos/{categoria}', 'ProductoController@listarProductos');
+Route::get('productos/Serie/{categoria}', 'ProductoController@listarProductos');
+
+Route::get('productos/Marca/{categoria}', 'ProductoController@listarProductos');
+
+Route::get('productos/Nombre/{categoria}', 'ProductoController@listarProductos');
 
 Route::get('busqueda/datos','ProductoController@busquedaProductos');
 
@@ -87,3 +91,5 @@ Route::group(['middleware' => 'auth', 'prefix' => 'compra'], function()
 	Route::get('check_info', 'CompraController@getPersonalInfo');
 	Route::get('direcciones_usuario', 'CompraController@direcciones');
 });
+
+Route::get('registrado/{email}', 'UserController@active');

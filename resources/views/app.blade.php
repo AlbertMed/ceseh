@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>CESEHSA | @yield('titulo')</title>
 
-     {!! Html::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')!!}
-    {!! Html::style('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css')!!}
+     @yield('estilos')
+    {!! Html::style('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css')!!}
     {!!Html::style("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css")!!}
-            <!-- {!! Html::style('css/custom-min.css')!!} -->
+    <!-- {!! Html::style('css/custom-min.css')!!} -->
     {!! Html::style('css/ingenieria-ligera.css')!!}
             <!-- Fonts -->
     {!! Html::style('https://fonts.googleapis.com/icon?family=Material+Icons')!!}
@@ -23,17 +23,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-        .hr {border: 0; height: 2px; text-align: center; background-color: #EFEEEE;}
-        .margintop {
-            margin-top: 2em;
-        }
-        .avatar {
-            /* los siguientes valores son independientes del tamaño del círculo */
-            background-repeat: no-repeat;
-            background-position: 50%;
-            border-radius: 5%;
-            background-size: 100% auto;
-        }
+
         .search {
             position: relative;
             color: #aaa;
@@ -43,7 +33,6 @@
         .search input {
             width: 250px;
             height: 32px;
-
             background: #fcfcfc;
             border: 1px solid #aaa;
             border-radius: 5px;
@@ -66,6 +55,7 @@
             top: 23px;
             left: 10px;
         }
+
     </style>
 </head>
 
@@ -103,67 +93,52 @@
                 <ul class="right hide-on-med-and-down ">
                     @if (Auth::guest())
 
-
                         {!! Form::open(['url'=>'auth/login', 'role'=>'form']) !!}
-                            <li style="background-color: transparent; ">
+                        <li style="background-color: transparent; ">
                             <div class="search" >
-                                    <span  class="fa fa-user"></span>
-                                    <input style="height: 40px;  width: 250px; font-size: medium;" id="search" name="email"  type="email"  placeholder="Usuario">
+                                <span  class="fa fa-user"></span>
+                                <input style="height: 40px;  width: 250px; font-size: medium;" id="search" name="email"  type="email"  placeholder="Usuario">
+                            </div>
+                        </li>
 
-                                </div>
-                            </li>
-
-                            <li style="background-color: transparent; margin-left: 10px">
+                        <li style="background-color: transparent; margin-left: 10px">
                             <div class="search" >
                                 <span  class="fa fa-lock"></span>
                                 <input style="height: 40px;  width: 150px; font-size: medium;" id="search" name="password" type="password"  placeholder="Contraseña">
-
                             </div>
-                            </li>
-                            <li style="background-color: transparent; margin-left: 10px">
-                                <div class="" >
-                                    <button type="submit" class="btn grey darken-1">Entrar</button>
+                        </li>
 
-                                </div>
-                            </li>
-                        {!! Form::close() !!}
+                        <li style="background-color: transparent; margin-left: 10px">
+                            <div class="" >
+                                <button name="entrar" type="submit" class="btn grey darken-1">Entrar</button>
+                            </div>
+                        </li>
+
                         <li style="background-color: transparent; margin-left: 10px">
                             <div class="" >
                                 <a href="{!! url('/auth/register') !!}" type="button" class="btn waves-light grey darken-1">Registro</a>
-
                             </div>
                         </li>
 
-
-
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        {!! Form::close() !!}
                     @else
-                        <ul id="dropdown_desk2" class="dropdown-content">
-                            <li>
-                                <a href="{!! url('home/perfil') !!}">
-                                    <i class="material-icons left black-text">contacts</i>Mi Perfil</a>
-                            </li>
-
-                            <li class="divider"></li>
-
-                            <li>
-                                <a href="{!! url('/auth/logout') !!}">
-                                    <i class="material-icons left black-text">lock_outline</i>Salir</a>
-                            </li>
-                        </ul>
-                        <li>
-                            <a class="black-text" href="{!! url('productos/carrito/items/'.Auth::user()->email) !!}">
-                                <i class="material-icons left black-text">shopping_cart</i>
-
-                                {{Session::get('cant')}} Producto(s)
-
+                        <li style="background-color: transparent;">
+                            <a class="black-text" style="font-size: 22pt; background-color: transparent; text-decoration:none; " href="{!! url('productos/carrito/items/'.Auth::user()->email) !!}">
+                                <img  style="width:44%; max-height:44%; margin-top: -1%" src="/img/logo/carrito.png" alt="">
+                                {{Session::get('cant')}}
                             </a>
-
                         </li>
 
-                        <li>
-                            <a class="dropdown-button black-text" href="#" data-activates="dropdown_desk2">
-                                <i class="material-icons left black-text">person_pin</i>{{ Auth::user()->nombre }}
+                        <li style="background-color: transparent; margin-left: -110px">
+                            <a class="black-text" href="{!! url('home/perfil') !!}" style="font-size: 16pt; background-color: transparent;">
+                                <i class="material-icons left black-text">&#xE87C;</i>{{ Auth::user()->nombre }}
                             </a>
+                        </li>
+
+                        <li style="background-color: transparent; margin-left: 10px">
+                            <a href="{!! url('/auth/logout') !!}" type="button" class="btn waves-light grey darken-1">
+                                Salir</a>
                         </li>
                     @endif
                 </ul>
@@ -181,8 +156,8 @@
                 @else
                     <ul id="dropdown_mobil2" class="dropdown-content">
                         <li>
-                            <a href="{!! url('home/perfil') !!}">
-                                <i class="material-icons left black-text">contacts</i>Mi Perfil</a>
+
+                               {{Session::get('cant')}}
                         </li>
 
                         <li class="divider"></li>
@@ -195,14 +170,16 @@
                     <li>
                         <a class="black-text" href="{!! url('productos/carrito/items/'.Auth::user()->email) !!}"><i class="material-icons left black-text">shopping_cart</i>
 
-                            {{Session::get('cant')}} Producto(s)
+                             Productos <br>Agregados
 
                         </a>
 
                     </li>
 
                     <li>
-                        <a class="dropdown-button black-text" href="#" data-activates="dropdown_mobil2"> <i class="material-icons left black-text">person_pin</i>{{ Auth::user()->nombre }} <i class="material-icons right black-text">arrow_drop_down</i>
+                        <a class="dropdown-button black-text"  href="{!! url('home/perfil') !!}">
+                            <i class="material-icons left black-text">person_pin</i>{{ Auth::user()->nombre }}
+                            <i class="material-icons right black-text">arrow_drop_down</i>
                         </a>
                     </li>
                 @endif
@@ -213,7 +190,7 @@
     </nav>
 </div>
 
-<div class="fixed">
+<div class="navbar-fixed">
     <nav class=" " style="height: 50px; background-color: #EFEEEE">
         <div class="nav-wrapper container valign-wrapper">
 
@@ -228,11 +205,11 @@
         </div>
     </nav>
 </div>
-@if (count($errors) > 0)
+@if (Session::has('elogin'))
     <div class="">
         <div class="container">
         <div class="col-md-6 col-md-offset-5">
-            <div class="card grey lighten-5" style="z-index: 1; position: absolute;">
+            <div class="card grey lighten-5" style="z-index: 3; position: absolute;">
                 <div class="card-content red-text">
 
                     <p>!Lo sentimos¡ El usuario o contraseña son incorrectos</p>
@@ -250,9 +227,9 @@
 @yield('content')
 <div class="vFlotante">
     <hgroup style="display:inline-block;">
-        <h5 class="titulo">Social</h5>
+        <h5 class="titulo"><a href="https://www.youtube.com/user/CESEHSA" target="_blank"><img src="/../img/sd1.png"> </a></h5>
+        <h5 class="titulo"><a href="https://www.facebook.com/CESEHSA-355624474615426/?fref=ts"><img src="/../img/as2.png"> </a></h5>
     </hgroup>
-    <p style="display:inline-block;">información</p>
 </div>
 
 <br>
@@ -303,7 +280,8 @@
 <!--  Scripts-->
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
 
 <!-- <script type="text/javascript" src="/js/plugin-min.js"></script>  -->
 <!-- <script src="js/custom-min.js"></script> -->
@@ -319,11 +297,11 @@
         $(".button-collapse").sideNav();
         $('select').material_select();
         $('.tooltipped').tooltip({delay: 50});
+
+
     });
 
 </script>
-
-
 @yield('scripts')
 </body>
 </html>

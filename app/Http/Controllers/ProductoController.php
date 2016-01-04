@@ -15,6 +15,7 @@ use App\Busqueda;
 use Bwords\Main as Sap;
 use Auth;
 use Session;
+use App\Detalles;
 
 class ProductoController extends Controller
 {
@@ -25,11 +26,15 @@ class ProductoController extends Controller
      */
     public function index(){
 
-       $categoria = DB::table('producto')->distinct()->select('Marca')->where("ItemName","<>","''")->where('Marca','!=','NULL')->get();
-        $vistos = DB::select('select * from producto order by visto desc limit 10');
-        $vendidos = DB::select('select *from producto order by comprado desc limit 8');
-      
-        return view('inicio')->with(compact('vistos','vendidos','categoria'));
+        $series = DB::select('select serie from producto where serie <>0  union select serie2 from producto where serie2 != ""');
+
+        //dd($categoria);
+        $vistos = DB::select('select * from producto order by visto desc limit 6');
+        $vendidos = DB::select('select *from producto order by cotizado desc limit 3');
+        $name = DB::table('producto')->distinct()->select('ItemName')->get();
+        $categoria = DB::table('producto')->distinct()->select('Marca')->get();
+
+        return view('inicio')->with(compact('vistos','vendidos','categoria','series','name'));
 
 
     }
@@ -39,11 +44,20 @@ class ProductoController extends Controller
       * 
       * @return products
       */
-     public function listarProductos($categoria){
-        $articulos = Articulos::where('Marca', 'like','%'.$categoria.'%')->paginate(12);
-        $categoria = DB::table('producto')->distinct()->select('Marca')->where("ItemName","<>","''")->where('Marca','!=','NULL')->get();
+     public function listarProductos($categorias){
+         if(preg_match("/CPI/i", $categorias)){
+             $articulos = Articulos::where('serie2',$categorias)->paginate(12);
+         }else{
+             $articulos = Articulos::where('Marca',$categorias)->orWhere('ItemName',$categorias)->orWhere('serie',$categorias)->paginate(12);
+         }
 
-        return view('producto.listar2')->with(compact('articulos','categoria'));
+         //dd($articulos);
+         $categoria = DB::table('producto')->distinct()->select('Marca')->get();
+         $series = DB::select('select serie from producto where serie <>0  union select serie2 from producto where serie2 != ""');
+         $name = DB::table('producto')->distinct()->select('ItemName')->get();
+
+         $cate = $categorias;
+         return view('producto.listar2')->with(compact('articulos','categoria','series','name','cate'));
     }
 
     /**
@@ -52,14 +66,16 @@ class ProductoController extends Controller
      * @return product
      */ 
     public function datos($categoria,$valor){
-        
+        $producto = Articulos::firstOrNew(['ItemCode' => $valor]);
+        $detalle = Detalles::where('ItemCode',$valor)->get();
+        $relacionados = DB::select('select * from producto where visto !=0 ORDER BY rand() limit 3');
         $ID = null;
         $client = null;
         if (Auth::check()){ 
-          // $ID = Session::get('UserId'); Corregir para que estos datos se agregen cuando inicia sesion como cuando se registra
-          // $client = Session::get('Client');
-           $ID = Sap::getId();             
-           $client = Sap::getClientSoap();
+          $ID = Session::get('UserId');
+           $client = Session::get('Client');
+          // $ID = Sap::getId();
+          ////$client = Sap::getClientSoap();
         }else{
            $ID = Sap::getId();             
            $client = Sap::getClientSoap();
@@ -77,8 +93,6 @@ class ProductoController extends Controller
         $datos = utf8_encode($productos);        
         $BOM = new \SimpleXMLElement($datos);
         //datos a mostrar en la interfaz
-        $itemName = $BOM->BO->Items->row->ItemName;
-        $itemCode = $BOM->BO->Items->row->ItemCode;
 
         if ($BOM->BO->Items_Prices->row[1]->Currency=="MXP"){
             $numero = ($BOM->BO->Items_Prices->row[1]->Price); 
@@ -96,7 +110,7 @@ class ProductoController extends Controller
 
 
 
-        return view('detalle_producto')->with(compact('itemName','itemCode','precio','stock'));
+        return view('detalle_producto')->with(compact('precio','stock','producto','detalle','relacionados'));
     }
 
     /**
@@ -110,9 +124,11 @@ class ProductoController extends Controller
     }
 
      public function busquedaProductos(){
-         $categoria = DB::table('producto')->distinct()->select('Marca')->where("ItemName","!=","''")->get();
+         $series = DB::table('producto')->distinct()->select('serie')->get();
+         $name = DB::table('producto')->distinct()->select('ItemName')->get();
+         $categoria = DB::table('producto')->distinct()->select('Marca')->get();
          $dato = Request::get('search');
-         $data= Articulos::where('ItemName', 'like', '%'.$dato.'%')->orWhere('Marca','like','%'.$dato.'%')->orWhere('ItemCode','like','%'.$dato.'%')->orWhere('SubMarca','like','%'.$dato.'%')->Paginate(12);
+         $data= Articulos::where('ItemName', 'like', '%'.$dato.'%')->orWhere('Marca','like','%'.$dato.'%')->orWhere('ItemCode','like','%'.$dato.'%')->orWhere('serie',$dato)->orWhere('serie2',$dato)->Paginate(12);
          if (Auth::guest()){
              $busqueda=array(
                  'busqueda'=> $dato,
@@ -128,7 +144,7 @@ class ProductoController extends Controller
              );
              Busqueda::create($busqueda);
          }
-         return view('producto.busqueda')->with(compact('data','dato','categoria'));
+         return view('producto.busqueda')->with(compact('data','dato','categoria','series','name'));
      }
 
 

@@ -35,10 +35,10 @@
 
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-				<ul class="collapsible popout" data-collapsible="accordion">
+				<ul >
 					<li>
-						<div class="collapsible-header active"><i class="material-icons">filter_drama</i>Datos de la Empresa</div>
-						<div class="collapsible-body white">
+						<div class=""><i class="material-icons left">business</i>Datos de la Empresa</div>
+						<div class="">
 							<br>
 							<div class="row">
 
@@ -58,8 +58,7 @@
 									<label class="active" for="rfc">RFC *</label>
 								</div>
 								<div class="input-field col s6 m5">
-
-									<select  id="giro" class="validate" name="grupoGiro">
+									<select  id="giro" name="grupoGiro">
 										<option  <?php
 										if(strcmp(Auth::user()->grupoGiro,"")==0){
 											echo "disabled selected>";
@@ -81,8 +80,8 @@
 						</div>
 					</li>
 					<li>
-						<div class="collapsible-header"><i class="material-icons">place</i>Datos de Contacto</div>
-						<div class="collapsible-body white">
+						<div ><i class="material-icons left">assignment_ind</i>Datos de Contacto</div>
+						<div >
 							<br>
 							<div class="row">
 
@@ -118,8 +117,8 @@
 						</div>
 					</li>
 					<li>
-						<div class="collapsible-header"><i class="material-icons">whatshot</i>Datos de Facturación</div>
-						<div class="collapsible-body white">
+						<div ><i class="material-icons left">description</i>Datos de Facturación</div>
+						<div >
 							<br>
 							<div class="row">
 								<div class="input-field col s6 m5 offset-m1">
@@ -174,7 +173,7 @@
 									<input  disabled="true" value="México"  name="Fpais" id="pais" type="text" class="validate">
 									<label class="active" for="pais">Pais *</label>
 								</div>
-								<div class="input-field col s6 m5">
+								<div class="browser-default col s6 m5">
 
 									<select  id="festado" class="validate" name="Festado">
 										<option
@@ -210,8 +209,8 @@
 						</div>
 					</li>
 					<li>
-						<div class="collapsible-header"><i class="material-icons">whatshot</i>Datos de Entrega</div>
-						<div class="collapsible-body white">
+						<div ><i class="material-icons">whatshot</i>Datos de Entrega</div>
+						<div >
 							<br>
 								<div class="row">
 									<div class="input-field col s6 m5 offset-m1">
@@ -266,7 +265,7 @@
 									<input disabled="true" value="México"  id="en_pais" name="en_pais" type="text" class="validate">
 									<label class="active" for="en_pais">Pais *</label>
 								</div>
-								<div class="input-field col s6 m5">
+								<div class="browser-default col s6 m5">
 
 									<select  id="en_estado" class="validate" name="en_estado">
 										<option <?php
