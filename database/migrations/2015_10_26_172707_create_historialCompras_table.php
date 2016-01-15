@@ -12,15 +12,7 @@ class CreateHistorialComprasTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('historialCompras', function(Blueprint $table)
-		{
-			$table->increments('id');
-			$table->string('tipoPago');
-			$table->string('ConfirmacionPago');
-			$table->timestamps();
-			$table->integer('user_id')->unsigned()->unique();
-			$table->foreign('user_id')->references('id')->on('users');
-		});
+
 	}
 
 	/**
@@ -30,7 +22,7 @@ class CreateHistorialComprasTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('historialCompras');
+
 	}
 
 }

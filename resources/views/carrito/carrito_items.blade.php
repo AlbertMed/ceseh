@@ -47,7 +47,7 @@
 
                                 <img class="responsive-img" style=" width: 80px; height: 80px;"
 
-                                     src="/img/project1.jpg" alt="">
+                                     src="/../{{$dato->image_url}}" alt="">
 
                             </td>
 
@@ -120,8 +120,9 @@
                                             <p>
                                                 <?php
                                                     $envio = 100.0;
-                                                    $iva = 10.0;
+                                                    $iva = $total * 0.16;
                                                     $total2 = $total+$envio+$iva;
+                                                    \Session::put('total',$total2);
                                                 ?>
                                                 $ {{number_format($total,2,'.',',')}} <br>
                                                 $ {{number_format($envio,2,'.',',')}} <br>
@@ -142,7 +143,7 @@
                                         </div>
                                         <div class="col m6">
                                             <a style="background-color: #43B02A; margin-left: -15px"
-                                               class="waves-effect waves-light btn "  href="{!! url('compra/check_info') !!}">Comprar</a>
+                                               class="waves-effect waves-light btn "  href="{!! url('info') !!}">Comprar</a>
                                         </div>
                                         <div class="col m12" style="margin-top: 15px">
                                             <a style=" background-color: #29235c" onclick="Materialize.toast('Estamos Ahora haciendo su Cotización', 4000, 'rounded')"

@@ -2,12 +2,10 @@
 @section('titulo')
         Compra
 @endsection
-@section('formulario')
-        {!! Form::open(['url'=>'pago', 'role'=>'form', 'class'=>'col s12']) !!}
-        @endsection
+
+
 @section('complemento')
 
-        <button class="btn waves-effect waves-light" type="submit" name="action"><i class="mdi-content-send right">
-
-                </i>Siguiente</button>
+        <a style="background-color: #43B02A" class="btn waves-effect waves-light" href="{!! url('pago') !!}" role="button" name="action"><i class="mdi-content-send right">
+        </i>Siguiente</a>
 @endsection

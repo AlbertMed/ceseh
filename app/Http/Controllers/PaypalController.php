@@ -1,9 +1,12 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Bus\DispatchesCommands;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Api\Amount;
@@ -16,53 +19,67 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Api\ExecutePayment;
 use PayPal\Api\PaymentExecution;
 use PayPal\Api\Transaction;
-use App\Order;
-use App\OrderItem;
-use App\Producto;
-use Session;
-use DB;
-use Auth;
 
-class PaypalController extends BaseController{
+use App\Carrito;
+use App\Historial;
+use App\Compras;
+
+use URL;
+use Session;
+use Redirect;
+use Input;
+use Auth;
+use DB;
+use Config;
+
+class PaypalController extends Controller
+{
 
     private $_api_context;
 
-    public function __construct(){
+    public function __construct()
+    {
+
         // setup PayPal api context
-        $paypal_conf = \Config::get('paypal');
+        $paypal_conf = Config::get('paypal');
         $this->_api_context = new ApiContext(new OAuthTokenCredential($paypal_conf['client_id'], $paypal_conf['secret']));
         $this->_api_context->setConfig($paypal_conf['settings']);
     }
 
-    public function postPayment(){
-
+    public function pay()
+    {
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
+        //agregar items de base de datos
         $items = array();
         $subtotal = 0;
-        $prod=DB::table('carrito')->where('cliente', Auth::user()->email)->get();
+        $productos = DB::table('carrito')
+            ->Join('producto', 'carrito.ItemCode', '=', 'producto.ItemCode')
+            ->where('carrito.user_id', Auth::user()->id)
+            ->get();
+        //dd(Auth::user()->id);
         $currency = 'MXN';
-        foreach($prod as  $key =>  $producto){
+        foreach ($productos as $key => $p) {
+            $pIva = $p->precio * 0.16;
+            $precioIva = $p->precio + $pIva;
             $item = new Item();
-            $item->setName($producto->ItemName)
+            $item->setName($p->ItemName)
                 ->setCurrency($currency)
-                ->setDescription($producto->ItemCode)
-                ->setQuantity($producto->cantidad)
-                ->setPrice($producto->precio);
+                ->setDescription($p->tipo)
+                ->setQuantity($p->cantidad)
+                ->setPrice($precioIva);
             $items[$key] = $item;
-            $subtotal += $producto->cantidad * $producto->precio;
+            $subtotal += ($p->cantidad * $precioIva);
         }
 
-
-        // dd($items);
+        // add item to list
         $item_list = new ItemList();
         $item_list->setItems($items);
 
         $details = new Details();
         $details->setSubtotal($subtotal)
             ->setShipping(100);
-
         $total = $subtotal + 100;
 
         $amount = new Amount();
@@ -73,11 +90,11 @@ class PaypalController extends BaseController{
         $transaction = new Transaction();
         $transaction->setAmount($amount)
             ->setItemList($item_list)
-            ->setDescription('Pedido de prueba en mi Laravel App Store');
+            ->setDescription('Your transaction description');
 
         $redirect_urls = new RedirectUrls();
-        $redirect_urls->setReturnUrl(\URL::route('payment.status'))
-            ->setCancelUrl(\URL::route('payment.status'));
+        $redirect_urls->setReturnUrl(URL::route('payment.status'))
+            ->setCancelUrl(URL::route('payment.status'));
 
         $payment = new Payment();
         $payment->setIntent('Sale')
@@ -89,81 +106,101 @@ class PaypalController extends BaseController{
             $payment->create($this->_api_context);
         } catch (\PayPal\Exception\PPConnectionException $ex) {
             if (\Config::get('app.debug')) {
-                echo "Exception: " . $ex->getMessage() . PHP_EOL;
-                $err_data = json_decode($ex->getData(), true);
+                return Redirect::route('carrito.failed');
                 exit;
             } else {
-                die('Ups! Algo salió mal');
+                return Redirect::route('carrito.failed');
             }
         }
 
-        foreach($payment->getLinks() as $link) {
-            if($link->getRel() == 'approval_url') {
+        foreach ($payment->getLinks() as $link) {
+            if ($link->getRel() == 'approval_url') {
                 $redirect_url = $link->getHref();
                 break;
             }
         }
+
         // add payment ID to session
-        \Session::put('paypal_payment_id', $payment->getId());
-        if(isset($redirect_url)) {
+        Session::put('paypal_payment_id', $payment->getId());
+
+        if (isset($redirect_url)) {
             // redirect to paypal
-            return \Redirect::away($redirect_url);
+            return Redirect::away($redirect_url);
         }
-        return \Redirect::route('/')
-            ->with('error', 'Ups! Error desconocido.');
+
+        return Redirect::route('carrito.failed');
     }
 
+    public function getPaymentStatus()
+    {
+        //obtenemos el id de pago antes de limpiar la session
+        $payment_id = Session::get('paypal_payment_id');
 
+        //limpiamos la session donde se encuentra el id de pago
+        Session::forget('paypal_payment_id');
 
-
-
-
-
-    public function getPaymentStatus(){
-        // Get the payment ID before session clear
-        $payment_id = \Session::get('paypal_payment_id');
-        // clear the session payment ID
-        \Session::forget('paypal_payment_id');
-        $payerId = \Input::get('PayerID');
-        $token = \Input::get('token');
-        //if (empty(\Input::get('PayerID')) || empty(\Input::get('token'))) {
-        if (empty($payerId) || empty($token)) {
-            return \Redirect::route('original.route')
-                ->with('message', 'Hubo un problema al intentar pagar con Paypal');
+        if (empty(Input::get('PayerID')) || empty(Input::get('token'))) {
+            return Redirect::route('carrito.failed');
         }
+
         $payment = Payment::get($payment_id, $this->_api_context);
-        // PaymentExecution object includes information necessary
-        // to execute a PayPal account payment.
-        // The payer_id is added to the request query parameters
-        // when the user is redirected from paypal back to your site
+
+        /**
+         * el objeto Payment contiene información necesaria
+         * para ejecutar el pago con la cuenta PayPal
+         * el payer_id es agregado en los parametros del query
+         * esto se usa cuando el usuario es redirigido al sitio desde paypal
+         */
+
         $execution = new PaymentExecution();
-        $execution->setPayerId(\Input::get('PayerID'));
-        //Execute the payment
+        $execution->setPayerId(Input::get('PayerID'));
+
+        /**
+         * Ejecutamos el pago
+         */
         $result = $payment->execute($execution, $this->_api_context);
-        //echo '<pre>';print_r($result);echo '</pre>';exit; // DEBUG RESULT, remove it later
-        if ($result->getState() == 'approved') { // payment made
-            // Registrar el pedido --- ok
-            // Registrar el Detalle del pedido  --- ok
-            // Eliminar carrito
-            // Enviar correo a user
-            // Enviar correo a admin
-            // Redireccionar
-            //$this->saveOrder(\Session::get('cart'));
-            //\Session::forget('cart');
-            $status='Payment Success';
-            $result1=$result->getId();
-            return \Redirect::route('original.route',[$status,$result1])
-                ->with(compact('status'));
+
+        /**
+         * si es aprovado se realiza el pago/compra
+         */
+        if ($result->getState() == 'approved') {
+            $id = $result->getId();
+            $token = csrf_token();
+            $datos = Carrito::where('user_id', Auth::user()->id)->get();
+            $his = array(
+                'tipoPago' => 'PayPal',
+                'ConfirmacionPago' => $id,
+                'user_id' => Auth::user()->id
+            );
+            Historial::create($his);
+            $gID = Historial::firstOrNew(['ConfirmacionPago' => $id]);
+            foreach ($datos as $d) {
+                $Detalle = array(
+                    'ItemCode' => $d->ItemCode,
+                    'ItemName' => $d->ItemName,
+                    'cantidad' => $d->cantidad,
+                    'precio' => $d->precio,
+                    'id_historialCompra' => $gID->id
+                );
+                Compras::create($Detalle);
+            }
+            Carrito::where('user_id', Auth::user()->id)->delete();
+            Session::put('cant', 0);
+            return Redirect::route('carrito.success', [$id, $token]);
+            //
         }
-        $status='Payment failed';
-        return Redirect::route('original.route')
-            ->with(compact('status'));
+
+        return Redirect::route('carrito.failed');
     }
 
-    public function post_Payment($dato,$id){;
-        //cotizacion
-        //ordendeconpr
-        //db
-        return view('paymentResponse.succes')->with(compact('dato','id'));
+    public function postPayment($id, $token)
+    {
+        return view('carrito.CreditCardR');
     }
+
+    public function postPaymentF($token)
+    {
+        return view('carrito.CreditCardRF');
+    }
+
 }

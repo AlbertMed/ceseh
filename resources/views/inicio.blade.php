@@ -2,8 +2,8 @@
 @section('titulo')
   Home
 @endsection
-@section('estilos')
-    {!! Html::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')!!}
+@section('subestilos')
+
 @endsection
 @section('content')
 

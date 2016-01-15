@@ -23,7 +23,7 @@ class UserRequest extends Request {
 	{
 		return [
 			'nombre'      =>'required',
-			'telefono'    =>'required|integer',
+			'num_telefono'    =>'required|numeric',
 			'email_cli'   =>'required|email',
 			'Fcalle'      => 'required',
 			'Fcolonia'    => 'required',
@@ -34,7 +34,6 @@ class UserRequest extends Request {
 			'Fcp'         => 'required|min:5|integer',
 			'Fnumero'     => 'required|integer',
 			'Fpais'       => 'required',
-
 		];
 	}
 

@@ -7,9 +7,9 @@
         <!-- Modal Structure -->
         <div id="modal1" class="modal modal-fixed-footer">
             <div class="modal-content">
-                <h4>Términos y Condiciones</h4>
+                <h4>Aviso de Privacidad</h4>
                 <p>
-                    <object type="application/pdf" data="{{ asset('politicas.pdf')}}" width='700' height='400'>
+                    <object type="application/pdf" data="{{ asset('avisoprivacidad.pdf')}}" width='700' height='400'>
                     </object>
                 </p>
             </div>
@@ -20,7 +20,6 @@
         <!-- End Modal Structure -->
         <div>
         <div class="row">
-
             <div class="">
                 <div class="row">
 
@@ -45,8 +44,7 @@
                     <div class="col m1" >
                         <p style="font-size: 12pt;" class="text-left">Registro</p>
                     </div>
-                    <div class="col m4 ">
-
+                    <div class="col m4">
                         <p style="font-size: 10pt" class="text-justify"> * Campos obligatorios <br>
                         Por favor llene la siguiente información
                         </p>
@@ -93,13 +91,9 @@
                                     <label for="telefono">Teléfono de Contacto*</label>
                                 </div>
                             </div>
-
                     </div>
-
                 </div>
-
             </div>
-
 
             <div class="col m2 offset-m1">
                 <p class="left-align"><button class="btn waves-effect waves-light" style="background-color: #43B02A" type="submit" name="action">Registro
@@ -111,7 +105,6 @@
                 <p style="font-size: 10pt"> Al dar clic en el boton "Registro" reconozco haber
                     leído y aceptado los términos y condiciones del <a class="modal-trigger" href="#modal1">Aviso de Privacidad.</a></p>
             </div>
-
             </div>
         </div>
         </div>

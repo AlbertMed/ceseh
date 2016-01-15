@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 	<br>
-	<h2><p ALIGN=center>Necesitas más información, Contáctanos! </p></h2>
+
 	<br><br>
 	<div class="container">
 		<div class="row">
@@ -177,7 +177,7 @@
 
                     <div class="right-align">
 						<p class="right-align">
-						<button  class="btn waves-effect waves-light right-align" type="submit" name="action">Enviar
+						<button style="background-color: #43B02A" class="btn waves-effect waves-light right-align" type="submit" name="action">Enviar
 							<i class="material-icons right">email</i>
 						</button>
 						</p>

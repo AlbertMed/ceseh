@@ -64,17 +64,17 @@ public function __construct()
             'user_id' =>Auth::user()->id,
             );
 
-        $carr = DB::table('carrito')->where('itemCode', $itemCode)->where('cliente', Auth::user()->email)->first();
+        $carr = DB::table('carrito')->where('itemCode', $itemCode)->where('user_id', Auth::user()->id)->first();
 
         if ($carr) {
             $cant = $carr->cantidad;
             DB::table('carrito')
-            ->where('itemCode', $itemCode)->where('cliente', Auth::user()->email)->update(['cantidad' => ((int)$cant + (int)Request::get('number')), 'stock' => $stock]);
+            ->where('itemCode', $itemCode)->where('user_id', Auth::user()->id)->update(['cantidad' => ((int)$cant + (int)Request::get('number')), 'stock' => $stock]);
         }else{
             Carrito::create($articulos);
         }
 
-             $articulos = DB::table('carrito')->where('cliente', '=', Auth::user()->email)->get();
+             $articulos = DB::table('carrito')->where('user_id', '=', Auth::user()->id)->get();
              $value = count($articulos);
              session(['cant' => $value]);
 
@@ -103,7 +103,7 @@ public function __construct()
    //     $client = Sap::getClientSoap();
      $CurrencyRate = $client->call('getCurrencyRate',array('tipo' => 'USD','SID' => $ID));
      $currency = $CurrencyRate['getCurrencyRateResult'];  
-     $datos = DB::table('carrito')->where('cliente', '=', $usuario)->get();
+     $datos = DB::table('carrito')->where('user_id', Auth::user()->id)->get();
 
      foreach ($datos as $pro) {
         $ItemList = $client->call('GetDetalle',array('SID' => $ID , 'producto' => $pro->ItemCode));
@@ -134,12 +134,15 @@ public function __construct()
         }  
 
         $stock = $BOM->BO->Items->row->QuantityOnStock*1;
-        DB::table('carrito')->where('cliente', '=', $usuario)
+        DB::table('carrito')->where('user_id', '=', Auth::user()->id)
         ->where('ItemCode', '=', $pro->ItemCode)
         ->update(['precio' => $precio, 'stock' => $stock]);
     }
 
-        $articulos = DB::table('carrito')->where('cliente', '=', $usuario)->get();
+        $articulos = DB::table('carrito')
+            ->Join('producto', 'carrito.ItemCode', '=', 'producto.ItemCode')
+            ->where('carrito.user_id', '=',  Auth::user()->id)
+            ->get();
 
         $value = count($articulos);
 
@@ -165,10 +168,10 @@ public function __construct()
      * @return new view
      */ 
     public function delete($user,$id,$token){
-        DB::table('carrito')->where('cliente', '=', $user)
+        DB::table('carrito')->where('user_id', '=', Auth::user()->id)
             ->where('ItemCode', '=', $id)->delete();
 
-        $articulos = DB::table('carrito')->where('cliente', '=', $user)->get();
+        $articulos = DB::table('carrito')->where('user_id', '=', Auth::user()->id)->get();
 
         $value = count($articulos);
 
@@ -212,10 +215,5 @@ public function __construct()
 
             return view('carrito/carrito_items')->with('datos',$datos)->withErrors(array('msg' => 'No hay otro en Stock'));
         }
-
-
-
-
-
   }
 }

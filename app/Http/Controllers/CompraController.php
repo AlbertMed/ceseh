@@ -31,6 +31,7 @@ class CompraController extends Controller {
 	 */
 	public function getPersonalInfo()
 	{
+		if(Auth::user()->sapResultado != "") {
 		$dirEntrega = DirEntrega::firstOrNew(['user_id' => Auth::user()->id]);
 		$dirFactura = DirFactura::firstOrNew(['user_id' => Auth::user()->id]);
 		$group      = groupCodes::all();
@@ -47,6 +48,9 @@ class CompraController extends Controller {
 			->get();
 
 		return view('compra.personalInfo')->with(compact('dirEntrega', 'dirFactura','group', 'estados','estado','groupGiro'));
+	}else{
+      return redirect('/edit_perfil');
+		}
 	}
 
 	/**

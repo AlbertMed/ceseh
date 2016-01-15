@@ -27,7 +27,7 @@ class CreateUserRequest extends Request
         if(Request::has('DentreI')){
             return [
                 'nombre'      =>'required',
-                'telefono'    =>'required|integer',
+                'num_telefono'    =>'required|numeric',
                 'Fcalle'      => 'required',
                 'Fcolonia'    => 'required',
                 'grupoGiro'   => 'required',
@@ -41,7 +41,7 @@ class CreateUserRequest extends Request
         }else{
             return [
                 'nombre'      =>'required',
-                'telefono'    =>'required|integer',
+                'num_telefono'    =>'required|numeric',
                 'Fcalle'      => 'required',
                 'Fcolonia'    => 'required',
                 'grupoGiro'   => 'required',
